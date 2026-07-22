@@ -6,8 +6,10 @@ allowed-tools: Read, Edit, Write, Grep, Glob
 
 Run one gap-resolution exchange:
 
-1. Create SPECGAPS.md with a `# Specification gaps` heading if it does
-   not exist yet.
+1. Create SPECGAPS.md if it does not exist yet: the
+   `# Specification gaps` heading plus the
+   `Implementation: <link or absolute path>` line (ask the user for
+   the location if it is not known yet).
 2. State the gap precisely: which specification section, what it says,
    and why that is not enough to implement from (ambiguous, incomplete,
    or wrong). Base it on $ARGUMENTS if given, otherwise on the point

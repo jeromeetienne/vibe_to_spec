@@ -8,8 +8,12 @@ code is written in this phase.
 
 ## Inputs — strictly read-only
 
-- ../step_01_exploration/ — the prototype code. You may read it, and run
-  it to observe behavior. You must NEVER modify, fix, or improve it.
+- The prototype — at the external location recorded by the `Prototype:`
+  line of ../step_01_exploration/DECISIONS.md (a repository link or an
+  absolute path; the code is completely outside this repository). You
+  may read it, and run it to observe behavior. You must NEVER modify,
+  fix, or improve it. If the location is a repository link, work from a
+  local clone.
 - ../step_01_exploration/DECISIONS.md — what the user validated, the gaps
   the user explicitly accepted, the directions tried or abandoned, and why.
 
@@ -39,6 +43,7 @@ steers the spec exactly like they steered the prototype.
 
     # <product name> — Specification
     Status: draft
+    Prototype: <the recorded location, copied from DECISIONS.md>
 
     ## Purpose            — what the product is and for whom
     ## Concepts           — the nouns: each concept, its meaning, its role
@@ -72,7 +77,8 @@ for every later phase.
 
 ## What this phase never does
 
-- Never modifies anything under ../step_01_exploration/.
+- Never modifies the prototype, nor anything under
+  ../step_01_exploration/.
 - Never invents behavior that was not observed in the prototype.
 - Never "cleans up" the design on paper — simplification is phase 3's
   job, done later on the complete raw spec.

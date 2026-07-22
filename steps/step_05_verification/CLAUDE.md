@@ -11,8 +11,12 @@ not say is out of scope.
 
 - ../step_03_spec_simplification/SPEC.md — the source of truth,
   including its amendment lines.
-- ../step_04_implementation/ — the implementation under verification.
-  You may read it and run it (and its tests). Never modify it.
+- The implementation under verification — at the external location
+  recorded by the `Implementation:` line of
+  ../step_04_implementation/SPECGAPS.md (a repository link or an
+  absolute path; the code is completely outside this repository). You
+  may read it and run it (and its tests). Never modify it. If the
+  location is a repository link, work from a local clone.
 
 Preconditions: the spec's Status line reads "agreed by the user …
 source of truth", and ../step_04_implementation/SPECGAPS.md contains
@@ -45,6 +49,7 @@ recording them.
 
     # Verification report
     Status: in progress
+    Implementation: <the recorded location, copied from SPECGAPS.md>
 
     ## Verdicts
     - CONFORMS — <spec item>: <evidence>

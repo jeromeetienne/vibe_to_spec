@@ -16,7 +16,9 @@ what the prototype is and does.
   ```
 
 - **Inputs, strictly read-only**:
-  - `../step_01_exploration/` — the prototype code
+  - the prototype — at the external location recorded by the
+    `Prototype:` line of `../step_01_exploration/DECISIONS.md` (its
+    code is completely outside this repository)
   - `../step_01_exploration/DECISIONS.md` — the validations, gaps, and
     pivots, with the reasoning behind them
 

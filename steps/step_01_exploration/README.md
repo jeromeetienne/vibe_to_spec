@@ -15,8 +15,12 @@ not with clean code, and not with a specification.
 
   The session picks up this folder's `CLAUDE.md` (the exploration rules)
   and its commands (`/checkpoint`, `/log-decision`, `/close-step`).
-- **First move**: the user says what they want to try; the agent builds the
-  smallest thing that shows real behavior.
+- **First move**: the user says where the prototype lives — its own
+  repository or folder, completely outside this repository, given as a
+  GitHub link or an absolute path on the local disk — and the agent
+  records it as the `Prototype:` line of `DECISIONS.md`. Then the user
+  says what they want to try, and the agent builds the smallest thing
+  that shows real behavior, at that location.
 
 ## How it iterates — the exploration loop
 
@@ -56,5 +60,7 @@ Commands used during the loop:
 - **The step closes ONLY on the user's explicit yes**, recorded as the
   `CLOSED` entry in `DECISIONS.md`, with the accepted gaps listed (or
   "none"). The agent never closes the step on its own.
-- **Hand-off**: the validated prototype and `DECISIONS.md` stay in this
-  folder; step 2 (`../step_02_spec_extraction`) reads both, read-only.
+- **Hand-off**: the validated prototype stays in its external
+  repository or folder; `DECISIONS.md` — which records where that is —
+  stays in this folder. Step 2 (`../step_02_spec_extraction`) reads
+  both, read-only.

@@ -15,9 +15,30 @@ to improvise around.
 Precondition: its Status line must read "agreed by the user … source of
 truth". If it does not, stop and tell the user phase 3 is not closed.
 
+## Where the implementation lives
+
+The production code is completely OUTSIDE this repository: in its own
+repository or folder, pointed at via a GitHub link (an https or git
+URL) or an absolute path on the local disk. This folder keeps only the
+records.
+
+At the start of the first session, if SPECGAPS.md does not exist yet,
+ask the user where the implementation must live (an existing location,
+or one to create), and create SPECGAPS.md right away — before any
+coding — with the heading and the pointer:
+
+    # Specification gaps
+
+    Implementation: <link or absolute path>
+
+All code work happens at that location. If it is a repository link
+rather than a local path, work from a local clone and ask the user
+where that clone should live.
+
 ## Forbidden input
 
-NEVER read ../step_01_exploration/ (the prototype) or
+NEVER read the phase 1 prototype (wherever
+../step_01_exploration/DECISIONS.md points) or
 ../step_02_spec_extraction/SPEC.md (the raw spec). If the source of
 truth seems to be missing something they contained, that is exactly a
 specification gap: run /spec-gap and ask the user.

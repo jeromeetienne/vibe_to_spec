@@ -16,6 +16,12 @@ specification.
 - **Input**: `../step_03_spec_simplification/SPEC.md` — and nothing else.
   The step 1 prototype is explicitly NOT an input: nobody reads it here,
   neither the user nor the agent.
+- **First move**: the user says where the production implementation must
+  live — its own repository or folder, completely outside this
+  repository, given as a GitHub link or an absolute path on the local
+  disk — and the agent records it as the `Implementation:` line of
+  `SPECGAPS.md`, created right away. All code work happens at that
+  location.
 
 ## How it iterates
 
@@ -35,9 +41,10 @@ specification.
 
 - The implementation covers the specification completely, and its tests
   pass.
-- **Hand-off**: the implementation and its tests stay in this folder;
-  step 5 (`../step_05_verification`) checks them against the
-  specification.
-- If the implementation later becomes hard to maintain, this folder can
-  be discarded and rebuilt from the specification — the implementation is
-  disposable, the specification is permanent.
+- **Hand-off**: the implementation and its tests stay in their external
+  repository or folder; `SPECGAPS.md` — which records where that is —
+  stays in this folder. Step 5 (`../step_05_verification`) checks the
+  implementation against the specification.
+- If the implementation later becomes hard to maintain, its repository
+  can be discarded and rebuilt from the specification — the
+  implementation is disposable, the specification is permanent.

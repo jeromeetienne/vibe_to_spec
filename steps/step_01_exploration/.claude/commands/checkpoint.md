@@ -22,5 +22,7 @@ Run one round of the explicit validation ritual:
      kept as close to the user's own words as possible
    - DECISION — any direction change that follows, and why
 
-Create DECISIONS.md with a single `# Decisions` heading if it does not
-exist yet. Do not touch any other file.
+Create DECISIONS.md if it does not exist yet: a single `# Decisions`
+heading plus the `Prototype: <link or absolute path>` line (ask the
+user for the location if it is not known yet). Do not touch any other
+file in this folder.

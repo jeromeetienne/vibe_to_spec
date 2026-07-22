@@ -10,8 +10,9 @@ Run one pass of the extraction loop:
    ../step_01_exploration/DECISIONS.md contains the CLOSED entry. If it
    does not, stop — phase 1 is not closed. Otherwise create SPEC.md with
    the full required structure from CLAUDE.md, all sections present,
-   `Status: draft`, and immediately fill "Known gaps" from the accepted
-   gaps in the CLOSED entry.
+   `Status: draft`, the `Prototype:` line copied from DECISIONS.md, and
+   immediately fill "Known gaps" from the accepted gaps in the CLOSED
+   entry.
 2. Pick the focus: $ARGUMENTS if given, otherwise the least-covered
    section of SPEC.md.
 3. Read the relevant prototype code (run it read-only if observing real
@@ -24,5 +25,5 @@ Run one pass of the extraction loop:
    what was built? Anything missing or over-stated? Apply corrections.
 6. Name the sections still thin, and suggest the next /extract-spec focus.
 
-Never modify anything under ../step_01_exploration/. Do not touch any
-file other than SPEC.md.
+Never modify the prototype, nor anything under
+../step_01_exploration/. Do not touch any file other than SPEC.md.

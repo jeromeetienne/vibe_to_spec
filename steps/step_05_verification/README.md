@@ -14,7 +14,9 @@ Verify that the implementation faithfully realizes the specification.
 
 - **Inputs, read-only**:
   - `../step_03_spec_simplification/SPEC.md` — the yardstick
-  - `../step_04_implementation/` — the subject under verification
+  - the implementation — the subject under verification, at the
+    external location recorded by the `Implementation:` line of
+    `../step_04_implementation/SPECGAPS.md`
 
   The step 1 prototype is never consulted. Verification is against the
   specification, not against the exploratory prototype.

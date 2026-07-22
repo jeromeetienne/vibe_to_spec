@@ -10,6 +10,23 @@ It is two things, and only these two things:
 2. DECISIONS.md — the log of what was decided, what the user validated,
    and where the prototype still differs from what the user wants.
 
+## Where the prototype lives
+
+The prototype's code is completely OUTSIDE this repository: in its own
+repository or folder, pointed at via a GitHub link (an https or git
+URL) or an absolute path on the local disk. This folder keeps only the
+records.
+
+At the start of a session, if DECISIONS.md has no `Prototype:` line
+yet, ask the user where the prototype lives (an existing location, or
+one to create), and record it right under the `# Decisions` heading:
+
+    Prototype: <link or absolute path>
+
+All code work happens at that location. If it is a repository link
+rather than a local path, work from a local clone and ask the user
+where that clone should live.
+
 ## The exploration loop
 
 Work in small, visible increments. For every increment:
@@ -51,6 +68,8 @@ One dated section per day, one labeled bullet per entry. Four entry kinds:
 Example:
 
     # Decisions
+
+    Prototype: /Users/example/prototypes/my_product
 
     ## 2026-07-22
 
