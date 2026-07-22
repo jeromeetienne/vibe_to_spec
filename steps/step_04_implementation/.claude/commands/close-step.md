@@ -5,19 +5,11 @@ allowed-tools: Read, Edit, Write, Grep, Glob
 
 Run the phase-closing ritual:
 
-1. Read SPECGAPS.md: every GAP must be RESOLVED. If any are open,
-   resolve them with the user first (the /spec-gap flow).
-2. Coverage walkthrough: go through the source-of-truth specification
-   section by section; show where each is implemented and which tests
-   cover it. List anything not covered.
-3. Run the full test suite and show the real result. If tests fail, the
-   phase cannot close — say so plainly and fix before returning here.
-4. Then ask the final question, verbatim:
-   "Does this implementation cover the specification, with passing tests?"
+1. Read SPECGAPS.md: every GAP must be RESOLVED. If any are open, resolve them with the user first (the /spec-gap flow).
+2. Coverage walkthrough: go through the source-of-truth specification section by section; show where each is implemented and which tests cover it. List anything not covered.
+3. Run the full test suite and show the real result. If tests fail, the phase cannot close — say so plainly and fix before returning here.
+4. Then ask the final question, verbatim: "Does this implementation cover the specification, with passing tests?"
 5. Only if the user explicitly answers yes:
-   - append the CLOSED entry to SPECGAPS.md (accepted leftovers listed,
-     or "none");
-   - tell the user phase 4 is complete and phase 5 can start in
-     ../step_05_verification.
-6. On any other answer: log the missing points and continue. Never
-   close on your own judgment.
+   - append the CLOSED entry to SPECGAPS.md (accepted leftovers listed, or "none");
+   - tell the user phase 4 is complete and phase 5 can start in ../step_05_verification.
+6. On any other answer: log the missing points and continue. Never close on your own judgment.

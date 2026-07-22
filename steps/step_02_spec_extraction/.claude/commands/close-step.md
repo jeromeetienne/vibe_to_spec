@@ -5,19 +5,11 @@ allowed-tools: Read, Edit, Write, Grep, Glob
 
 Run the phase-closing ritual:
 
-1. Completeness sweep — walk the prototype's user-visible behaviors and
-   every VALIDATED entry of ../step_01_exploration/DECISIONS.md; check
-   each is accounted for in SPEC.md. List anything that is not.
-2. List every ambiguity still unresolved in SPEC.md, and every section
-   still marked thin or empty without an explicit "None."
-3. Resolve each open point with the user: specify it, exclude it, or
-   record it as an assumption or known gap. One by one, explicitly.
-4. Then ask the final question, verbatim:
-   "Does this specification fully account for the prototype?"
+1. Completeness sweep — walk the prototype's user-visible behaviors and every VALIDATED entry of ../step_01_exploration/DECISIONS.md; check each is accounted for in SPEC.md. List anything that is not.
+2. List every ambiguity still unresolved in SPEC.md, and every section still marked thin or empty without an explicit "None."
+3. Resolve each open point with the user: specify it, exclude it, or record it as an assumption or known gap. One by one, explicitly.
+4. Then ask the final question, verbatim: "Does this specification fully account for the prototype?"
 5. Only if the user explicitly answers yes:
    - set the SPEC.md status line to: Status: agreed by the user on <date>
-   - tell the user phase 2 is complete and phase 3 can start in
-     ../step_03_spec_simplification.
-6. On any other answer: record what is missing and continue extracting.
-   Never set the agreed status without the user's explicit yes in this
-   session.
+   - tell the user phase 2 is complete and phase 3 can start in ../step_03_spec_simplification.
+6. On any other answer: record what is missing and continue extracting. Never set the agreed status without the user's explicit yes in this session.
