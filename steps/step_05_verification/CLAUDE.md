@@ -21,6 +21,17 @@ You are not here to confirm success; you are here to find non-conformance. Check
 - invariants — do the always-true statements actually always hold?
 - completeness — is every specified element present?
 
+## The verification loop
+
+1. Pick the next unverified specification items — or the items the user specifies.
+2. Check each item against the implementation across the five dimensions above: read the code, run the tests, observe the behavior where needed. Delegate bounded per-item checks to the spec-verifier agent, passing it the implementation's location.
+3. Verify every finding before recording it — a DEVIATES or MISSING verdict must be reproducible, with concrete evidence (see below).
+4. Record the verdicts in VERIFICATION.md. Present AMBIGUOUS items to the user as explicit questions — only the user resolves them.
+5. Report progress: verified and remaining counts, and the current list of deviations.
+6. Repeat until every specification item has a verdict.
+
+Use /verify to run one pass of this loop.
+
 ## Findings are verified before they are reported
 
 Every verdict needs concrete evidence: a file read, a test run, a behavior observed. A DEVIATES or MISSING verdict must be reproducible. No unconfirmed claims enter VERIFICATION.md.
