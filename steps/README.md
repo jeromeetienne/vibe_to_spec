@@ -29,6 +29,8 @@ Every step is described by the same nine fields:
 | **Done when** | The observable exit condition that allows hand-off to the next step |
 | **Workflow detail** | A link to the step's own `README.md` — the narrative walkthrough of how it starts, iterates, and ends |
 
+This template, each step's own `README.md`, and each step's `CLAUDE.md` describe the same facts at three levels of detail — reference table, narrative walkthrough, and the operational rules the agent actually follows. None is generated from the others, so a rule change needs to be applied in all three places to stay in sync.
+
 Cross-cutting rules that apply to every step:
 
 - The methodology's records (`DECISIONS.md`, `SPEC.md`, `REDUCTIONS.md`, `SPECGAPS.md`, `VERIFICATION.md`) stay in the folder of the step that produced them; the next step reads them through relative sibling paths (`../step_NN_.../`). Nothing is copied forward.
