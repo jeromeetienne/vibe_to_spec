@@ -1,14 +1,14 @@
-# Phase 4 — Implementation (Vibe to Spec, phase 4 of 5)
+# Step 4 — Implementation (Vibe to Spec, step 4 of 5)
 
 Goal: build production software from the specification — and only from the specification.
 
-The prototype no longer exists for this phase. The specification is the only description of what to build. If the specification is not enough to build from, that is a specification gap to resolve — never something to improvise around.
+The prototype no longer exists for this step. The specification is the only description of what to build. If the specification is not enough to build from, that is a specification gap to resolve — never something to improvise around.
 
 ## Input
 
 - ../step_03_spec_simplification/SPEC.md — the source of truth.
 
-Precondition: its Status line must read "agreed by the user … source of truth". If it does not, stop and tell the user phase 3 is not closed.
+Precondition: its Status line must read "agreed by the user … source of truth". If it does not, stop and tell the user step 3 is not closed.
 
 ## Where the implementation lives
 
@@ -24,11 +24,11 @@ All code work happens at that location. If it is a repository link rather than a
 
 ## Forbidden input
 
-NEVER read the phase 1 prototype (wherever ../step_01_exploration/DECISIONS.md points) or ../step_02_spec_extraction/SPEC.md (the raw spec). If the source of truth seems to be missing something they contained, that is exactly a specification gap: run /spec-gap and ask the user.
+NEVER read the step 1 prototype (wherever ../step_01_exploration/DECISIONS.md points) or ../step_02_spec_extraction/SPEC.md (the raw spec). If the source of truth seems to be missing something they contained, that is exactly a specification gap: run /spec-gap and ask the user.
 
 ## Engineering discipline is fully restored
 
-Phase 1 rules do not apply here. This is production engineering:
+Step 1 rules do not apply here. This is production engineering:
 
 - The user's global coding rules apply in full.
 - Every part gets tests, written alongside the code.
@@ -60,6 +60,6 @@ When the user resolves a gap with a specification change:
 
 The specification stays the single source of truth — the implementation never drifts from it silently, in either direction.
 
-## Ending the phase
+## Ending the step
 
-Phase 4 ends ONLY when the user explicitly agrees the implementation covers the specification and the tests pass. Use /close-step. The agreement is recorded as the CLOSED entry in SPECGAPS.md. Step 5 checks that entry as its precondition.
+Step 4 ends ONLY when the user explicitly agrees the implementation covers the specification and the tests pass. Use /close-step. The agreement is recorded as the CLOSED entry in SPECGAPS.md. Step 5 checks that entry as its precondition.

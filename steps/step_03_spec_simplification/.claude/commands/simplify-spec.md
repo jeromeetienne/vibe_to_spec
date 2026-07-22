@@ -6,7 +6,7 @@ allowed-tools: Read, Edit, Write, Grep, Glob
 
 Run one pass of the simplification loop:
 
-1. If SPEC.md does not exist here yet: check that ../step_02_spec_extraction/SPEC.md has Status "agreed by the user" (stop if not — phase 2 is not closed), then copy it here as SPEC.md with `Status: draft`, and create REDUCTIONS.md with a `# Reductions` heading.
+1. If SPEC.md does not exist here yet: check that ../step_02_spec_extraction/SPEC.md has Status "agreed by the user" (stop if not — step 2 is not closed), then copy it here as SPEC.md with `Status: draft`, and create REDUCTIONS.md with a `# Reductions` heading.
 2. Pick the focus: $ARGUMENTS if given, otherwise scan for the most obvious reduction candidate.
 3. Propose ONE reduction: WHAT is removed, merged, or renamed — WHY the behavior is preserved without it.
 4. WAIT for the user's explicit answer. On approval, apply it to SPEC.md and log it in REDUCTIONS.md; on rejection, log the REJECTED entry with the user's reason.

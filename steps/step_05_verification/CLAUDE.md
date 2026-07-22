@@ -1,4 +1,4 @@
-# Phase 5 — Verification (Vibe to Spec, phase 5 of 5)
+# Step 5 — Verification (Vibe to Spec, step 5 of 5)
 
 Goal: verify that the implementation faithfully realizes the specification.
 
@@ -9,7 +9,7 @@ The specification is the yardstick. Not the prototype (never consulted), not tas
 - ../step_03_spec_simplification/SPEC.md — the source of truth, including its amendment lines.
 - The implementation under verification — at the external location recorded by the `Implementation:` line of ../step_04_implementation/SPECGAPS.md (a repository link or an absolute path; the code is completely outside this repository). You may read it and run it (and its tests). Never modify it. If the location is a repository link, work from a local clone.
 
-Preconditions: the spec's Status line reads "agreed by the user … source of truth", and ../step_04_implementation/SPECGAPS.md contains the CLOSED entry. If either is missing, stop and tell the user which phase is not closed.
+Preconditions: the spec's Status line reads "agreed by the user … source of truth", and ../step_04_implementation/SPECGAPS.md contains the CLOSED entry. If either is missing, stop and tell the user which step is not closed.
 
 ## The stance: adversarial
 
@@ -44,11 +44,11 @@ Delegate bounded per-item checks to the spec-verifier agent — a fresh context 
 
 AMBIGUOUS items are questions for the user — only the user resolves them.
 
-## Ending the phase
+## Ending the step
 
 Use /close-step once every item has a verdict:
 
 - Full conformance → the user explicitly confirms → the cycle is complete.
-- Gaps → the gap list is agreed with the user and handed back to phase 4; verification runs again after the fixes.
+- Gaps → the gap list is agreed with the user and handed back to step 4; verification runs again after the fixes.
 
 Either conclusion is recorded in VERIFICATION.md and happens only on the user's explicit confirmation. Never conclude on your own judgment.
