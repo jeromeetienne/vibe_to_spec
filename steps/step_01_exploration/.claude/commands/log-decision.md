@@ -2,7 +2,6 @@
 description: Append one entry to DECISIONS.md — DECISION (direction chosen/changed/abandoned and why), VALIDATED (user confirmed a behavior), or GAP (user explicitly said something is not what they want). Use the moment it happens in conversation, without waiting for a full checkpoint.
 argument-hint: [what happened and why]
 allowed-tools: Read, Edit, Write
-model: inherit
 ---
 
 Append one entry to `DECISIONS.md`, following the format defined in

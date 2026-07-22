@@ -1,8 +1,6 @@
 ---
 description: Run the phase-closing ritual — end-to-end walkthrough of the running prototype, resolve every open GAP (fix it or the user explicitly accepts it), then ask the final question "Is this running prototype exactly what you want?". Close phase 1 only on the user's explicit yes, recorded as the CLOSED entry in DECISIONS.md.
-argument-hint: []
 allowed-tools: Read, Edit, Write
-model: inherit
 ---
 
 Run the phase-closing ritual:

@@ -2,7 +2,6 @@
 description: Run the validation ritual — show what the prototype currently does, explicitly ask the user "is this what you want?", wait for answers, and log every verdict (VALIDATED / GAP / DECISION) to DECISIONS.md. Trigger after every meaningful behavior change, or whenever the user wants to take stock.
 argument-hint: [optional: which behavior to validate]
 allowed-tools: Read, Edit, Write
-model: inherit
 ---
 
 Run one round of the explicit validation ritual:
