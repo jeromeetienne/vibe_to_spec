@@ -12,6 +12,14 @@ This is one of the fastest ways ever invented to *discover* software. It is also
 
 The full design essay behind this repository is in [issue #1](https://github.com/jeromeetienne/vibe_to_spec/issues/1).
 
+## Blog series
+
+A companion series of blog posts walks through this project in more depth:
+
+1. [Vibe to Spec: Turning Exploratory Prototypes Into Maintainable Software](docs/blog_posts/01_introduction.md)
+2. [How Vibe to Spec Works: A Separate Claude Code Session for Every Phase](docs/blog_posts/02_how_it_works.md)
+3. [Vibe to Spec, Applied to Itself: What Self-Review Found, and What I Haven't Solved Yet](docs/blog_posts/03_design_decisions_and_open_questions.md)
+
 ## The five phases
 
 ```
