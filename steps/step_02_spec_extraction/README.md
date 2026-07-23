@@ -4,7 +4,7 @@ Recover the architecture that was actually built. This step turns the validated 
 
 ## How it starts
 
-- **Precondition**: step 1 is closed — the prototype in `../step_01_exploration/` runs, and its `STEP1_VIBE_DECISIONS.md` ends with the `CLOSED` entry (the user's explicit agreement).
+- **Precondition**: step 1 is closed — the prototype recorded as `dirty_impl_resources` in the project's `.vibe_to_spec.yaml` runs, and `<artifacts>/STEP1_VIBE_DECISIONS.md` ends with the `CLOSED` entry (the user's explicit agreement).
 - **Where**: start the AI coding agent inside this folder:
 
   ```bash
@@ -12,8 +12,8 @@ Recover the architecture that was actually built. This step turns the validated 
   ```
 
 - **Inputs, strictly read-only**:
-  - the prototype — at the external location recorded by the `Prototype:` line of `../step_01_exploration/STEP1_VIBE_DECISIONS.md` (its code is completely outside this repository)
-  - `../step_01_exploration/STEP1_VIBE_DECISIONS.md` — the validations, gaps, and pivots, with the reasoning behind them
+  - the prototype — at the external location(s) recorded as `dirty_impl_resources` in the project's `.vibe_to_spec.yaml` (its code is completely outside this repository)
+  - `<artifacts>/STEP1_VIBE_DECISIONS.md` — the validations, gaps, and pivots, with the reasoning behind them
 
 ## How it iterates
 
@@ -53,4 +53,4 @@ The prototype is never modified in this step — it is an input, not a workspace
 ## How it ends
 
 - `STEP2_DIRTY_SPEC.md` fully accounts for the prototype's observed behavior, and the user explicitly agrees it does.
-- **Hand-off**: `STEP2_DIRTY_SPEC.md` stays in this folder; step 3 (`../step_03_spec_cleaning`) reads it.
+- **Hand-off**: `STEP2_DIRTY_SPEC.md` lives at `<artifacts>/STEP2_DIRTY_SPEC.md`; step 3 reads it.

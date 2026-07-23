@@ -12,7 +12,7 @@ Explore the product by vibe coding. This step ends with a running prototype that
   ```
 
   The session picks up this folder's `CLAUDE.md` (the exploration rules) and its commands (`/checkpoint`, `/log-decision`, `/close-step`).
-- **First move**: the user says where the prototype lives — its own repository or folder, completely outside this repository, given as a GitHub link or an absolute path on the local disk — and the agent records it as the `Prototype:` line of `STEP1_VIBE_DECISIONS.md`. Then the user says what they want to try, and the agent builds the smallest thing that shows real behavior, at that location.
+- **First move**: the user says where the prototype lives — its own repository or folder, completely outside this repository, given as a GitHub link or an absolute path on the local disk — and the agent records it as a `dirty_impl_resources` entry in the project's `.vibe_to_spec.yaml`. Then the user says what they want to try, and the agent builds the smallest thing that shows real behavior, at that location.
 
 ## How it iterates — the exploration loop
 
@@ -61,4 +61,4 @@ Commands used during the loop:
 - **Trigger**: the user feels the prototype is what they want and runs `/close-step` — or the agent proposes closing when no open gaps remain.
 - **The closing walkthrough**: an end-to-end demonstration of the running prototype; every still-open `GAP` is either fixed now or explicitly accepted by the user; then the final question, verbatim: **"Is this running prototype exactly what you want?"**
 - **The step closes ONLY on the user's explicit yes**, recorded as the `CLOSED` entry in `STEP1_VIBE_DECISIONS.md`, with the accepted gaps listed (or "none"). The agent never closes the step on its own.
-- **Hand-off**: the validated prototype stays in its external repository or folder; `STEP1_VIBE_DECISIONS.md` — which records where that is — stays in this folder. Step 2 (`../step_02_spec_extraction`) reads both, read-only.
+- **Hand-off**: the validated prototype stays in its external repository or folder, recorded as `dirty_impl_resources` in the project's `.vibe_to_spec.yaml`; `STEP1_VIBE_DECISIONS.md` lives at `<artifacts>/STEP1_VIBE_DECISIONS.md`. Step 2 reads both, read-only.

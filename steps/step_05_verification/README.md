@@ -4,7 +4,7 @@ Verify that the implementation faithfully realizes the specification.
 
 ## How it starts
 
-- **Precondition**: step 4 is done — the implementation and its passing tests are in `../step_04_implementation/`.
+- **Precondition**: step 4 is done — the implementation and its passing tests are complete, at the location recorded as `clean_impl_resources` in the project's `.vibe_to_spec.yaml`.
 - **Where**: start the AI coding agent inside this folder:
 
   ```bash
@@ -12,8 +12,8 @@ Verify that the implementation faithfully realizes the specification.
   ```
 
 - **Inputs, read-only**:
-  - `../step_03_spec_cleaning/STEP3_CLEAN_SPEC.md` — the yardstick
-  - the implementation — the subject under verification, at the external location recorded by the `Implementation:` line of `../step_04_implementation/STEP4_IMPL_SPEC_GAPS.md`
+  - `<artifacts>/STEP3_CLEAN_SPEC.md` — the yardstick
+  - the implementation — the subject under verification, at the external location(s) recorded as `clean_impl_resources` in the project's `.vibe_to_spec.yaml`
 
   The step 1 prototype is never consulted. Verification is against the specification, not against the exploratory prototype.
 

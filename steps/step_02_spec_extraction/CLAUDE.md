@@ -6,8 +6,8 @@ The deliverable of this step is STEP2_DIRTY_SPEC.md, and nothing else. No produc
 
 ## Inputs — strictly read-only
 
-- The prototype — at the external location recorded by the `Prototype:` line of ../step_01_exploration/STEP1_VIBE_DECISIONS.md (a repository link or an absolute path; the code is completely outside this repository). You may read it, and run it to observe behavior. You must NEVER modify, fix, or improve it. If the location is a repository link, work from a local clone.
-- ../step_01_exploration/STEP1_VIBE_DECISIONS.md — what the user validated, the gaps the user explicitly accepted, the directions tried or abandoned, and why.
+- The prototype — at the external location(s) recorded as `dirty_impl_resources` in the project's `.vibe_to_spec.yaml` (a repository link or an absolute path; the code is completely outside this repository). You may read it, and run it to observe behavior. You must NEVER modify, fix, or improve it. If the location is a repository link, work from a local clone.
+- `<artifacts>/STEP1_VIBE_DECISIONS.md` — what the user validated, the gaps the user explicitly accepted, the directions tried or abandoned, and why.
 
 Precondition: STEP1_VIBE_DECISIONS.md must contain the CLOSED entry — the user's explicit agreement that ended step 1. If it does not, stop and tell the user step 1 is not closed yet.
 
@@ -27,7 +27,6 @@ Never fill several sections without a user review in between. The user steers th
 
     # <product name> — Specification
     Status: draft
-    Prototype: <the recorded location, copied from STEP1_VIBE_DECISIONS.md>
 
     ## Purpose            — what the product is and for whom
     ## Concepts           — the nouns: each concept, its meaning, its role
@@ -55,7 +54,7 @@ Never classify silently. A wrong guess here corrupts the source of truth for eve
 
 ## What this step never does
 
-- Never modifies the prototype, nor anything under ../step_01_exploration/.
+- Never modifies the prototype, nor `<artifacts>/STEP1_VIBE_DECISIONS.md`.
 - Never invents behavior that was not observed in the prototype.
 - Never "cleans up" the design on paper — cleaning is step 3's job, done later on the complete raw spec.
 - Never sets the spec status to agreed — only the user does, through /close-step.

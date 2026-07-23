@@ -6,10 +6,10 @@ The specification is the yardstick. Not the prototype (never consulted), not tas
 
 ## Inputs — strictly read-only
 
-- ../step_03_spec_cleaning/STEP3_CLEAN_SPEC.md — the source of truth, including its amendment lines.
-- The implementation under verification — at the external location recorded by the `Implementation:` line of ../step_04_implementation/STEP4_IMPL_SPEC_GAPS.md (a repository link or an absolute path; the code is completely outside this repository). You may read it and run it (and its tests). Never modify it. If the location is a repository link, work from a local clone.
+- `<artifacts>/STEP3_CLEAN_SPEC.md` — the source of truth, including its amendment lines.
+- The implementation under verification — at the external location(s) recorded as `clean_impl_resources` in the project's `.vibe_to_spec.yaml` (a repository link or an absolute path; the code is completely outside this repository). You may read it and run it (and its tests). Never modify it. If the location is a repository link, work from a local clone.
 
-Preconditions: the spec's Status line reads "agreed by the user … source of truth", and ../step_04_implementation/STEP4_IMPL_SPEC_GAPS.md contains the CLOSED entry. If either is missing, stop and tell the user which step is not closed.
+Preconditions: the spec's Status line reads "agreed by the user … source of truth", and `<artifacts>/STEP4_IMPL_SPEC_GAPS.md` contains the CLOSED entry. If either is missing, stop and tell the user which step is not closed.
 
 ## The stance: adversarial
 
@@ -42,7 +42,6 @@ Delegate bounded per-item checks to the spec-verifier agent — a fresh context 
 
     # Verification report
     Status: in progress
-    Implementation: <the recorded location, copied from STEP4_IMPL_SPEC_GAPS.md>
 
     ## Verdicts
     - CONFORMS — <spec item>: <evidence>

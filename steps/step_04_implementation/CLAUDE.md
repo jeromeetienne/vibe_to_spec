@@ -6,7 +6,7 @@ The prototype no longer exists for this step. The specification is the only desc
 
 ## Input
 
-- ../step_03_spec_cleaning/STEP3_CLEAN_SPEC.md — the source of truth.
+- `<artifacts>/STEP3_CLEAN_SPEC.md` — the source of truth.
 
 Precondition: its Status line must read "agreed by the user … source of truth". If it does not, stop and tell the user step 3 is not closed.
 
@@ -14,17 +14,15 @@ Precondition: its Status line must read "agreed by the user … source of truth"
 
 The production code is completely OUTSIDE this repository: in its own repository or folder, pointed at via a GitHub link (an https or git URL) or an absolute path on the local disk. This folder keeps only the records.
 
-At the start of the first session, if STEP4_IMPL_SPEC_GAPS.md does not exist yet, ask the user where the implementation must live (an existing location, or one to create), and create STEP4_IMPL_SPEC_GAPS.md right away — before any coding — with the heading and the pointer:
+At the start of the first session, if the active project's `.vibe_to_spec.yaml` has no `clean_impl_resources` entry yet, ask the user where the implementation must live (an existing location, or one to create), add it there as a `path` plus a short `description`, and create STEP4_IMPL_SPEC_GAPS.md right away — before any coding — with the heading:
 
     # Specification gaps
-
-    Implementation: <link or absolute path>
 
 All code work happens at that location. If it is a repository link rather than a local path, work from a local clone and ask the user where that clone should live.
 
 ## Forbidden input
 
-NEVER read the step 1 prototype (wherever ../step_01_exploration/STEP1_VIBE_DECISIONS.md points) or ../step_02_spec_extraction/STEP2_DIRTY_SPEC.md (the raw spec). If the source of truth seems to be missing something they contained, that is exactly a specification gap: run /spec-gap and ask the user.
+NEVER read the step 1 prototype (wherever `dirty_impl_resources` in the project's `.vibe_to_spec.yaml` points) or `<artifacts>/STEP2_DIRTY_SPEC.md` (the raw spec). If the source of truth seems to be missing something they contained, that is exactly a specification gap: run /spec-gap and ask the user.
 
 ## Engineering discipline is fully restored
 
@@ -54,7 +52,7 @@ Dated sections, one labeled bullet per event:
 
 When the user resolves a gap with a specification change:
 
-1. Apply the agreed fix to ../step_03_spec_cleaning/STEP3_CLEAN_SPEC.md — the ONLY allowed write outside this folder, and only after the user's explicit decision in a /spec-gap exchange.
+1. Apply the agreed fix to `<artifacts>/STEP3_CLEAN_SPEC.md` — the ONLY allowed write outside the external implementation location, and only after the user's explicit decision in a /spec-gap exchange.
 2. Add under its Status line: `Amended on <date>: <one-line summary>`.
 3. Log the RESOLVED entry in STEP4_IMPL_SPEC_GAPS.md.
 

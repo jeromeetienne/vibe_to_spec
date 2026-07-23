@@ -32,7 +32,7 @@ The isolation goes further than "the files happen to sit in a different folder."
 
 ## The code lives somewhere else entirely
 
-None of the code being explored, specified, implemented, or verified ever lives in this repository. The prototype lives at whatever location step 1's own records file notes under a `Prototype:` line — a GitHub link, a git URL, or an absolute path on disk. The production implementation gets the same treatment from step 4 onward, recorded as an `Implementation:` line. Every later phase reads that pointer to know where to look.
+None of the code being explored, specified, implemented, or verified ever lives in this repository. The prototype lives at whatever location the active project's `.vibe_to_spec.yaml` config file records as `dirty_impl_resources` — a GitHub link, a git URL, or an absolute path on disk. The production implementation gets the same treatment from step 4 onward, recorded as `clean_impl_resources`. Every later phase reads that config to know where to look.
 
 This wasn't the first way this was set up. The earliest version of this scaffolding kept the prototype's code inside the step 1 folder directly. It moved fully external once it became clear that mixing methodology records with project code inside the same repository blurred exactly the line the whole methodology exists to draw. What stays in this repository now is only what Vibe to Spec calls permanent: the specifications and the reasoning behind every phase's decisions. The code — prototype and production alike — is exactly the disposable part, so it lives somewhere else.
 

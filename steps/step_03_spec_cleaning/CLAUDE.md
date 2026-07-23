@@ -6,13 +6,13 @@ This is the most important step of the methodology: instead of cleaning code, it
 
 ## Input — strictly read-only
 
-- ../step_02_spec_extraction/STEP2_DIRTY_SPEC.md — the raw specification.
+- `<artifacts>/STEP2_DIRTY_SPEC.md` — the raw specification.
 
 Precondition: the raw specification's Status line must read "agreed by the user". If it does not, stop and tell the user step 2 is not closed.
 
 ## The working copy
 
-The first /clean-spec run copies the raw specification into this folder as STEP3_CLEAN_SPEC.md with `Status: draft`. All cleaning happens on this working copy. The raw spec in step 2 is never touched — it remains the record of what was actually extracted.
+The first /clean-spec run copies the raw specification into `<artifacts>/STEP3_CLEAN_SPEC.md` with `Status: draft`. All cleaning happens on this working copy. The raw spec from step 2 is never touched — it remains the record of what was actually extracted.
 
 ## The cleaning loop
 

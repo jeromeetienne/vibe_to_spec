@@ -4,15 +4,15 @@ Build production software from the specification — and only from the specifica
 
 ## How it starts
 
-- **Precondition**: step 3 is done — `../step_03_spec_cleaning/STEP3_CLEAN_SPEC.md` is the agreed source of truth.
+- **Precondition**: step 3 is done — `<artifacts>/STEP3_CLEAN_SPEC.md` is the agreed source of truth.
 - **Where**: start the AI coding agent inside this folder:
 
   ```bash
   cd steps/step_04_implementation && claude
   ```
 
-- **Input**: `../step_03_spec_cleaning/STEP3_CLEAN_SPEC.md` — and nothing else. The step 1 prototype is explicitly NOT an input: nobody reads it here, neither the user nor the agent.
-- **First move**: the user says where the production implementation must live — its own repository or folder, completely outside this repository, given as a GitHub link or an absolute path on the local disk — and the agent records it as the `Implementation:` line of `STEP4_IMPL_SPEC_GAPS.md`, created right away. All code work happens at that location.
+- **Input**: `<artifacts>/STEP3_CLEAN_SPEC.md` — and nothing else. The step 1 prototype is explicitly NOT an input: nobody reads it here, neither the user nor the agent.
+- **First move**: the user says where the production implementation must live — its own repository or folder, completely outside this repository, given as a GitHub link or an absolute path on the local disk — and the agent records it as a `clean_impl_resources` entry in the project's `.vibe_to_spec.yaml`. `STEP4_IMPL_SPEC_GAPS.md` is created right away. All code work happens at that location.
 
 ## How it iterates
 
@@ -48,5 +48,5 @@ Step 4 ends"])
 ## How it ends
 
 - The implementation covers the specification completely, and its tests pass.
-- **Hand-off**: the implementation and its tests stay in their external repository or folder; `STEP4_IMPL_SPEC_GAPS.md` — which records where that is — stays in this folder. Step 5 (`../step_05_verification`) checks the implementation against the specification.
+- **Hand-off**: the implementation and its tests stay in their external repository or folder, recorded as `clean_impl_resources` in the project's `.vibe_to_spec.yaml`; `STEP4_IMPL_SPEC_GAPS.md` lives at `<artifacts>/STEP4_IMPL_SPEC_GAPS.md`. Step 5 checks the implementation against the specification.
 - If the implementation later becomes hard to maintain, its repository can be discarded and rebuilt from the specification — the implementation is disposable, the specification is permanent.

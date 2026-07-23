@@ -64,24 +64,24 @@ cd steps/step_05_verification && claude       # phase 5: verify
 
 Each session sees only its phase's tooling — the rules, the commands, and the records of that one step. Nothing leaks between phases: the exploration session is free of engineering discipline, the implementation session has never seen the prototype, the verification session judges only against the specification.
 
-## The project's code lives completely outside this repository
+## The project's records and code all live outside this repository
 
-The step folders contain the methodology's configuration and its records — **never the project's code**. The code being explored, specified, implemented, and verified is entirely out of this repository:
+The step folders contain only the methodology's configuration — **never a project's records or code**. Everything specific to one project — the five `STEP*.md` records, the prototype, the production implementation — lives entirely outside this repository, in locations recorded in that project's `.vibe_to_spec.yaml` config file:
 
-- the phase 1 **prototype** lives in its own repository or folder;
-- the phase 4 **production implementation** lives in its own repository or folder;
-- each is pointed at from here via a **GitHub link** (an https or git URL) or an **absolute path** on the local disk.
+- **`artifacts`** points at the folder holding all five `STEP*.md` records;
+- **`dirty_impl_resources`** points at the phase 1 **prototype** — one or more paths or links, each with a short description;
+- **`clean_impl_resources`** points at the phase 4 **production implementation**, in the same shape.
 
-The link or path to the external code is given to the agent at the start of the phase and recorded in the phase's log, so the later phases know where to look.
+Each of these is a **GitHub link** (an https or git URL) or an **absolute path** on the local disk. A session finds the active project's `.vibe_to_spec.yaml` through a symlink at the repository root, `.active_project.vibe_to_spec.yaml` — see the root [`CLAUDE.md`](CLAUDE.md) for the full mechanism.
 
-What stays in this repository is exactly what the methodology calls permanent: the specification and the "why" records of every phase. The implementations — prototype and production code alike — are the disposable part, and they live elsewhere.
+What stays in this repository is exactly the methodology template itself: the step folders' configuration, never a project's own records or code. Every project's `.vibe_to_spec.yaml` is git-ignored, since it holds paths specific to one user's machine.
 
 ```
 idea
-  → step_01: STEP1_VIBE_DECISIONS.md        + prototype ……………… external, pointed at
+  → step_01: STEP1_VIBE_DECISIONS.md        + prototype ……………… external, in .vibe_to_spec.yaml
     → step_02: STEP2_DIRTY_SPEC.md ……………… reads the external prototype
       → step_03: STEP3_CLEAN_SPEC.md (cleaned — the source of truth)
-        → step_04: STEP4_IMPL_SPEC_GAPS.md   + production code …… external, pointed at
+        → step_04: STEP4_IMPL_SPEC_GAPS.md   + production code …… external, in .vibe_to_spec.yaml
           → step_05: STEP5_IMPL_VERIFICATION.md … checks the external implementation
                                                     against the specification
 ```

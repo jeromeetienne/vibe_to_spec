@@ -18,4 +18,4 @@ Run one round of the explicit validation ritual:
    - GAP — each thing the user explicitly said is not what they want, kept as close to the user's own words as possible
    - DECISION — any direction change that follows, and why
 
-Create STEP1_VIBE_DECISIONS.md if it does not exist yet: a single `# Decisions` heading plus the `Prototype: <link or absolute path>` line (ask the user for the location if it is not known yet). Do not touch any other file in this folder.
+Create STEP1_VIBE_DECISIONS.md if it does not exist yet: a single `# Decisions` heading. If the project's `.vibe_to_spec.yaml` has no `dirty_impl_resources` entry yet, ask the user for the prototype's location and description and add it there. Do not touch any other file in this folder.

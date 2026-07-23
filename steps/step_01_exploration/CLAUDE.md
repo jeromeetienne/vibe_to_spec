@@ -5,15 +5,13 @@ Goal: explore the product by vibe coding, and end with a running prototype that 
 The deliverable of this step is NOT clean code and NOT a specification. It is two things, and only these two things:
 
 1. A running prototype, explicitly validated by the user.
-2. STEP1_VIBE_DECISIONS.md — the log of what was decided, what the user validated, and where the prototype still differs from what the user wants.
+2. `<artifacts>/STEP1_VIBE_DECISIONS.md` — the log of what was decided, what the user validated, and where the prototype still differs from what the user wants.
 
 ## Where the prototype lives
 
 The prototype's code is completely OUTSIDE this repository: in its own repository or folder, pointed at via a GitHub link (an https or git URL) or an absolute path on the local disk. This folder keeps only the records.
 
-At the start of a session, if STEP1_VIBE_DECISIONS.md has no `Prototype:` line yet, ask the user where the prototype lives (an existing location, or one to create), and record it right under the `# Decisions` heading:
-
-    Prototype: <link or absolute path>
+At the start of a session, if the active project's `.vibe_to_spec.yaml` has no `dirty_impl_resources` entry yet, ask the user where the prototype lives (an existing location, or one to create), and add it there as a `path` plus a short `description`.
 
 All code work happens at that location. If it is a repository link rather than a local path, work from a local clone and ask the user where that clone should live.
 
@@ -50,8 +48,6 @@ One dated section per day, one labeled bullet per entry. Four entry kinds:
 Example:
 
     # Decisions
-
-    Prototype: /Users/example/prototypes/my_product
 
     ## 2026-07-22
 
