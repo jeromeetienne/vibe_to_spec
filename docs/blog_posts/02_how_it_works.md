@@ -6,7 +6,7 @@ Part 1 laid out the argument: separate the disposable exploration from the perma
 
 ## One folder per phase, one Claude Code session per phase
 
-Every phase of Vibe to Spec — Exploration, Specification Extraction, Specification Cleaning, Implementation, Verification — is its own folder under `steps/`, and each folder carries its own Claude Code configuration: its own `CLAUDE.md`, its own slash commands, and in one case its own subagent. You work through the methodology by changing directory and starting a fresh Claude Code session inside whichever phase you're on:
+Every phase of Vibe to Spec — Exploration, Dirty Specification Extraction, Specification Cleaning, Implementation, Verification — is its own folder under `steps/`, and each folder carries its own Claude Code configuration: its own `CLAUDE.md`, its own slash commands, and in one case its own subagent. You work through the methodology by changing directory and starting a fresh Claude Code session inside whichever phase you're on:
 
 ```
 cd steps/step_01_exploration && claude
@@ -28,7 +28,7 @@ It's the same underlying coding agent in both cases. What changed is which folde
 
 ## Isolation is a rule, not just a location
 
-The isolation goes further than "the files happen to sit in a different folder." Step 4's `CLAUDE.md` names its forbidden inputs outright: it must never read the step 1 prototype, and never read `STEP2_VIBE_SPEC.md`, the raw specification from step 2. The prototype is sitting right there, a couple of folders up, one `cd ..` away, easily readable. The rule isn't "you won't see it" — it's "even if you can see it, you don't get to use it." If the specification turns out to be missing something the prototype had, that's treated as a real finding, not a reason to go quietly peek at the old code and copy the answer: the implementation session stops, runs `/spec-gap`, and asks.
+The isolation goes further than "the files happen to sit in a different folder." Step 4's `CLAUDE.md` names its forbidden inputs outright: it must never read the step 1 prototype, and never read `STEP2_DIRTY_SPEC.md`, the raw specification from step 2. The prototype is sitting right there, a couple of folders up, one `cd ..` away, easily readable. The rule isn't "you won't see it" — it's "even if you can see it, you don't get to use it." If the specification turns out to be missing something the prototype had, that's treated as a real finding, not a reason to go quietly peek at the old code and copy the answer: the implementation session stops, runs `/spec-gap`, and asks.
 
 ## The code lives somewhere else entirely
 
@@ -36,11 +36,11 @@ None of the code being explored, specified, implemented, or verified ever lives 
 
 This wasn't the first way this was set up. The earliest version of this scaffolding kept the prototype's code inside the step 1 folder directly. It moved fully external once it became clear that mixing methodology records with project code inside the same repository blurred exactly the line the whole methodology exists to draw. What stays in this repository now is only what Vibe to Spec calls permanent: the specifications and the reasoning behind every phase's decisions. The code — prototype and production alike — is exactly the disposable part, so it lives somewhere else.
 
-Even the records' own filenames trace this shift. Step 1 and step 2 name theirs `STEP1_VIBE_DECISIONS.md` and `STEP2_VIBE_SPEC.md` — still carrying the "vibe" label, because they're still close to raw exploration. By step 3 the file becomes `STEP3_PRODUCTION_SPEC.md`: the exact point where the specification stops being a description of a prototype and starts being the source of truth. Steps 4 and 5 carry `IMPL` in their names instead. The naming was not planned as a demonstration of the thesis, but it ended up being one anyway.
+Even the records' own filenames trace this shift. Step 1 and step 2 name theirs `STEP1_VIBE_DECISIONS.md` and `STEP2_DIRTY_SPEC.md` — still carrying the "vibe" label, because they're still close to raw exploration. By step 3 the file becomes `STEP3_CLEAN_SPEC.md`: the exact point where the specification stops being a description of a prototype and starts being the source of truth. Steps 4 and 5 carry `IMPL` in their names instead. The naming was not planned as a demonstration of the thesis, but it ended up being one anyway.
 
 ## A chain that checks itself
 
-The five phases hand off one artifact at a time: `STEP1_VIBE_DECISIONS.md` to `STEP2_VIBE_SPEC.md` to `STEP3_PRODUCTION_SPEC.md` — the source of truth — to `STEP4_IMPL_SPEC_GAPS.md` to `STEP5_IMPL_VERIFICATION.md`. What makes this more than a diagram is that each phase's own instructions check the previous phase's closing signal before doing any work at all. Step 2 won't start until it has confirmed step 1 actually closed:
+The five phases hand off one artifact at a time: `STEP1_VIBE_DECISIONS.md` to `STEP2_DIRTY_SPEC.md` to `STEP3_CLEAN_SPEC.md` — the source of truth — to `STEP4_IMPL_SPEC_GAPS.md` to `STEP5_IMPL_VERIFICATION.md`. What makes this more than a diagram is that each phase's own instructions check the previous phase's closing signal before doing any work at all. Step 2 won't start until it has confirmed step 1 actually closed:
 
 > Precondition: DECISIONS.md must contain the CLOSED entry — the user's explicit agreement that ended step 1. If it does not, stop and tell the user step 1 is not closed yet.
 

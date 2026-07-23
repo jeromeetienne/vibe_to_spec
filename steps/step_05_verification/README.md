@@ -12,7 +12,7 @@ Verify that the implementation faithfully realizes the specification.
   ```
 
 - **Inputs, read-only**:
-  - `../step_03_spec_cleaning/STEP3_PRODUCTION_SPEC.md` — the yardstick
+  - `../step_03_spec_cleaning/STEP3_CLEAN_SPEC.md` — the yardstick
   - the implementation — the subject under verification, at the external location recorded by the `Implementation:` line of `../step_04_implementation/STEP4_IMPL_SPEC_GAPS.md`
 
   The step 1 prototype is never consulted. Verification is against the specification, not against the exploratory prototype.

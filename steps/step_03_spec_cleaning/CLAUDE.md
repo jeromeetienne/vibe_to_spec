@@ -1,22 +1,22 @@
 # Step 3 — Specification Cleaning (Vibe to Spec, step 3 of 5)
 
-Goal: reduce the design's complexity without changing behavior. The output of this step — the cleaned STEP3_PRODUCTION_SPEC.md — becomes the source of truth for everything after.
+Goal: reduce the design's complexity without changing behavior. The output of this step — the cleaned STEP3_CLEAN_SPEC.md — becomes the source of truth for everything after.
 
 This is the most important step of the methodology: instead of cleaning code, it cleans the design itself.
 
 ## Input — strictly read-only
 
-- ../step_02_spec_extraction/STEP2_VIBE_SPEC.md — the raw specification.
+- ../step_02_spec_extraction/STEP2_DIRTY_SPEC.md — the raw specification.
 
 Precondition: the raw specification's Status line must read "agreed by the user". If it does not, stop and tell the user step 2 is not closed.
 
 ## The working copy
 
-The first /clean-spec run copies the raw specification into this folder as STEP3_PRODUCTION_SPEC.md with `Status: draft`. All cleaning happens on this working copy. The raw spec in step 2 is never touched — it remains the record of what was actually extracted.
+The first /clean-spec run copies the raw specification into this folder as STEP3_CLEAN_SPEC.md with `Status: draft`. All cleaning happens on this working copy. The raw spec in step 2 is never touched — it remains the record of what was actually extracted.
 
 ## The cleaning loop
 
-1. Read the working STEP3_PRODUCTION_SPEC.md and hunt for ONE reduction candidate:
+1. Read the working STEP3_CLEAN_SPEC.md and hunt for ONE reduction candidate:
    - duplicated concepts (two names for one thing)
    - overlapping abstractions that can merge
    - configuration options nobody needs
@@ -26,7 +26,7 @@ The first /clean-spec run copies the raw specification into this folder as STEP3
    - historical artifacts left over from exploration
 2. Propose the reduction to the user, justified in this exact shape: WHAT is removed, merged, or renamed — WHY the behavior is preserved without it.
 3. The user approves or rejects. Never apply a reduction the user has not explicitly approved.
-4. Apply approved reductions to STEP3_PRODUCTION_SPEC.md and log them in STEP3_SPEC_OPTIMISATION.md.
+4. Apply approved reductions to STEP3_CLEAN_SPEC.md and log them in STEP3_SPEC_OPTIMISATION.md.
 5. Repeat.
 
 One reduction at a time: small, reviewable, reversible.
@@ -51,7 +51,7 @@ This log is the "why" of the cleaning. Later steps can trust the cleaned spec wi
 
 ## Ending the step
 
-Step 3 ends ONLY when a full pass finds nothing further to remove and the user explicitly agrees. Use /close-step. The agreement is recorded in the STEP3_PRODUCTION_SPEC.md Status line:
+Step 3 ends ONLY when a full pass finds nothing further to remove and the user explicitly agrees. Use /close-step. The agreement is recorded in the STEP3_CLEAN_SPEC.md Status line:
 
     Status: agreed by the user on <date> — source of truth
 

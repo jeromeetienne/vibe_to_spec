@@ -1,6 +1,6 @@
-# Step 2 — Specification Extraction
+# Step 2 — Dirty Specification Extraction
 
-Recover the architecture that was actually built. This step turns the validated prototype of step 1 into `STEP2_VIBE_SPEC.md` — the raw specification of what the prototype is and does.
+Recover the architecture that was actually built. This step turns the validated prototype of step 1 into `STEP2_DIRTY_SPEC.md` — the raw specification of what the prototype is and does.
 
 ## How it starts
 
@@ -18,7 +18,7 @@ Recover the architecture that was actually built. This step turns the validated 
 ## How it iterates
 
 1. **Read** the prototype and `STEP1_VIBE_DECISIONS.md`; observe what the prototype actually does.
-2. **Write** `STEP2_VIBE_SPEC.md` in this folder, section by section: concepts, responsibilities, workflows, APIs, data structures, invariants, constraints, assumptions.
+2. **Write** `STEP2_DIRTY_SPEC.md` in this folder, section by section: concepts, responsibilities, workflows, APIs, data structures, invariants, constraints, assumptions.
 3. **Describe what IS, not what should be.** Implementation details are ignored unless architecturally significant. Gaps the user explicitly accepted at the end of step 1 are recorded in the spec as known gaps — never silently "fixed" on paper.
 4. **Review with the user**, section by section: does the spec say what the prototype does? Is anything missing or over-stated?
 5. **Repeat** until the spec accounts for all observed behavior.
@@ -27,5 +27,5 @@ The prototype is never modified in this step — it is an input, not a workspace
 
 ## How it ends
 
-- `STEP2_VIBE_SPEC.md` fully accounts for the prototype's observed behavior, and the user explicitly agrees it does.
-- **Hand-off**: `STEP2_VIBE_SPEC.md` stays in this folder; step 3 (`../step_03_spec_cleaning`) reads it.
+- `STEP2_DIRTY_SPEC.md` fully accounts for the prototype's observed behavior, and the user explicitly agrees it does.
+- **Hand-off**: `STEP2_DIRTY_SPEC.md` stays in this folder; step 3 (`../step_03_spec_cleaning`) reads it.

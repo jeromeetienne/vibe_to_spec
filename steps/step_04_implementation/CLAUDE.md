@@ -6,7 +6,7 @@ The prototype no longer exists for this step. The specification is the only desc
 
 ## Input
 
-- ../step_03_spec_cleaning/STEP3_PRODUCTION_SPEC.md — the source of truth.
+- ../step_03_spec_cleaning/STEP3_CLEAN_SPEC.md — the source of truth.
 
 Precondition: its Status line must read "agreed by the user … source of truth". If it does not, stop and tell the user step 3 is not closed.
 
@@ -24,7 +24,7 @@ All code work happens at that location. If it is a repository link rather than a
 
 ## Forbidden input
 
-NEVER read the step 1 prototype (wherever ../step_01_exploration/STEP1_VIBE_DECISIONS.md points) or ../step_02_spec_extraction/STEP2_VIBE_SPEC.md (the raw spec). If the source of truth seems to be missing something they contained, that is exactly a specification gap: run /spec-gap and ask the user.
+NEVER read the step 1 prototype (wherever ../step_01_exploration/STEP1_VIBE_DECISIONS.md points) or ../step_02_spec_extraction/STEP2_DIRTY_SPEC.md (the raw spec). If the source of truth seems to be missing something they contained, that is exactly a specification gap: run /spec-gap and ask the user.
 
 ## Engineering discipline is fully restored
 
@@ -54,7 +54,7 @@ Dated sections, one labeled bullet per event:
 
 When the user resolves a gap with a specification change:
 
-1. Apply the agreed fix to ../step_03_spec_cleaning/STEP3_PRODUCTION_SPEC.md — the ONLY allowed write outside this folder, and only after the user's explicit decision in a /spec-gap exchange.
+1. Apply the agreed fix to ../step_03_spec_cleaning/STEP3_CLEAN_SPEC.md — the ONLY allowed write outside this folder, and only after the user's explicit decision in a /spec-gap exchange.
 2. Add under its Status line: `Amended on <date>: <one-line summary>`.
 3. Log the RESOLVED entry in STEP4_IMPL_SPEC_GAPS.md.
 

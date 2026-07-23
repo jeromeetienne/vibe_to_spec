@@ -23,7 +23,7 @@ A companion series of blog posts walks through this project in more depth:
 ## The five phases
 
 ```
-Exploration → Specification Extraction → Specification Cleaning → Implementation → Verification
+Exploration → Dirty Specification Extraction → Specification Cleaning → Implementation → Verification
 ```
 
 Each phase answers exactly one question and reduces one kind of uncertainty:
@@ -31,8 +31,8 @@ Each phase answers exactly one question and reduces one kind of uncertainty:
 | # | Phase | Question it answers | Output |
 |---|-------|---------------------|--------|
 | 1 | Exploration | What do I actually want? | A running prototype, explicitly validated by the user |
-| 2 | Specification Extraction | What did I actually build? | `STEP2_VIBE_SPEC.md` — the raw specification |
-| 3 | Specification Cleaning | What is the simplest design? | `STEP3_PRODUCTION_SPEC.md` — cleaned: **the source of truth** |
+| 2 | Dirty Specification Extraction | What did I actually build? | `STEP2_DIRTY_SPEC.md` — the raw specification |
+| 3 | Specification Cleaning | What is the simplest design? | `STEP3_CLEAN_SPEC.md` — cleaned: **the source of truth** |
 | 4 | Implementation | How should it be built? | Production code, with tests |
 | 5 | Verification | Does it match the specification? | `STEP5_IMPL_VERIFICATION.md` — evidence-backed verdicts |
 
@@ -79,8 +79,8 @@ What stays in this repository is exactly what the methodology calls permanent: t
 ```
 idea
   → step_01: STEP1_VIBE_DECISIONS.md        + prototype ……………… external, pointed at
-    → step_02: STEP2_VIBE_SPEC.md ……………… reads the external prototype
-      → step_03: STEP3_PRODUCTION_SPEC.md (cleaned — the source of truth)
+    → step_02: STEP2_DIRTY_SPEC.md ……………… reads the external prototype
+      → step_03: STEP3_CLEAN_SPEC.md (cleaned — the source of truth)
         → step_04: STEP4_IMPL_SPEC_GAPS.md   + production code …… external, pointed at
           → step_05: STEP5_IMPL_VERIFICATION.md … checks the external implementation
                                                     against the specification

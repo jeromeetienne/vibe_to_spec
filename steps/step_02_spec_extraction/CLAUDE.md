@@ -1,8 +1,8 @@
-# Step 2 — Specification Extraction (Vibe to Spec, step 2 of 5)
+# Step 2 — Dirty Specification Extraction (Vibe to Spec, step 2 of 5)
 
-Goal: recover the architecture that was actually built, by turning the validated prototype of step 1 into STEP2_VIBE_SPEC.md — the raw specification.
+Goal: recover the architecture that was actually built, by turning the validated prototype of step 1 into STEP2_DIRTY_SPEC.md — the raw specification.
 
-The deliverable of this step is STEP2_VIBE_SPEC.md, and nothing else. No product code is written in this step.
+The deliverable of this step is STEP2_DIRTY_SPEC.md, and nothing else. No product code is written in this step.
 
 ## Inputs — strictly read-only
 
@@ -14,7 +14,7 @@ Precondition: STEP1_VIBE_DECISIONS.md must contain the CLOSED entry — the user
 ## The extraction loop
 
 1. Read the prototype (and run it if observing real behavior helps) and read STEP1_VIBE_DECISIONS.md.
-2. Draft or extend ONE section of STEP2_VIBE_SPEC.md at a time (structure below).
+2. Draft or extend ONE section of STEP2_DIRTY_SPEC.md at a time (structure below).
 3. Describe what IS, not what should be. Do not redesign, do not improve, do not add anything the prototype does not do.
 4. Ignore implementation details unless they are architecturally significant.
 5. Every time you meet a behavior you cannot classify, ask the user explicitly (see "Intentional or accidental" below). Do not decide alone.
@@ -23,7 +23,7 @@ Precondition: STEP1_VIBE_DECISIONS.md must contain the CLOSED entry — the user
 
 Never fill several sections without a user review in between. The user steers the spec exactly like they steered the prototype.
 
-## STEP2_VIBE_SPEC.md — required structure
+## STEP2_DIRTY_SPEC.md — required structure
 
     # <product name> — Specification
     Status: draft
@@ -62,7 +62,7 @@ Never classify silently. A wrong guess here corrupts the source of truth for eve
 
 ## Ending the step
 
-Step 2 ends ONLY when the user explicitly agrees that STEP2_VIBE_SPEC.md fully accounts for the prototype. Use /close-step to run the closing walkthrough. The agreement is recorded as the Status line of STEP2_VIBE_SPEC.md:
+Step 2 ends ONLY when the user explicitly agrees that STEP2_DIRTY_SPEC.md fully accounts for the prototype. Use /close-step to run the closing walkthrough. The agreement is recorded as the Status line of STEP2_DIRTY_SPEC.md:
 
     Status: agreed by the user on <date>
 
