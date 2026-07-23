@@ -1,0 +1,18 @@
+# Template for a project's .vibe_to_spec.yaml
+#
+# Copy this file to projects/<project-name>.vibe_to_spec.yaml and fill in the
+# three fields below. See the root CLAUDE.md for the full mechanism.
+#
+# Every path below MUST be absolute, never relative — a session can be
+# started from any step's folder, so a relative path would resolve
+# differently depending on where the session began.
+
+artifacts: <absolute path or link to the folder holding all five STEP*.md files>
+
+dirty_impl_resources:
+  - path: <absolute path or link>
+    description: <short phrase identifying what this path contains>
+
+clean_impl_resources:
+  - path: <absolute path or link>
+    description: <short phrase identifying what this path contains>

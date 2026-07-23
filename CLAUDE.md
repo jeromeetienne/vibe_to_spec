@@ -17,12 +17,12 @@ At the start of every session:
 The file the symlink resolves to holds three fields:
 
 ```yaml
-artifacts: <path or link to the folder holding all five STEP*.md files>
+artifacts: <absolute path or link to the folder holding all five STEP*.md files>
 dirty_impl_resources:
-  - path: <link or path>
+  - path: <absolute path or link>
     description: <short phrase identifying what this path contains>
 clean_impl_resources:
-  - path: <link or path>
+  - path: <absolute path or link>
     description: <short phrase identifying what this path contains>
 ```
 
@@ -30,14 +30,16 @@ clean_impl_resources:
 - **`dirty_impl_resources`** — where the step 1 prototype lives. A list, because a single prototype can span more than one folder or repository (for example, a frontend app and a backend API server); each entry is a `path` (a link or an absolute path) plus a short `description` of what is at that path.
 - **`clean_impl_resources`** — the same shape, for the step 4 production implementation.
 
+**Every `path` value, and `artifacts` itself, MUST be an absolute path when it is not a link — never a relative path.** A session can be started from any step's folder, so a relative path would resolve against whichever folder happened to be the working directory, silently pointing at a different location depending on where the session began.
+
 This file is the single, authoritative record of where a project's external code lives. It replaces the older `Prototype:` line that used to live in `STEP1_VIBE_DECISIONS.md` and the `Implementation:` line that used to live in `STEP4_IMPL_SPEC_GAPS.md` — those lines no longer exist in this methodology. Do not look for them, and do not write them.
 
 ## Creating a new project
 
 If `projects/<project-name>.vibe_to_spec.yaml` does not exist yet, ask the user:
 
-1. Where should this project's artifacts folder live? (a new or existing folder to hold the five `STEP*.md` files)
-2. Where does the prototype live, if it exists yet? (one or more paths or links, each with a short description) — leave `dirty_impl_resources` empty if step 1 has not started.
+1. Where should this project's artifacts folder live? (a new or existing folder to hold the five `STEP*.md` files, as an absolute path or a link)
+2. Where does the prototype live, if it exists yet? (one or more absolute paths or links, each with a short description) — leave `dirty_impl_resources` empty if step 1 has not started.
 3. Where does the production implementation live, if it exists yet? (same shape) — leave `clean_impl_resources` empty before step 4 starts.
 
 Write the answers to `projects/<project-name>.vibe_to_spec.yaml`, then create or repoint `.active_project.vibe_to_spec.yaml` to it.
