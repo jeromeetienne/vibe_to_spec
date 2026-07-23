@@ -31,7 +31,7 @@ Every step is described by the same nine fields:
 
 This template, each step's own `README.md`, and each step's `CLAUDE.md` describe the same facts at three levels of detail — reference table, narrative walkthrough, and the operational rules the agent actually follows. None is generated from the others, so a rule change needs to be applied in all three places to stay in sync.
 
-Cross-cutting rules that apply to every step:
+Pervasive rules that apply to every step:
 
 - The methodology's records (`STEP1_VIBE_DECISIONS.md`, `STEP2_VIBE_SPEC.md`, `STEP3_PRODUCTION_SPEC.md`, `STEP3_SPEC_OPTIMISATION.md`, `STEP4_IMPL_SPEC_GAPS.md`, `STEP5_IMPL_VERIFICATION.md`) stay in the folder of the step that produced them; the next step reads them through relative sibling paths (`../step_NN_.../`). Nothing is copied forward.
 - A record signals that its step is done in one of two ways, depending on its own shape: an append-only log (`STEP1_VIBE_DECISIONS.md`, `STEP4_IMPL_SPEC_GAPS.md`) closes with a `CLOSED` bullet appended to its dated entries; a document edited in place (`STEP2_VIBE_SPEC.md`, `STEP3_PRODUCTION_SPEC.md`, `STEP5_IMPL_VERIFICATION.md`) closes by updating its `Status:` line instead.
