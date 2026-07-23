@@ -55,6 +55,111 @@ Example:
     - VALIDATED — list view: user confirmed the list layout is what they want.
     - GAP — colors: user said the current colors are not what they want; they want a warmer palette. Open.
 
+## The log must carry everything the specification will need
+
+Step 2 writes the specification (STEP2_DIRTY_SPEC.md) from exactly two sources: the prototype's code, and STEP1_VIBE_DECISIONS.md. The code shows WHAT the prototype does. It cannot show what the user meant, why a direction was chosen, which behaviors the user actually wants, or which behaviors are accidents of vibe coding. All information of that second kind exists later ONLY if it was written into STEP1_VIBE_DECISIONS.md during this step. Anything left unrecorded is permanently lost, because step 2 is forbidden from inventing it.
+
+The test to apply to every entry, and to the log as a whole at closing time: **could a person who was NOT in these conversations, holding only the prototype's code and this log, write the full specification without asking the user a single question?** Whenever the answer is no, the missing information belongs in the log, now.
+
+This does not turn the log into a specification — it stays a dated log of DECISION / VALIDATED / GAP / CLOSED entries, as defined above. What follows is the checklist of information those entries must have captured, between them, by the time the step closes. Most items name the section of the specification that will be written from them; the last ones capture information that cuts across the whole specification, or that step 2 needs before it can even run the prototype.
+
+### Purpose — what the product is and for whom
+
+- The product's name — the specification's title line is `# <product name> — Specification`. If the user never named the product, ask for the name before closing.
+- The problem the product solves, in the user's own words.
+- Who uses the product, and in what situation.
+- What "done" or "success" looks like for the user.
+- What matters most, when the user ranked things ("the most important part is the search"), and what the user called secondary.
+- If the user ever restated or narrowed the purpose mid-exploration, the restatement and when it happened.
+
+### Concepts — the nouns and their names
+
+- Every name the user uses for a thing in the product (a screen, an object, a state, a role), and what the user means by that name.
+- Every renaming: when the user said "do not call it X, call it Y", log it — the specification must use the user's final vocabulary.
+- Distinctions the user insisted on ("a draft is not the same thing as an unpublished post").
+
+### Responsibilities — what each part is in charge of
+
+- When the user said where something belongs ("the server decides that, not the page", "that check happens on save, not on load"), log the assignment.
+- When the user said something must NOT be a given part's job, log that too.
+
+### Workflows — what happens, step by step
+
+- For every main flow the user validated: the trigger, the steps in order, and the visible end result. A bare "VALIDATED — the flow works" is useless to step 2; the entry must say what the flow IS.
+- Orderings the user cares about ("ask for confirmation BEFORE deleting"), and orderings the user explicitly does not care about.
+- What the user said should happen when a flow goes wrong (bad input, missing file, network failure), whenever the subject came up. If the user dismissed an error case as not worth handling, log that dismissal — it is a decision.
+
+### APIs — the surfaces
+
+- Every command, endpoint, keyboard interaction, or file the user actually exercised and validated: its exact name, its inputs, its outputs.
+- Exact values the user fixed: a command name, a flag, a URL path, a port, a file name, a key binding. Record the exact text, never a paraphrase.
+- Surfaces the user explicitly rejected ("no configuration file", "no command-line flags for this").
+
+### Data structures — the shapes of the data, and where they live
+
+- What data the product keeps, where it is kept (a file, a database, memory only), and in what format — and WHY that choice was made, when a choice was made ("switched to a plain JSON file because setup friction was slowing iteration").
+- Fields the user asked for by name, and fields the user said to drop.
+- What must survive a restart and what may be lost.
+- Data the product must work with that already exists outside it (a file the user already has, an external source): where it lives and its exact format.
+
+### Invariants — what must always hold true
+
+- Every rule the user stated with "always", "never", "must", or "cannot": "two entries can never have the same name", "the total always matches the sum of the lines". These sentences are the invariants section of the specification, and the code alone can never prove they were intended rather than accidental — they only exist if logged.
+
+### Constraints — limits, environment, dependencies
+
+- The environment the user validated on (operating system, browser, terminal, screen size) whenever it mattered to a validation.
+- Dependencies the user accepted, and dependencies the user refused ("no database", "nothing that needs an account").
+- Limits the user stated: how much data, how many users, how fast, how big.
+- Anything the user said about cost, licensing, privacy, or where data is allowed to go.
+
+### Assumptions — what is taken for granted
+
+- Everything the prototype silently relies on that the user agreed to rely on: "single user, no login", "input files are always well-formed", "the machine is always online". When you notice yourself building on such an assumption, say it to the user and log the answer.
+
+### Known gaps — what the user accepted as missing
+
+- Every GAP entry, in the user's own words, with its final state: fixed (and when), or explicitly accepted at closing time. The accepted gaps are copied into the specification verbatim.
+- Decisions the user explicitly deferred ("I do not know yet, we will see") — log each as an open GAP, so closing time forces it to be resolved or explicitly accepted.
+
+### Excluded behaviors — accidents that must not survive
+
+- Every behavior the prototype shows that the user, when shown it, said is NOT wanted: log the behavior precisely (what the prototype does, in what situation) and the user's verdict. Without these entries, step 2 cannot tell design from accident and must interrupt the user for every doubt.
+
+### Decisions and rejected alternatives — the why
+
+- For every direction chosen: what the alternatives were, which one was picked, and the reason. The reason is the part the code can never show, and it is what stops later steps from "improving" the product back into an already-rejected design.
+- For every direction abandoned mid-exploration: what was tried, why it was dropped, and in favor of what.
+- Ideas that were proposed but never built: features the user declined or postponed ("not now, maybe later"), and why. Without these entries, later steps innocently re-propose what was already turned down.
+
+### Appearance and wording — what the user sees
+
+- Layout, colors, and visual arrangement choices the user validated or corrected — the example GAP above ("they want a warmer palette") is exactly this kind of information.
+- The exact wording of user-facing text the user fixed or approved: labels, button text, messages, error messages. Record the exact text.
+- The language the user interface is written in, if it ever came up.
+
+### Validated examples — the real inputs and outputs
+
+- For each validation, the concrete example it ran on: the exact input (typed text, a sample file, a sequence of clicks) and the exact visible result the user approved.
+- Where any sample data used during a validation lives, so the same scenario can be re-run later.
+- These examples become worked examples in the specification, and step 5 reuses them to verify the production implementation behaves the same way as the validated prototype.
+
+### How to run the prototype
+
+- For each location listed under `dirty_impl_resources` in the project's `.vibe_to_spec.yaml`: what to install or set up first, the exact command that starts it, and any configuration or credentials it needs.
+- Log this as a DECISION entry the first time the prototype becomes runnable, and again every time the way to run it changes.
+- This step's own rules forbid writing a README for the prototype, so STEP1_VIBE_DECISIONS.md is the only durable record of how to run it — and step 2 must be able to run it.
+
+### How to record, so the information survives
+
+- Use the user's own words for wants, refusals, and gaps — paraphrasing loses the nuance the specification needs.
+- Be concrete: name the exact situation, the exact behavior, the exact verdict. "VALIDATED — search" is lost information; "VALIDATED — search: typing in the search box filters the list as you type, matching on title only; user confirmed matching on title only is what they want" is a specification sentence waiting to happen.
+- Keep exact values exact: names, numbers, paths, formats. Never round, never summarize a value away.
+- One fact per bullet. A bullet that bundles three facts will be half-read later.
+- Log at the moment the information appears in conversation. Reconstructing it at closing time from memory produces exactly the vague entries this section forbids.
+
+At closing time (/close-step), walk this checklist against the log before asking the user for the CLOSED agreement, and fill any hole by asking the user now — this is the last moment the answers are cheap.
+
 ## What the user validates
 
 The user validates BEHAVIOR — what the running prototype does — never the code. Show running behavior, not diffs, when asking for validation.
