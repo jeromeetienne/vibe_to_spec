@@ -5,13 +5,13 @@ Goal: discover the product by vibe coding, and end with a running prototype that
 The deliverable of this step is NOT clean code and NOT a specification. It is two things, and only these two things:
 
 1. A running prototype, explicitly validated by the user.
-2. DECISIONS.md — the log of what was decided, what the user validated, and where the prototype still differs from what the user wants.
+2. STEP1_VIBE_DECISIONS.md — the log of what was decided, what the user validated, and where the prototype still differs from what the user wants.
 
 ## Where the prototype lives
 
 The prototype's code is completely OUTSIDE this repository: in its own repository or folder, pointed at via a GitHub link (an https or git URL) or an absolute path on the local disk. This folder keeps only the records.
 
-At the start of a session, if DECISIONS.md has no `Prototype:` line yet, ask the user where the prototype lives (an existing location, or one to create), and record it right under the `# Decisions` heading:
+At the start of a session, if STEP1_VIBE_DECISIONS.md has no `Prototype:` line yet, ask the user where the prototype lives (an existing location, or one to create), and record it right under the `# Decisions` heading:
 
     Prototype: <link or absolute path>
 
@@ -28,7 +28,7 @@ Work in small, visible increments. For every increment:
    - What feels wrong or off?
    - What is missing?
    - Should this direction continue, or change?
-4. Log the user's answers in DECISIONS.md (format below):
+4. Log the user's answers in STEP1_VIBE_DECISIONS.md (format below):
    - what the user validated as wanted
    - what the user explicitly said is NOT what they want (a gap)
    - any change of direction, and why
@@ -38,7 +38,7 @@ Never chain several increments without asking. The whole point of this step is t
 
 Use /checkpoint to run this ask-and-log ritual; also trigger it yourself after every meaningful behavior change, without waiting to be asked.
 
-## DECISIONS.md — the log format
+## STEP1_VIBE_DECISIONS.md — the log format
 
 One dated section per day, one labeled bullet per entry. Four entry kinds:
 
@@ -77,5 +77,5 @@ The user validates BEHAVIOR — what the running prototype does — never the co
 
 Step 1 ends ONLY when the user explicitly says the running prototype is exactly what they want. Use /close-step to run the closing walkthrough.
 
-- If the user agrees with reservations ("yes, except X"), X must be written in DECISIONS.md as an explicitly accepted gap before closing.
-- You never declare this step done on your own. Only the user's explicit agreement, recorded as the CLOSED entry in DECISIONS.md, closes it.
+- If the user agrees with reservations ("yes, except X"), X must be written in STEP1_VIBE_DECISIONS.md as an explicitly accepted gap before closing.
+- You never declare this step done on your own. Only the user's explicit agreement, recorded as the CLOSED entry in STEP1_VIBE_DECISIONS.md, closes it.

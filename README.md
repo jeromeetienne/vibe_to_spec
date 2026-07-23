@@ -23,10 +23,10 @@ Each phase answers exactly one question and reduces one kind of uncertainty:
 | # | Phase | Question it answers | Output |
 |---|-------|---------------------|--------|
 | 1 | Exploration | What do I actually want? | A running prototype, explicitly validated by the user |
-| 2 | Specification Extraction | What did I actually build? | `SPEC.md` — the raw specification |
-| 3 | Specification Simplification | What is the simplest design? | `SPEC.md` — simplified: **the source of truth** |
+| 2 | Specification Extraction | What did I actually build? | `STEP2_VIBE_SPEC.md` — the raw specification |
+| 3 | Specification Simplification | What is the simplest design? | `STEP3_PRODUCTION_SPEC.md` — simplified: **the source of truth** |
 | 4 | Implementation | How should it be built? | Production code, with tests |
-| 5 | Verification | Does it match the specification? | `VERIFICATION.md` — evidence-backed verdicts |
+| 5 | Verification | Does it match the specification? | `STEP5_IMPL_VERIFICATION.md` — evidence-backed verdicts |
 
 ## The workflow: Claude changes folder at each step
 
@@ -70,19 +70,19 @@ What stays in this repository is exactly what the methodology calls permanent: t
 
 ```
 idea
-  → step_01: DECISIONS.md        + prototype ……………… external, pointed at
-    → step_02: SPEC.md (raw) ……………… reads the external prototype
-      → step_03: SPEC.md (simplified — the source of truth)
-        → step_04: SPECGAPS.md   + production code …… external, pointed at
-          → step_05: VERIFICATION.md … checks the external implementation
-                                       against the specification
+  → step_01: STEP1_VIBE_DECISIONS.md        + prototype ……………… external, pointed at
+    → step_02: STEP2_VIBE_SPEC.md ……………… reads the external prototype
+      → step_03: STEP3_PRODUCTION_SPEC.md (simplified — the source of truth)
+        → step_04: STEP4_IMPL_SPEC_GAPS.md   + production code …… external, pointed at
+          → step_05: STEP5_IMPL_VERIFICATION.md … checks the external implementation
+                                                    against the specification
 ```
 
 ## The rules that hold it together
 
 - **Only the user closes a phase.** Every step ends with a `/close-step` ritual and an explicit agreement from the user, recorded in that phase's artifact. The agent never declares a phase done on its own.
 - **Each phase starts by checking the previous phase's recorded agreement.** The chain is mechanically checkable; a step refuses to start when the one before it is not closed.
-- **Every phase keeps a "why" log** — the reasoning that later phases cannot reconstruct from the artifacts alone: `DECISIONS.md`, `REDUCTIONS.md`, `SPECGAPS.md`, `VERIFICATION.md`.
+- **Every phase keeps a "why" log** — the reasoning that later phases cannot reconstruct from the artifacts alone: `STEP1_VIBE_DECISIONS.md`, `STEP3_SPEC_OPTIMISATION.md`, `STEP4_IMPL_SPEC_GAPS.md`, `STEP5_IMPL_VERIFICATION.md`.
 - **From step 4 on, the prototype is forbidden input.** Implementation is built from the specification alone; if the specification is not enough, that is a specification gap to resolve with the user — never something to improvise around.
 
 ## Going further
