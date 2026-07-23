@@ -16,6 +16,30 @@ Build production software from the specification — and only from the specifica
 
 ## How it iterates
 
+```mermaid
+flowchart TD
+    Start(["Step 3 done —
+STEP3_CLEAN_SPEC.md agreed"]) --> Pick["Pick the next
+specification part"]
+    Pick --> Implement["Implement it with tests,
+exactly as specified"]
+    Implement --> Ambiguous{"Spec ambiguous,
+incomplete, or wrong?"}
+    Ambiguous -->|"yes"| Gap["/spec-gap: log it,
+ask the user"]
+    Gap --> Amend["Apply agreed fix to
+STEP3_CLEAN_SPEC.md, log RESOLVED"]
+    Amend --> Implement
+    Ambiguous -->|"no"| Report["Report progress:
+covered vs. not yet"]
+    Report --> More{"Specification parts
+still remaining?"}
+    More -->|"yes"| Pick
+    More -->|"no, tests pass,
+user agrees"| Closed(["CLOSED entry logged.
+Step 4 ends"])
+```
+
 1. **Full engineering discipline is back**: the developer's global coding rules apply, tests are written alongside the code, the code is clean and maintainable.
 2. **Implement the specification part by part.** The specification is authoritative — the implementation follows it, never reinterprets it.
 3. **When the specification is ambiguous, incomplete, or looks wrong**: stop on that point, log it with `/spec-gap`, and ask the user. Never silently improvise around the specification.

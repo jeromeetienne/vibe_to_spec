@@ -4,14 +4,42 @@ This folder implements the [Vibe to Spec](https://github.com/jeromeetienne/vibe_
 
 The artifact flow through the five steps:
 
+```mermaid
+flowchart TD
+    Idea(["idea"]) --> Step1
+
+    Step1["Step 1 — Exploration
+STEP1_VIBE_DECISIONS.md"] -.->|builds| Prototype[("Prototype
+external, pointed at")]
+
+    Step1 --> Step2["Step 2 — Dirty Specification Extraction
+STEP2_DIRTY_SPEC.md"]
+    Prototype -.->|read-only| Step2
+
+    Step2 --> Step3["Step 3 — Specification Cleaning
+STEP3_CLEAN_SPEC.md
+(the source of truth)"]
+
+    Step3 --> Step4["Step 4 — Implementation
+STEP4_IMPL_SPEC_GAPS.md"]
+    Step4 -.->|builds| Implementation[("Implementation
+external, pointed at")]
+    Step4 -->|"spec gaps: agreed fixes
+amend the source of truth"| Step3
+
+    Step3 -.->|yardstick| Step5["Step 5 — Verification
+STEP5_IMPL_VERIFICATION.md"]
+    Step4 --> Step5
+    Implementation -.->|read-only| Step5
+
+    Step5 -->|gaps found, back to| Step4
+    Step5 -->|full conformance| Done(["Cycle complete —
+STEP3_CLEAN_SPEC.md is the
+enduring output; the code
+is disposable"])
 ```
-idea
-  → step_01: STEP1_VIBE_DECISIONS.md        + prototype ……………… external, pointed at
-    → step_02: STEP2_DIRTY_SPEC.md ……………… reads the external prototype
-      → step_03: STEP3_CLEAN_SPEC.md (cleaned — the source of truth)
-        → step_04: STEP4_IMPL_SPEC_GAPS.md   + production code …… external, pointed at
-          → step_05: STEP5_IMPL_VERIFICATION.md … checks the external implementation
-```
+
+Two loops keep the source of truth honest: step 4 logs every specification gap in `STEP4_IMPL_SPEC_GAPS.md` and, once the user resolves it, applies the agreed fix to `STEP3_CLEAN_SPEC.md` — the specification never drifts from the implementation silently; and step 5 hands its gap list back to step 4 until verification shows full conformance. When the cycle completes, the real output is `STEP3_CLEAN_SPEC.md` — the code can always be rebuilt from it.
 
 ## The methodology template
 
@@ -81,7 +109,7 @@ Pervasive rules that apply to every step:
 - **Question**: How should this specification be implemented?
 - **Inputs**: `../step_03_spec_cleaning/STEP3_CLEAN_SPEC.md` **only** — explicitly not the prototype.
 - **Outputs**: the production implementation with its tests, living in its own external repository or folder (pointed at by the `Implementation:` line of `STEP4_IMPL_SPEC_GAPS.md`) → consumed by step 05.
-- **Way of working**: full engineering discipline restored (the developer's global style rules apply in full); the specification is authoritative; when it is ambiguous or looks wrong, record the gap and ask — never silently improvise around it.
+- **Way of working**: full engineering discipline restored (the developer's global style rules apply in full); the specification is authoritative; when it is ambiguous or looks wrong, record the gap in `STEP4_IMPL_SPEC_GAPS.md` and ask — never silently improvise around it. Agreed resolutions are applied to `../step_03_spec_cleaning/STEP3_CLEAN_SPEC.md` itself, so the source of truth stays true.
 - **Claude Code configuration**: `CLAUDE.md` stating "the specification is law" plus restored discipline; two commands — `/spec-gap` (logs specification ambiguities back for resolution — the mirror image of step 1's `/log-decision`) and `/close-step` (the closing walkthrough and the final agreement).
 - **Done when**: the implementation is complete per the specification and its tests pass.
 - **Workflow detail**: [step_04_implementation/README.md](step_04_implementation/README.md).

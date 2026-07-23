@@ -17,6 +17,31 @@ Recover the architecture that was actually built. This step turns the validated 
 
 ## How it iterates
 
+```mermaid
+flowchart TD
+    Start(["Step 1 closed"]) --> Read["Read the prototype and
+STEP1_VIBE_DECISIONS.md"]
+    Read --> Draft["Draft or extend ONE section
+of STEP2_DIRTY_SPEC.md"]
+    Draft --> Unclear{"Behavior found
+that's unclear?"}
+    Unclear -->|"yes"| AskUser["Ask the user:
+intentional, or accidental?"]
+    AskUser -->|"intentional"| Review
+    AskUser -->|"accidental, exclude"| Review
+    AskUser -->|"accidental, but a gap"| Review
+    Unclear -->|"no"| Review["Show the section to the user:
+does this match what was built?"]
+    Review --> Log["Log corrections
+into the spec"]
+    Log --> More{"Sections still
+to extract?"}
+    More -->|"yes"| Draft
+    More -->|"no, user agrees
+spec is complete"| Closed(["STEP2_DIRTY_SPEC.md
+marked agreed. Step 2 ends"])
+```
+
 1. **Read** the prototype and `STEP1_VIBE_DECISIONS.md`; observe what the prototype actually does.
 2. **Write** `STEP2_DIRTY_SPEC.md` in this folder, section by section: concepts, responsibilities, workflows, APIs, data structures, invariants, constraints, assumptions.
 3. **Describe what IS, not what should be.** Implementation details are ignored unless architecturally significant. Gaps the user explicitly accepted at the end of step 1 are recorded in the spec as known gaps — never silently "fixed" on paper.

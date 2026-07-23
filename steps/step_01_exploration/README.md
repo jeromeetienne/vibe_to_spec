@@ -16,6 +16,30 @@ Explore the product by vibe coding. This step ends with a running prototype that
 
 ## How it iterates — the exploration loop
 
+```mermaid
+flowchart TD
+    Start(["User has an idea"]) --> Build["Build the smallest change
+that shows real behavior"]
+    Build --> Show["Show it: how to run it,
+what to look at"]
+    Show --> Ask{"Ask: 'Is this
+what you want?'"}
+    Ask --> Log["Log the verdict in
+STEP1_VIBE_DECISIONS.md"]
+    Log -->|"VALIDATED"| Continue{"Open gaps
+remain?"}
+    Log -->|"GAP"| Continue
+    Log -->|"DECISION"| Continue
+    Continue -->|"yes, keep exploring"| Build
+    Continue -->|"user feels done"| Close["/close-step:
+closing walkthrough"]
+    Close --> Final{{"'Is this running prototype
+exactly what you want?'"}}
+    Final -->|"explicit yes"| Closed(["CLOSED entry logged.
+Step 1 ends"])
+    Final -->|"anything else"| Build
+```
+
 Every increment goes through the same loop:
 
 1. **Build** the smallest change that shows real behavior.

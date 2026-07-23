@@ -15,6 +15,27 @@ Reduce the design's complexity without changing behavior. The output is the clea
 
 ## How it iterates
 
+```mermaid
+flowchart TD
+    Start(["Step 2 done"]) --> Copy["Copy the raw spec into this
+folder as STEP3_CLEAN_SPEC.md"]
+    Copy --> Hunt["Hunt for ONE reduction
+candidate"]
+    Hunt --> Propose["Propose it to the user:
+WHAT is removed — WHY
+behavior is preserved"]
+    Propose --> Decide{"User approves?"}
+    Decide -->|"yes"| Apply["Apply the reduction and
+log it in STEP3_SPEC_OPTIMISATION.md"]
+    Decide -->|"no"| Hunt
+    Apply --> More{"Full pass finds
+anything else to remove?"}
+    More -->|"yes"| Hunt
+    More -->|"no, user agrees
+spec is minimal"| Closed(["STEP3_CLEAN_SPEC.md marked
+agreed — source of truth"])
+```
+
 1. **Copy** the raw specification into this folder as the working `STEP3_CLEAN_SPEC.md`.
 2. **Propose reductions**, pass by pass: merge duplicated concepts, remove needless configuration options, unify terminology, clarify responsibilities, clean APIs, drop historical artifacts left over from exploration.
 3. **Justify every removal to the user**: what is removed, and why behavior is preserved without it. The user approves or rejects each reduction.

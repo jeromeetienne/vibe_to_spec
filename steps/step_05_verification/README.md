@@ -19,6 +19,38 @@ Verify that the implementation faithfully realizes the specification.
 
 ## How it iterates
 
+```mermaid
+flowchart TD
+    Start(["Step 4 done —
+implementation CLOSED"]) --> Pick["Pick the next unverified
+specification item(s)"]
+    Pick --> Check["Check against the implementation:
+behavior, architecture, API contracts,
+invariants, completeness"]
+    Check --> Delegate["Delegate bounded per-item
+checks to spec-verifier"]
+    Delegate --> Verify{"Claimed deviation
+or missing item?"}
+    Verify -->|"yes"| Reverify["Re-check with concrete
+evidence before recording"]
+    Reverify --> Record
+    Verify -->|"no, conforms"| Record["Record verdict in
+STEP5_IMPL_VERIFICATION.md"]
+    Record --> Ambiguous{"Verdict is
+AMBIGUOUS?"}
+    Ambiguous -->|"yes"| AskUser["Ask the user
+to resolve it"]
+    AskUser --> Record
+    Ambiguous -->|"no"| More{"Items still
+unverified?"}
+    More -->|"yes"| Pick
+    More -->|"no, every item
+has a verdict"| Conclude{{"/close-step"}}
+    Conclude -->|"full conformance"| Done(["Cycle complete"])
+    Conclude -->|"gaps found"| BackToStep4(["Gap list handed back
+to step 4"])
+```
+
 1. **Go through the specification item by item**: behavior, architecture, API contracts, invariants, completeness.
 2. **Check each item against the implementation** and record a verdict in `STEP5_IMPL_VERIFICATION.md`: conforms / deviates (and how) / missing.
 3. **Verify findings before reporting them** — re-check each claimed deviation against both the specification and the code (running it where needed). No unconfirmed claims enter the report.
