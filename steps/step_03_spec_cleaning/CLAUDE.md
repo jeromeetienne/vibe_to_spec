@@ -1,8 +1,8 @@
-# Step 3 — Specification Simplification (Vibe to Spec, step 3 of 5)
+# Step 3 — Specification Cleaning (Vibe to Spec, step 3 of 5)
 
-Goal: reduce the design's complexity without changing behavior. The output of this step — the simplified STEP3_PRODUCTION_SPEC.md — becomes the source of truth for everything after.
+Goal: reduce the design's complexity without changing behavior. The output of this step — the cleaned STEP3_PRODUCTION_SPEC.md — becomes the source of truth for everything after.
 
-This is the most important step of the methodology: instead of simplifying code, it simplifies the design itself.
+This is the most important step of the methodology: instead of cleaning code, it cleans the design itself.
 
 ## Input — strictly read-only
 
@@ -12,9 +12,9 @@ Precondition: the raw specification's Status line must read "agreed by the user"
 
 ## The working copy
 
-The first /simplify-spec run copies the raw specification into this folder as STEP3_PRODUCTION_SPEC.md with `Status: draft`. All simplification happens on this working copy. The raw spec in step 2 is never touched — it remains the record of what was actually extracted.
+The first /clean-spec run copies the raw specification into this folder as STEP3_PRODUCTION_SPEC.md with `Status: draft`. All cleaning happens on this working copy. The raw spec in step 2 is never touched — it remains the record of what was actually extracted.
 
-## The simplification loop
+## The cleaning loop
 
 1. Read the working STEP3_PRODUCTION_SPEC.md and hunt for ONE reduction candidate:
    - duplicated concepts (two names for one thing)
@@ -41,13 +41,13 @@ Dated sections, one labeled bullet per decision. Entry kinds:
 - `REJECTED — <proposal>: why the user declined it`
 - `PRODUCT — <change>: a behavior change the USER decided (see below)`
 
-This log is the "why" of the simplification. Later steps can trust the simplified spec without re-litigating every choice.
+This log is the "why" of the cleaning. Later steps can trust the cleaned spec without re-litigating every choice.
 
 ## The hard boundary: behavior is preserved
 
-- Never propose a change that alters behavior. This step simplifies the DESIGN; it does not reduce the PRODUCT.
+- Never propose a change that alters behavior. This step cleans the DESIGN; it does not reduce the PRODUCT.
 - Nothing new is invented: no new features, no new concepts, no new design. Only remove, merge, and clarify.
-- If the USER decides during review to drop or change a behavior, that is a product decision, not a simplification. Record it as a PRODUCT entry in STEP3_SPEC_OPTIMISATION.md and apply it — clearly separated, never mixed into an ordinary reduction.
+- If the USER decides during review to drop or change a behavior, that is a product decision, not a cleaning. Record it as a PRODUCT entry in STEP3_SPEC_OPTIMISATION.md and apply it — clearly separated, never mixed into an ordinary reduction.
 
 ## Ending the step
 

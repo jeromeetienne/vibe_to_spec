@@ -8,7 +8,7 @@ The artifact flow through the five steps:
 idea
   → step_01: STEP1_VIBE_DECISIONS.md        + prototype ……………… external, pointed at
     → step_02: STEP2_VIBE_SPEC.md ……………… reads the external prototype
-      → step_03: STEP3_PRODUCTION_SPEC.md (simplified — the source of truth)
+      → step_03: STEP3_PRODUCTION_SPEC.md (cleaned — the source of truth)
         → step_04: STEP4_IMPL_SPEC_GAPS.md   + production code …… external, pointed at
           → step_05: STEP5_IMPL_VERIFICATION.md … checks the external implementation
 ```
@@ -64,22 +64,22 @@ Pervasive rules that apply to every step:
 - **Done when**: `STEP2_VIBE_SPEC.md` fully accounts for the prototype's observed behavior.
 - **Workflow detail**: [step_02_spec_extraction/README.md](step_02_spec_extraction/README.md).
 
-### `steps/step_03_spec_simplification`
+### `steps/step_03_spec_cleaning`
 
 - **Goal**: reduce the design's complexity without changing behavior.
 - **Question**: What is the simplest design that preserves the same behavior?
 - **Inputs**: `../step_02_spec_extraction/STEP2_VIBE_SPEC.md`.
-- **Outputs**: `STEP3_PRODUCTION_SPEC.md` (simplified) — **the source of truth** for everything after → consumed by steps 04 and 05.
+- **Outputs**: `STEP3_PRODUCTION_SPEC.md` (cleaned) — **the source of truth** for everything after → consumed by steps 04 and 05.
 - **Way of working**: reductive only — merge duplicated concepts, remove needless options, unify terminology, clarify responsibilities; nothing new is invented; every removal must preserve behavior.
-- **Claude Code configuration**: `CLAUDE.md` with the simplification rules; two commands — `/simplify-spec` (propose and apply one reduction at a time) and `/close-step` (the closing walkthrough and the final agreement).
+- **Claude Code configuration**: `CLAUDE.md` with the cleaning rules; two commands — `/clean-spec` (propose and apply one reduction at a time) and `/close-step` (the closing walkthrough and the final agreement).
 - **Done when**: nothing further can be removed without changing behavior.
-- **Workflow detail**: [step_03_spec_simplification/README.md](step_03_spec_simplification/README.md).
+- **Workflow detail**: [step_03_spec_cleaning/README.md](step_03_spec_cleaning/README.md).
 
 ### `steps/step_04_implementation`
 
 - **Goal**: build production software from the specification.
 - **Question**: How should this specification be implemented?
-- **Inputs**: `../step_03_spec_simplification/STEP3_PRODUCTION_SPEC.md` **only** — explicitly not the prototype.
+- **Inputs**: `../step_03_spec_cleaning/STEP3_PRODUCTION_SPEC.md` **only** — explicitly not the prototype.
 - **Outputs**: the production implementation with its tests, living in its own external repository or folder (pointed at by the `Implementation:` line of `STEP4_IMPL_SPEC_GAPS.md`) → consumed by step 05.
 - **Way of working**: full engineering discipline restored (the developer's global style rules apply in full); the specification is authoritative; when it is ambiguous or looks wrong, record the gap and ask — never silently improvise around it.
 - **Claude Code configuration**: `CLAUDE.md` stating "the specification is law" plus restored discipline; two commands — `/spec-gap` (logs specification ambiguities back for resolution — the mirror image of step 1's `/log-decision`) and `/close-step` (the closing walkthrough and the final agreement).
@@ -90,7 +90,7 @@ Pervasive rules that apply to every step:
 
 - **Goal**: verify the implementation matches the specification.
 - **Question**: Does this implementation faithfully realize the specification?
-- **Inputs**: `../step_03_spec_simplification/STEP3_PRODUCTION_SPEC.md` + the implementation at the external location recorded in `../step_04_implementation/STEP4_IMPL_SPEC_GAPS.md` — never the prototype.
+- **Inputs**: `../step_03_spec_cleaning/STEP3_PRODUCTION_SPEC.md` + the implementation at the external location recorded in `../step_04_implementation/STEP4_IMPL_SPEC_GAPS.md` — never the prototype.
 - **Outputs**: `STEP5_IMPL_VERIFICATION.md` — a per-item verdict covering behavior, architecture, API contracts, invariants, completeness; gaps are filed back to step 04.
 - **Way of working**: adversarial review; the specification is the yardstick; findings are verified before being reported.
 - **Claude Code configuration**: `CLAUDE.md` with the verification rules; two commands — `/verify` (one verification pass) and `/close-step` (the concluding ritual); this step is also the natural home for custom reviewer subagents (bounded, delegable checks).

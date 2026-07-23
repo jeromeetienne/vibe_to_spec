@@ -1,6 +1,6 @@
-# Step 3 — Specification Simplification
+# Step 3 — Specification Cleaning
 
-Reduce the design's complexity without changing behavior. The output is the simplified `STEP3_PRODUCTION_SPEC.md` — the source of truth for everything that follows.
+Reduce the design's complexity without changing behavior. The output is the cleaned `STEP3_PRODUCTION_SPEC.md` — the source of truth for everything that follows.
 
 ## How it starts
 
@@ -8,7 +8,7 @@ Reduce the design's complexity without changing behavior. The output is the simp
 - **Where**: start the AI coding agent inside this folder:
 
   ```bash
-  cd steps/step_03_spec_simplification && claude
+  cd steps/step_03_spec_cleaning && claude
   ```
 
 - **Input, read-only**: `../step_02_spec_extraction/STEP2_VIBE_SPEC.md` (the raw specification).
@@ -16,9 +16,9 @@ Reduce the design's complexity without changing behavior. The output is the simp
 ## How it iterates
 
 1. **Copy** the raw specification into this folder as the working `STEP3_PRODUCTION_SPEC.md`.
-2. **Propose reductions**, pass by pass: merge duplicated concepts, remove needless configuration options, unify terminology, clarify responsibilities, simplify APIs, drop historical artifacts left over from exploration.
+2. **Propose reductions**, pass by pass: merge duplicated concepts, remove needless configuration options, unify terminology, clarify responsibilities, clean APIs, drop historical artifacts left over from exploration.
 3. **Justify every removal to the user**: what is removed, and why behavior is preserved without it. The user approves or rejects each reduction.
-4. **Invent nothing.** Simplification only removes, merges, and clarifies — it never adds features, concepts, or new design.
+4. **Invent nothing.** Cleaning only removes, merges, and clarifies — it never adds features, concepts, or new design.
 5. **Repeat** until a full pass finds nothing left to remove.
 
 ## How it ends

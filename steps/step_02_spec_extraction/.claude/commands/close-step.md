@@ -11,5 +11,5 @@ Run the step-closing ritual:
 4. Then ask the final question, verbatim: "Does this specification fully account for the prototype?"
 5. Only if the user explicitly answers yes:
    - set the STEP2_VIBE_SPEC.md status line to: Status: agreed by the user on <date>
-   - tell the user step 2 is complete and step 3 can start in ../step_03_spec_simplification.
+   - tell the user step 2 is complete and step 3 can start in ../step_03_spec_cleaning.
 6. On any other answer: record what is missing and continue extracting. Never set the agreed status without the user's explicit yes in this session.

@@ -6,7 +6,7 @@ Part 2 described the mechanism this methodology uses to keep each phase honest: 
 
 ## Reviewing the documentation the way step 3 reviews a specification
 
-I read all twenty files under `steps/` — the root README, every phase's own `README.md` and `CLAUDE.md`, every command, the one subagent — looking for exactly what Specification Simplification looks for in a specification: duplicated concepts, inconsistent naming, options nobody had a reason for anymore.
+I read all twenty files under `steps/` — the root README, every phase's own `README.md` and `CLAUDE.md`, every command, the one subagent — looking for exactly what Specification Cleaning looks for in a specification: duplicated concepts, inconsistent naming, options nobody had a reason for anymore.
 
 The most damning finding wasn't any single item on the list. It was the sentence that explained why the list existed at all: the root README's per-phase summary, each phase's own `README.md`, and each phase's `CLAUDE.md` all restate the same inputs, outputs, working rules, and ending condition — each in its own phrasing, none of them generated from the others. Three hand-maintained copies of the same set of facts, and in several places, they had already drifted apart from each other.
 
@@ -26,7 +26,7 @@ I fixed all eight findings from that review, across two follow-up commits: the t
 
 Not everything the review turned up got closed that cleanly. [Issue #4](https://github.com/jeromeetienne/vibe_to_spec/issues/4) came out of the same pass and is still open: whether each phase needs its own internal loop — build, analyze, review, critique — before a single unit of work counts as done, not just before the whole phase closes.
 
-A few phases are already most of the way there, without ever having been designed for it. Verification's `spec-verifier` subagent already gets re-checked by the main session before its findings are recorded — a real build-review-critique loop, just scoped to one specification item at a time, not to the phase's own output. Specification Simplification already proposes and gets approval for one reduction at a time, which is close to the same shape. Specification Extraction and Implementation are the least loop-like of the five: each drafts a piece of work and reviews it with the user, but nothing in either phase's configuration asks the agent to critique its own output before showing it.
+A few phases are already most of the way there, without ever having been designed for it. Verification's `spec-verifier` subagent already gets re-checked by the main session before its findings are recorded — a real build-review-critique loop, just scoped to one specification item at a time, not to the phase's own output. Specification Cleaning already proposes and gets approval for one reduction at a time, which is close to the same shape. Specification Extraction and Implementation are the least loop-like of the five: each drafts a piece of work and reviews it with the user, but nothing in either phase's configuration asks the agent to critique its own output before showing it.
 
 Turning that into a deliberate rule, instead of an accident of which phase happened to need it, raises questions I don't have settled answers to yet:
 

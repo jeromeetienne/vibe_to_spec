@@ -57,7 +57,7 @@ Never classify silently. A wrong guess here corrupts the source of truth for eve
 
 - Never modifies the prototype, nor anything under ../step_01_exploration/.
 - Never invents behavior that was not observed in the prototype.
-- Never "cleans up" the design on paper — simplification is step 3's job, done later on the complete raw spec.
+- Never "cleans up" the design on paper — cleaning is step 3's job, done later on the complete raw spec.
 - Never sets the spec status to agreed — only the user does, through /close-step.
 
 ## Ending the step

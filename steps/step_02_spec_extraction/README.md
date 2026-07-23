@@ -28,4 +28,4 @@ The prototype is never modified in this step — it is an input, not a workspace
 ## How it ends
 
 - `STEP2_VIBE_SPEC.md` fully accounts for the prototype's observed behavior, and the user explicitly agrees it does.
-- **Hand-off**: `STEP2_VIBE_SPEC.md` stays in this folder; step 3 (`../step_03_spec_simplification`) reads it.
+- **Hand-off**: `STEP2_VIBE_SPEC.md` stays in this folder; step 3 (`../step_03_spec_cleaning`) reads it.
