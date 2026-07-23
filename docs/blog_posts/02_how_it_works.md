@@ -12,7 +12,7 @@ Every phase of Vibe to Spec — Exploration, Dirty Specification Extraction, Spe
 cd steps/step_01_exploration && claude
 ```
 
-A session started this way only ever sees the rules of the folder it was started in. The repository root deliberately carries no `CLAUDE.md` of its own, so nothing leaks in from outside any single phase. The exploration session never sees the implementation phase's engineering discipline. The implementation session has never read the prototype. This is the actual mechanism behind "separate exploration from engineering" — not a request made of one long-running conversation, but separate conversations that structurally cannot see each other.
+A session started this way only ever sees the rules of the folder it was started in, plus one exception: a minimal `CLAUDE.md` at the repository root, whose only job is resolving which project is active and where its records and code live. It carries no phase-specific rules of its own, so nothing about any one phase's discipline leaks into another. The exploration session never sees the implementation phase's engineering discipline. The implementation session has never read the prototype. This is the actual mechanism behind "separate exploration from engineering" — not a request made of one long-running conversation, but separate conversations that structurally cannot see each other.
 
 ## The same agent, configured to behave in opposite ways
 
