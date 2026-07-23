@@ -72,7 +72,7 @@ The step folders contain only the methodology's configuration — **never a proj
 - **`dirty_impl_resources`** points at the phase 1 **prototype** — one or more paths or links, each with a short description;
 - **`clean_impl_resources`** points at the phase 4 **production implementation**, in the same shape.
 
-Each of these is a **GitHub link** (an https or git URL) or an **absolute path** on the local disk. A session finds the active project's `.vibe_to_spec.yaml` through a symlink at the repository root, `.active_project.vibe_to_spec.yaml` — see the root [`CLAUDE.md`](CLAUDE.md) for the full mechanism.
+Each of these is a **GitHub link** (an https or git URL) or an **absolute path** on the local disk. A session finds the active project's `.vibe_to_spec.yaml` through a symlink at the repository root, `.active_project.vibe_to_spec.yaml` — see the root [`CLAUDE.md`](CLAUDE.md) for the full mechanism. A template for this file is at [`projects/template.vibe_to_spec.yaml-sample`](projects/template.vibe_to_spec.yaml-sample).
 
 What stays in this repository is exactly the methodology template itself: the step folders' configuration, never a project's own records or code. Every project's `.vibe_to_spec.yaml` is git-ignored, since it holds paths specific to one user's machine.
 
