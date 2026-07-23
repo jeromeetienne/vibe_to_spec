@@ -4,9 +4,9 @@
 
 Modern AI has changed how software is created. Instead of designing everything upfront, developers **vibe code**: they converse with an AI coding agent, iterate rapidly, experiment freely, and arrive at a prototype that behaves exactly as desired.
 
-This is one of the fastest ways ever invented to *discover* software. It is also remarkably bad at producing software that can be *maintained*. Exploratory code accumulates duplicated concepts, inconsistent naming, obsolete options, historical artifacts, and architecture that emerged by accident rather than by intention.
+This is one of the fastest ways ever invented to *explore* software. It is also remarkably bad at producing software that can be *maintained*. Exploratory code accumulates duplicated concepts, inconsistent naming, obsolete options, historical artifacts, and architecture that emerged by accident rather than by intention.
 
-**Vibe to Spec** is a methodology that separates **discovery** from **engineering**. The prototype is treated as a disposable exploration artifact. The lasting asset is a clean specification extracted from it. Production code is then regenerated from the specification — never evolved from the exploratory implementation.
+**Vibe to Spec** is a methodology that separates **exploration** from **engineering**. The prototype is treated as a disposable exploration artifact. The lasting asset is a clean specification extracted from it. Production code is then regenerated from the specification — never evolved from the exploratory implementation.
 
 > **The specification is permanent. The implementation is disposable.**
 

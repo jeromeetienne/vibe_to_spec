@@ -44,7 +44,7 @@ Pervasive rules that apply to every step:
 
 ### `steps/step_01_exploration`
 
-- **Goal**: discover the product.
+- **Goal**: explore the product.
 - **Question**: What do I actually want?
 - **Inputs**: the initial idea; nothing formal.
 - **Outputs**: a running prototype explicitly validated by the user, living in its own external repository or folder (pointed at by the `Prototype:` line of `STEP1_VIBE_DECISIONS.md`) + `STEP1_VIBE_DECISIONS.md`, the log of decisions, user validations, gaps, and the final agreement → consumed by step 02.

@@ -1,6 +1,6 @@
 # Step 1 — Exploration (Vibe to Spec, step 1 of 5)
 
-Goal: discover the product by vibe coding, and end with a running prototype that the user has explicitly agreed is exactly what they want.
+Goal: explore the product by vibe coding, and end with a running prototype that the user has explicitly agreed is exactly what they want.
 
 The deliverable of this step is NOT clean code and NOT a specification. It is two things, and only these two things:
 

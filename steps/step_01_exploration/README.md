@@ -1,6 +1,6 @@
 # Step 1 — Exploration
 
-Discover the product by vibe coding. This step ends with a running prototype that the user has explicitly agreed is exactly what they want — not with clean code, and not with a specification.
+Explore the product by vibe coding. This step ends with a running prototype that the user has explicitly agreed is exactly what they want — not with clean code, and not with a specification.
 
 ## How it starts
 

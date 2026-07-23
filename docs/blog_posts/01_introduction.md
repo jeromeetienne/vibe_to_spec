@@ -6,7 +6,7 @@ If you've spent real time coding alongside an AI agent recently, you already kno
 
 This way of working has a name now: **vibe coding**. 
 
-You converse with an AI coding agent, iterate rapidly, experiment freely, and arrive at a prototype that behaves exactly as you wanted. It's one of the fastest ways ever invented to discover what software should do. It's also remarkably bad at producing software anyone can maintain afterward.
+You converse with an AI coding agent, iterate rapidly, experiment freely, and arrive at a prototype that behaves exactly as you wanted. It's one of the fastest ways ever invented to explore what software should do. It's also remarkably bad at producing software anyone can maintain afterward.
 
 ## What goes wrong
 
