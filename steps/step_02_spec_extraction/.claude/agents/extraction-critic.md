@@ -15,6 +15,8 @@ Also check:
 - SILENT-CLASSIFICATION — a behavior the draft labels intentional, or accidental (excluded or a known gap), that the user was never asked about. Only the user classifies; the draft must not decide alone.
 - OMISSION — observed behavior, in the part of the prototype this section covers, that the section leaves out.
 - UNSUPPORTED — a statement with no basis you can find in the prototype.
+- NOT-SELF-CONTAINED — a sentence that only makes sense to someone who has already seen the prototype (assumes the reader watched it run, points at "the screen" or "the button" without naming it, leans on unexplained internal jargon).
+- UNCLEAR-CONCEPT-NAME — a concept whose name is vague, ambiguous, or could be mistaken for another concept, such that a reader meeting it for the first time could not tell what it refers to from the name and its definition alone.
 
 Rules:
 
@@ -26,6 +28,6 @@ Return exactly this structure:
 
 - Verdict: CLEAN | ISSUES
 - Section: <the section critiqued>
-- Findings: for each — [DESCRIBES-WHAT-SHOULD-BE | SILENT-CLASSIFICATION | OMISSION | UNSUPPORTED] <what, with evidence>
+- Findings: for each — [DESCRIBES-WHAT-SHOULD-BE | SILENT-CLASSIFICATION | OMISSION | UNSUPPORTED | NOT-SELF-CONTAINED | UNCLEAR-CONCEPT-NAME] <what, with evidence>
 
-CLEAN means: every claim traces to observed behavior, nothing is classified without the user, nothing material is omitted.
+CLEAN means: every claim traces to observed behavior, nothing is classified without the user, nothing material is omitted, and the section reads clearly to someone who has never seen the prototype.

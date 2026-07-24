@@ -2,6 +2,8 @@
 
 Recover the architecture that was actually built. This step turns the validated prototype of step 1 into `STEP2_DIRTY_SPEC.md` — the raw specification of what the prototype is and does.
 
+`STEP2_DIRTY_SPEC.md` must be understandable by someone who has never seen the prototype, and every concept name in it must be explicit and unambiguous.
+
 ## How it starts
 
 - **Precondition**: step 1 is closed — the prototype recorded as `dirty_impl_resources` in the project's `.vibe_to_spec.yaml` runs, and `<artifacts>/STEP1_VIBE_DECISIONS.md` ends with the `CLOSED` entry (the user's explicit agreement).
@@ -34,6 +36,7 @@ This step is a conversation you steer, not a form you fill in. You do not need t
 - **To correct a draft** — say what the prototype actually does:
   > "This says the cache 'should expire after an hour' — but the prototype never expires it at all. Describe what it does, not what it should do."
   > "You've missed that uploads over 10 MB are silently dropped. Add that."
+  > "'The sync thing' isn't a clear concept name — call it exactly what it is, so someone who never saw the prototype knows what you mean."
 
 - **To close the step** — only when you agree the spec is complete:
   > "This fully matches what I built. Run /close-step."

@@ -4,6 +4,8 @@ Goal: recover the architecture that was actually built, by turning the validated
 
 The deliverable of this step is STEP2_DIRTY_SPEC.md, and nothing else. No product code is written in this step.
 
+STEP2_DIRTY_SPEC.md must be understandable on its own, by someone who has never seen the prototype. Never rely on the reader having watched the prototype run — spell out what a concept is, not just its name. Every concept name must be explicit and clear: a reader meeting it for the first time, with no other context, must be able to tell what it refers to from the name and its definition alone. Never name a concept after an internal implementation detail (a variable, a table, a file) unless that name is also the clearest name available.
+
 ## Inputs — strictly read-only
 
 - The prototype — at the external location(s) recorded as `dirty_impl_resources` in the project's `.vibe_to_spec.yaml` (a repository link or an absolute path; the code is completely outside this repository). You may read it, and run it to observe behavior. You must NEVER modify, fix, or improve it. If the location is a repository link, work from a local clone.
@@ -36,7 +38,7 @@ Act on its verdict yourself: fix every should-be, omission, and unsupported clai
     Status: draft
 
     ## Purpose            — what the product is and for whom
-    ## Concepts           — the nouns: each concept, its meaning, its role
+    ## Concepts           — the nouns: each concept, its meaning, its role (explicit, unambiguous names — clear to someone who never saw the prototype)
     ## Responsibilities   — what each part is in charge of
     ## Workflows          — what happens, step by step, for each main flow
     ## APIs               — the surfaces: commands, endpoints, contracts
@@ -63,6 +65,7 @@ Never classify silently. A wrong guess here corrupts the source of truth for eve
 
 - Never modifies the prototype, nor `<artifacts>/STEP1_VIBE_DECISIONS.md`.
 - Never invents behavior that was not observed in the prototype.
+- Never writes a section that only makes sense to someone who has already seen the prototype, and never gives a concept a name that is vague or ambiguous.
 - Never "cleans up" the design on paper — cleaning is step 3's job, done later on the complete raw spec.
 - Never sets the spec status to agreed — only the user does, through /close-step.
 
