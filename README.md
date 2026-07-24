@@ -24,24 +24,15 @@ A companion series of blog posts walks through this project in more depth:
 Exploration → Dirty Spec Extraction → Spec Cleaning → Implementation → Verification
 ```
 
-Each phase answers exactly one question and reduces one kind of uncertainty:
+Each phase answers exactly one question and reduces one kind of uncertainty (see the [steps overview](./steps/README.md) for a walkthrough of each):
 
 | # | Phase | Question it answers | Output |
 |---|-------|---------------------|--------|
-| 1 | Exploration | What do I actually want? | A running prototype, explicitly validated by the user |
-| 2 | Dirty Spec Extraction | What did I actually build? | `STEP2_DIRTY_SPEC.md` — the raw specification |
-| 3 | Spec Cleaning | What is the simplest design? | `STEP3_CLEAN_SPEC.md` — cleaned: **the source of truth** |
-| 4 | Implementation | How should it be built? | Production code, with tests |
-| 5 | Verification | Does it match the specification? | `STEP5_IMPL_VERIFICATION.md` — evidence-backed verdicts |
-
-Jump straight to a step's own walkthrough:
-
-- [Steps overview](./steps/README.md)
-- [Step 1 — Exploration](./steps/step_01_exploration/README.md)
-- [Step 2 — Dirty Spec Extraction](./steps/step_02_spec_extraction/README.md)
-- [Step 3 — Spec Cleaning](./steps/step_03_spec_cleaning/README.md)
-- [Step 4 — Implementation](./steps/step_04_implementation/README.md)
-- [Step 5 — Verification](./steps/step_05_verification/README.md)
+| 1 | [Exploration](./steps/step_01_exploration/README.md) | What do I actually want? | A running prototype, explicitly validated by the user |
+| 2 | [Dirty Spec Extraction](./steps/step_02_spec_extraction/README.md) | What did I actually build? | `STEP2_DIRTY_SPEC.md` — the raw specification |
+| 3 | [Spec Cleaning](./steps/step_03_spec_cleaning/README.md) | What is the simplest design? | `STEP3_CLEAN_SPEC.md` — cleaned: **the source of truth** |
+| 4 | [Implementation](./steps/step_04_implementation/README.md) | How should it be built? | Production code, with tests |
+| 5 | [Verification](./steps/step_05_verification/README.md) | Does it match the specification? | `STEP5_IMPL_VERIFICATION.md` — evidence-backed verdicts |
 
 ## How to install
 
