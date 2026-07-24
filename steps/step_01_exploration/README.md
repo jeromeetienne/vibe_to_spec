@@ -14,6 +14,27 @@ Explore the product by vibe coding. This step ends with a running prototype that
   The session picks up this folder's `CLAUDE.md` (the exploration rules) and its commands (`/checkpoint`, `/log-decision`, `/close-step`).
 - **First move**: the user says where the prototype lives — its own repository or folder, completely outside this repository, given as a GitHub link or an absolute path on the local disk — and the agent records it as a `dirty_impl_resources` entry in the project's `.vibe_to_spec.yaml`. Then the user says what they want to try, and the agent builds the smallest thing that shows real behavior, at that location.
 
+## What you say to steer it
+
+This step is a conversation you steer, not a form you fill in. You do not need a plan or the right words — you say what you want to try, then react to what the agent builds and runs in front of you. Below are the kinds of things you would say at each moment of the loop; use your own words, these are only to show the shape.
+
+- **To begin** — say where the prototype should live and what to try first:
+  > "Put the prototype at ~/code/my-app. Build the smallest thing that lets me type a note and see it saved."
+
+- **To react to what was built** — you judge the running behavior, never the code:
+  > "Yes, that's exactly the list I wanted — keep it."
+  > "Run it for me again — where do I click to see the saved note?"
+
+- **To flag what's wrong** — say it in your own words, it gets logged as a gap:
+  > "No, the colors are too cold. I want a warmer palette."
+  > "Deleting shouldn't happen without asking me first."
+
+- **To change direction** — pivoting is expected, nothing is wasted:
+  > "Forget the database, just use a plain file. The setup is slowing us down."
+
+- **To close the step** — only when the running prototype is exactly what you want:
+  > "This is exactly what I wanted. Run /close-step."
+
 ## How it iterates — the exploration loop
 
 ```mermaid

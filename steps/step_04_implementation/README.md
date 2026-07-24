@@ -14,6 +14,23 @@ Build production software from the specification — and only from the specifica
 - **Input**: `<artifacts>/STEP3_CLEAN_SPEC.md` — and nothing else. The step 1 prototype is explicitly NOT an input: nobody reads it here, neither the user nor the agent.
 - **First move**: the user says where the production implementation must live — its own repository or folder, completely outside this repository, given as a GitHub link or an absolute path on the local disk — and the agent records it as a `clean_impl_resources` entry in the project's `.vibe_to_spec.yaml`. `STEP4_IMPL_SPEC_GAPS.md` is created right away. All code work happens at that location.
 
+## What you say to steer it
+
+This step is a conversation you steer, not a form you fill in. The specification does the describing; you say where the code lives, set the order of work, and resolve every gap the specification leaves open. Below are the kinds of things you would say at each moment of the loop; use your own words, these are only to show the shape.
+
+- **To begin** — say where the production code must live and start building:
+  > "The implementation goes at ~/code/my-app-prod. Start with the part of the spec that saves and loads notes."
+
+- **To steer the order** — you set the priorities:
+  > "Do the API surface before the storage layer — that's what I care about most."
+
+- **To resolve a specification gap** — the decision only you can make:
+  > "The spec doesn't say what happens on a duplicate name. Reject it with an error — and yes, amend the spec to say so."
+  > "Good catch, that line is wrong. It should keep the newest, not the oldest. Fix the spec."
+
+- **To close the step** — only when the code covers the spec and tests pass:
+  > "This covers the whole spec and the tests are green. Run /close-step."
+
 ## How it iterates
 
 ```mermaid

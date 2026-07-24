@@ -17,6 +17,23 @@ Verify that the implementation faithfully realizes the specification.
 
   The step 1 prototype is never consulted. Verification is against the specification, not against the exploratory prototype.
 
+## What you say to steer it
+
+This step is a conversation you steer, not a form you fill in. The agent checks the implementation against the specification item by item and reports verdicts backed by evidence; you set what to check, resolve the calls it cannot make, and decide the conclusion. Below are the kinds of things you would say at each moment of the loop; use your own words, these are only to show the shape.
+
+- **To begin** — start a verification pass:
+  > "Run /verify. Go through the spec item by item and show me the verdicts."
+
+- **To steer what gets checked** — you can narrow the focus:
+  > "Check the invariants first — the 'total always matches the sum' one especially."
+
+- **To resolve an ambiguous verdict** — the call only you can make:
+  > "The spec is unclear there, so treat it as conforming — that's what I meant."
+
+- **To conclude** — either everything conforms, or the gaps go back to step 4:
+  > "Every item conforms. Run /close-step and complete the cycle."
+  > "Those three deviations are real. Hand them back to step 4 to fix, then we verify again."
+
 ## How it iterates
 
 ```mermaid

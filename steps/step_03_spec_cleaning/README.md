@@ -13,6 +13,26 @@ Reduce the design's complexity without changing behavior. The output is the clea
 
 - **Input, read-only**: `<artifacts>/STEP2_DIRTY_SPEC.md` (the raw specification).
 
+## What you say to steer it
+
+This step is a conversation you steer, not a form you fill in. The agent proposes one reduction at a time and explains why behavior is preserved; your job is to approve, reject, or turn it into a product decision. Below are the kinds of things you would say at each moment of the loop; use your own words, these are only to show the shape.
+
+- **To begin** — start the cleaning pass:
+  > "Copy the raw spec over and start hunting for reductions. Show me the first one."
+
+- **To approve a reduction** — when the argument that behavior is preserved holds:
+  > "Agreed, those two are the same thing. Merge them."
+
+- **To reject a reduction** — when you know something the agent doesn't:
+  > "No, a draft and an unpublished post really are different — keep both."
+  > "That option looks unused but I rely on it. Leave it."
+
+- **To turn a cleaning into a product decision** — when you actually want the behavior gone:
+  > "Actually, let's drop that feature entirely — record it as a product decision, not a cleanup."
+
+- **To close the step** — only when a full pass finds nothing left to remove:
+  > "This is as lean as it gets and still coherent. Run /close-step."
+
 ## How it iterates
 
 ```mermaid

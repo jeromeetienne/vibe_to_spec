@@ -15,6 +15,29 @@ Recover the architecture that was actually built. This step turns the validated 
   - the prototype — at the external location(s) recorded as `dirty_impl_resources` in the project's `.vibe_to_spec.yaml` (its code is completely outside this repository)
   - `<artifacts>/STEP1_VIBE_DECISIONS.md` — the validations, gaps, and pivots, with the reasoning behind them
 
+## What you say to steer it
+
+This step is a conversation you steer, not a form you fill in. You do not need to know the spec structure or the exact words — you point the agent at the prototype, react to what it drafts, and decide the calls only you can decide. Below are the kinds of things you would say at each moment of the loop; use your own words, these are only to show the shape.
+
+- **To begin** — point it at the prototype and let it read:
+  > "Start extracting the spec. Read the prototype and STEP1_VIBE_DECISIONS.md first, then draft the Purpose section."
+
+- **To steer which section comes next** — you decide the order and the depth:
+  > "The workflows matter most to me — do those next, before the data structures."
+  > "Go deeper on the API section; you've only listed the endpoints, not what each one expects."
+
+- **To answer 'intentional or accidental?'** — the one call only you can make:
+  > "That retry-on-failure behavior is intentional — it goes in the spec."
+  > "No, the prototype only does that because I never handled the empty case. That's accidental — record it as a known gap, don't design a fix."
+  > "That's just leftover debug output. Exclude it, it's not wanted."
+
+- **To correct a draft** — say what the prototype actually does:
+  > "This says the cache 'should expire after an hour' — but the prototype never expires it at all. Describe what it does, not what it should do."
+  > "You've missed that uploads over 10 MB are silently dropped. Add that."
+
+- **To close the step** — only when you agree the spec is complete:
+  > "This fully matches what I built. Run /close-step."
+
 ## How it iterates
 
 ```mermaid
