@@ -69,7 +69,9 @@ flowchart TD
 
 ## Phase Exploration (detail)
 
-**Session:** `cd steps/step_01_exploration && claude` · **Question:** what do I actually want? · **Output:** a running prototype the user has explicitly validated, plus its decision log.
+- **Session:** `cd steps/step_01_exploration && claude`
+- **Question:** what do I actually want?
+- **Output:** a running prototype the user has explicitly validated, plus its decision log.
 
 ```mermaid
 flowchart TD
@@ -112,7 +114,10 @@ flowchart TD
 
 ## Phase Dirty Spec Extraction (detail)
 
-**Session:** `cd steps/step_02_spec_extraction && claude` · **Question:** what did I actually build? · **Precondition:** phase exploration's `CLOSED` entry exists. · **Output:** `STEP2_DIRTY_SPEC.md`, the raw specification.
+- **Session:** `cd steps/step_02_spec_extraction && claude`
+- **Question:** what did I actually build?
+- **Precondition:** phase exploration's `CLOSED` entry exists.
+- **Output:** `STEP2_DIRTY_SPEC.md`, the raw specification.
 
 ```mermaid
 flowchart TD
@@ -161,7 +166,10 @@ flowchart TD
 
 ## Phase Spec Cleaning (detail)
 
-**Session:** `cd steps/step_03_spec_cleaning && claude` · **Question:** what is the simplest design? · **Precondition:** the raw spec's status reads "agreed by the user". · **Output:** `STEP3_CLEAN_SPEC.md` — the source of truth for everything after.
+- **Session:** `cd steps/step_03_spec_cleaning && claude`
+- **Question:** what is the simplest design?
+- **Precondition:** the raw spec's status reads "agreed by the user".
+- **Output:** `STEP3_CLEAN_SPEC.md` — the source of truth for everything after.
 
 ```mermaid
 flowchart TD
@@ -209,7 +217,11 @@ flowchart TD
 
 ## Phase Implementation (detail)
 
-**Session:** `cd steps/step_04_implementation && claude` · **Question:** how should it be built? · **Precondition:** the spec's status reads "agreed … source of truth". · **Output:** production code with tests, plus the gap log. · **Forbidden input:** the prototype and the raw spec — never read.
+- **Session:** `cd steps/step_04_implementation && claude`
+- **Question:** how should it be built?
+- **Precondition:** the spec's status reads "agreed … source of truth".
+- **Output:** production code with tests, plus the gap log.
+- **Forbidden input:** the prototype and the raw spec — never read.
 
 ```mermaid
 flowchart TD
@@ -263,7 +275,10 @@ flowchart TD
 
 ## Phase Verification (detail)
 
-**Session:** `cd steps/step_05_verification && claude` · **Question:** does it match the specification? · **Precondition:** the spec is the source of truth and phase implementation's `CLOSED` entry exists. · **Output:** `STEP5_IMPL_VERIFICATION.md` — evidence-backed verdicts.
+- **Session:** `cd steps/step_05_verification && claude`
+- **Question:** does it match the specification?
+- **Precondition:** the spec is the source of truth and phase implementation's `CLOSED` entry exists.
+- **Output:** `STEP5_IMPL_VERIFICATION.md` — evidence-backed verdicts.
 
 ```mermaid
 flowchart TD

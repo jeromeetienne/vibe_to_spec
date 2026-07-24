@@ -45,7 +45,16 @@ STEP5_IMPL_VERIFICATION.md"]
 STEP3_CLEAN_SPEC.md is the
 enduring output; the code
 is disposable"])
+
+    classDef phase fill:#1e3a5f,stroke:#4a90d9,stroke-width:2px,color:#fff;
+    classDef code fill:#5a3a1e,stroke:#d98a4a,stroke-width:2px,color:#fff;
+    classDef done fill:#1e5f3a,stroke:#4ad98a,stroke-width:2px,color:#fff;
+    class Step1,Step2,Step3,Step4,Step5 phase;
+    class Prototype,Implementation code;
+    class Done,Idea done;
 ```
+
+See the [global workflow map's legend](../docs/global_workflow.md#legend) for what each color and symbol means.
 
 Two loops keep the source of truth honest: step 4 logs every specification gap in `STEP4_IMPL_SPEC_GAPS.md` and, once the user resolves it, applies the agreed fix to `STEP3_CLEAN_SPEC.md` — the specification never drifts from the implementation silently; and step 5 hands its gap list back to step 4 until verification shows full conformance. When the cycle completes, the real output is `STEP3_CLEAN_SPEC.md` — the code can always be rebuilt from it.
 

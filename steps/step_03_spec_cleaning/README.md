@@ -57,7 +57,20 @@ anything else to remove?"}
     More -->|"no, user agrees
 spec is minimal"| Closed(["STEP3_CLEAN_SPEC.md marked
 agreed — source of truth"])
+
+    classDef loop fill:#5f4a1e,stroke:#d9b84a,stroke-width:2px,color:#fff;
+    classDef rec fill:#1e4a4a,stroke:#4ad9d9,stroke-width:1.5px,color:#fff;
+    classDef gate fill:#5f1e3a,stroke:#d94a8a,stroke-width:2px,color:#fff;
+    classDef done fill:#1e5f3a,stroke:#4ad98a,stroke-width:2px,color:#fff;
+    classDef critic fill:#4a1e1e,stroke:#d94a4a,stroke-width:2px,color:#fff;
+    class Start done;
+    class Copy,Hunt,Propose,More loop;
+    class Critique critic;
+    class Decide gate;
+    class Apply,Closed rec;
 ```
+
+See the [global workflow map's legend](../../docs/global_workflow.md#legend) for what each color and symbol means.
 
 1. **Copy** the raw specification into the working `STEP3_CLEAN_SPEC.md`.
 2. **Propose reductions**, pass by pass: merge duplicated concepts, remove needless configuration options, unify terminology, clarify responsibilities, clean APIs, drop historical artifacts left over from exploration.

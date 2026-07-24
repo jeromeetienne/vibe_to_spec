@@ -66,7 +66,21 @@ has a verdict"| Conclude{{"/close-step"}}
     Conclude -->|"full conformance"| Done(["Cycle complete"])
     Conclude -->|"gaps found"| BackToStep4(["Gap list handed back
 to step 4"])
+
+    classDef loop fill:#5f4a1e,stroke:#d9b84a,stroke-width:2px,color:#fff;
+    classDef cmd fill:#1e3a5f,stroke:#4a90d9,stroke-width:1.5px,color:#fff;
+    classDef rec fill:#1e4a4a,stroke:#4ad9d9,stroke-width:1.5px,color:#fff;
+    classDef done fill:#1e5f3a,stroke:#4ad98a,stroke-width:2px,color:#fff;
+    classDef critic fill:#4a1e1e,stroke:#d94a4a,stroke-width:2px,color:#fff;
+    class Start done;
+    class Pick,Check,Verify,Reverify,Ambiguous,AskUser,More loop;
+    class Delegate critic;
+    class Record,BackToStep4 rec;
+    class Conclude cmd;
+    class Done done;
 ```
+
+See the [global workflow map's legend](../../docs/global_workflow.md#legend) for what each color and symbol means.
 
 1. **Go through the specification item by item**: behavior, architecture, API contracts, invariants, completeness.
 2. **Check each item against the implementation** and record a verdict in `STEP5_IMPL_VERIFICATION.md`: conforms / deviates (and how) / missing.

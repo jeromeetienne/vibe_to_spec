@@ -60,7 +60,20 @@ still remaining?"}
     More -->|"no, tests pass,
 user agrees"| Closed(["CLOSED entry logged.
 Step 4 ends"])
+
+    classDef loop fill:#5f4a1e,stroke:#d9b84a,stroke-width:2px,color:#fff;
+    classDef cmd fill:#1e3a5f,stroke:#4a90d9,stroke-width:1.5px,color:#fff;
+    classDef rec fill:#1e4a4a,stroke:#4ad9d9,stroke-width:1.5px,color:#fff;
+    classDef done fill:#1e5f3a,stroke:#4ad98a,stroke-width:2px,color:#fff;
+    classDef critic fill:#4a1e1e,stroke:#d94a4a,stroke-width:2px,color:#fff;
+    class Start done;
+    class Pick,Implement,Ambiguous,Report,More loop;
+    class Gap cmd;
+    class Amend,Closed rec;
+    class Critique critic;
 ```
+
+See the [global workflow map's legend](../../docs/global_workflow.md#legend) for what each color and symbol means.
 
 1. **Full engineering discipline is back**: the developer's global coding rules apply, tests are written alongside the code, the code is clean and maintainable.
 2. **Implement the specification part by part.** The specification is authoritative — the implementation follows it, never reinterprets it.

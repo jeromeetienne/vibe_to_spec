@@ -66,7 +66,18 @@ to extract?"}
     More -->|"no, user agrees
 spec is complete"| Closed(["STEP2_DIRTY_SPEC.md
 marked agreed. Step 2 ends"])
+
+    classDef loop fill:#5f4a1e,stroke:#d9b84a,stroke-width:2px,color:#fff;
+    classDef rec fill:#1e4a4a,stroke:#4ad9d9,stroke-width:1.5px,color:#fff;
+    classDef done fill:#1e5f3a,stroke:#4ad98a,stroke-width:2px,color:#fff;
+    classDef critic fill:#4a1e1e,stroke:#d94a4a,stroke-width:2px,color:#fff;
+    class Start done;
+    class Read,Draft,Unclear,AskUser,Review,Log,More loop;
+    class Critique critic;
+    class Closed rec;
 ```
+
+See the [global workflow map's legend](../../docs/global_workflow.md#legend) for what each color and symbol means.
 
 1. **Read** the prototype and `STEP1_VIBE_DECISIONS.md`; observe what the prototype actually does.
 2. **Write** `STEP2_DIRTY_SPEC.md` in this folder, section by section: concepts, responsibilities, workflows, APIs, data structures, invariants, constraints, assumptions.

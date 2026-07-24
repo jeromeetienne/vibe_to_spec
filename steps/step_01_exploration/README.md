@@ -59,7 +59,20 @@ exactly what you want?'"}}
     Final -->|"explicit yes"| Closed(["CLOSED entry logged.
 Step 1 ends"])
     Final -->|"anything else"| Build
+
+    classDef loop fill:#5f4a1e,stroke:#d9b84a,stroke-width:2px,color:#fff;
+    classDef cmd fill:#1e3a5f,stroke:#4a90d9,stroke-width:1.5px,color:#fff;
+    classDef gate fill:#5f1e3a,stroke:#d94a8a,stroke-width:2px,color:#fff;
+    classDef rec fill:#1e4a4a,stroke:#4ad9d9,stroke-width:1.5px,color:#fff;
+    classDef done fill:#1e5f3a,stroke:#4ad98a,stroke-width:2px,color:#fff;
+    class Start done;
+    class Build,Show,Ask,Log,Continue loop;
+    class Close cmd;
+    class Final gate;
+    class Closed rec;
 ```
+
+See the [global workflow map's legend](../../docs/global_workflow.md#legend) for what each color and symbol means.
 
 Every increment goes through the same loop:
 
