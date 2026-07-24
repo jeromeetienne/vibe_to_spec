@@ -1,2 +1,4 @@
+# Per-project config files: each holds absolute paths specific to one user's machine.
 projects/*.vibe_to_spec.yaml
+# Symlink to the currently active project's config file, also machine-specific.
 .active_project.vibe_to_spec.yaml
