@@ -36,6 +36,14 @@ Each phase answers exactly one question and reduces one kind of uncertainty:
 | 4 | Implementation | How should it be built? | Production code, with tests |
 | 5 | Verification | Does it match the specification? | `STEP5_IMPL_VERIFICATION.md` — evidence-backed verdicts |
 
+Jump straight to a step's own walkthrough:
+
+- [Steps overview](./steps/README.md)
+- [Step 1 — Exploration](./steps/step_01_exploration/README.md)
+- [Step 2 — Dirty Specification Extraction](./steps/step_02_spec_extraction/README.md)
+- [Step 3 — Specification Cleaning](./steps/step_03_spec_cleaning/README.md)
+- [Step 4 — Implementation](./steps/step_04_implementation/README.md)
+- [Step 5 — Verification](step_05_verification/README.md)
 ## The workflow: Claude changes folder at each step
 
 Each phase is a folder under [steps/](steps/), and each folder carries its **own Claude Code configuration** — its rulebook (`CLAUDE.md`), its slash commands, and (in step 5) its verification agent.
