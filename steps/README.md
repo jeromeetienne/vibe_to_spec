@@ -5,8 +5,8 @@ This folder implements the [Vibe to Spec](https://github.com/jeromeetienne/vibe_
 Jump straight to a step's own walkthrough:
 
 - [Step 1 — Exploration](./step_01_exploration/README.md)
-- [Step 2 — Dirty Specification Extraction](./step_02_spec_extraction/README.md)
-- [Step 3 — Specification Cleaning](./step_03_spec_cleaning/README.md)
+- [Step 2 — Dirty Spec Extraction](./step_02_spec_extraction/README.md)
+- [Step 3 — Spec Cleaning](./step_03_spec_cleaning/README.md)
 - [Step 4 — Implementation](./step_04_implementation/README.md)
 - [Step 5 — Verification](./step_05_verification/README.md)
 
@@ -20,11 +20,11 @@ flowchart TD
 STEP1_VIBE_DECISIONS.md"] -.->|builds| Prototype[("Prototype
 external, pointed at")]
 
-    Step1 --> Step2["Step 2 — Dirty Specification Extraction
+    Step1 --> Step2["Step 2 — Dirty Spec Extraction
 STEP2_DIRTY_SPEC.md"]
     Prototype -.->|read-only| Step2
 
-    Step2 --> Step3["Step 3 — Specification Cleaning
+    Step2 --> Step3["Step 3 — Spec Cleaning
 STEP3_CLEAN_SPEC.md
 (the source of truth)"]
 

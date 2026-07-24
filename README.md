@@ -62,23 +62,23 @@ Each phase is a folder under [steps/](steps/), and each folder carries its **own
 The AI coding agent is launched *inside* the folder of the current phase. As the project advances from one phase to the next, you change folder and launch a fresh session there:
 
 ```bash
-cd steps/step_01_exploration && claude        # phase 1: explore
+cd steps/step_01_exploration && claude        # phase exploration
 ```
 
 ```bash
-cd steps/step_02_spec_extraction && claude    # phase 2: extract the spec
+cd steps/step_02_spec_extraction && claude    # phase dirty-spec-extraction
 ```
 
 ```bash
-cd steps/step_03_spec_cleaning && claude # phase 3: clean the spec
+cd steps/step_03_spec_cleaning && claude # phase spec-cleaning
 ```
 
 ```bash
-cd steps/step_04_implementation && claude     # phase 4: implement
+cd steps/step_04_implementation && claude     # phase implementation
 ```
 
 ```bash
-cd steps/step_05_verification && claude       # phase 5: verify
+cd steps/step_05_verification && claude       # phase verification
 ```
 
 Each session sees only its phase's tooling — the rules, the commands, and the records of that one step. Nothing leaks between phases: the exploration session is free of engineering discipline, the implementation session has never seen the prototype, the verification session judges only against the specification. This is the [separation of concerns](https://en.wikipedia.org/wiki/Separation_of_concerns) principle applied to the workflow itself: each phase is a distinct concern, and keeping them apart is what stops one phase's habits from contaminating another.
@@ -88,8 +88,8 @@ Each session sees only its phase's tooling — the rules, the commands, and the 
 The step folders contain only the methodology's configuration — **never a project's records or code**. Everything specific to one project — the five `STEP*.md` records, the prototype, the production implementation — lives entirely outside this repository, in locations recorded in that project's `.vibe_to_spec.yaml` config file:
 
 - **`artifacts`** points at the folder holding all five `STEP*.md` records;
-- **`dirty_impl_resources`** points at the phase 1 **prototype** — one or more paths or links, each with a short description;
-- **`clean_impl_resources`** points at the phase 4 **production implementation**, in the same shape.
+- **`dirty_impl_resources`** points at the **prototype** built in phase exploration — one or more paths or links, each with a short description;
+- **`clean_impl_resources`** points at the **production implementation** built in phase implementation, in the same shape.
 
 Each of these is a **GitHub link** (an https or git URL) or an **absolute path** on the local disk. A session finds the active project's `.vibe_to_spec.yaml` through a symlink at the repository root, `.active_project.vibe_to_spec.yaml` — see the root [`CLAUDE.md`](CLAUDE.md) for the full mechanism. A template for this file is at [`projects/template.vibe_to_spec.yaml-sample`](projects/template.vibe_to_spec.yaml-sample).
 

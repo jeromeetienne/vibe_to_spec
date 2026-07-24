@@ -29,8 +29,8 @@ A prototype answers one question: what do I actually want? A specification answe
 In practice, Vibe to Spec breaks this into five phases. Each one answers exactly one question and produces exactly one artifact, and none of them try to do more than that single job:
 
 - **Exploration** asks *what do I actually want?* and produces a prototype, validated by you.
-- **Dirty Specification Extraction** asks *what did I actually build?* and produces a raw specification.
-- **Specification Cleaning** asks *what's the simplest design that preserves the same behavior?* and produces the specification that becomes the source of truth for everything after it.
+- **Dirty Spec Extraction** asks *what did I actually build?* and produces a raw specification.
+- **Spec Cleaning** asks *what's the simplest design that preserves the same behavior?* and produces the specification that becomes the source of truth for everything after it.
 - **Implementation** asks *how should this be built?* and produces production code, with tests.
 - **Verification** asks *does the implementation actually match the specification?* and produces an evidence-backed verdict.
 

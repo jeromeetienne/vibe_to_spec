@@ -6,7 +6,7 @@ Part 1 laid out the argument: separate the disposable exploration from the perma
 
 ## One folder per phase, one Claude Code session per phase
 
-Every phase of Vibe to Spec — Exploration, Dirty Specification Extraction, Specification Cleaning, Implementation, Verification — is its own folder under `steps/`, and each folder carries its own Claude Code configuration: its own `CLAUDE.md`, its own slash commands, and in one case its own subagent. You work through the methodology by changing directory and starting a fresh Claude Code session inside whichever phase you're on:
+Every phase of Vibe to Spec — Exploration, Dirty Spec Extraction, Spec Cleaning, Implementation, Verification — is its own folder under `steps/`, and each folder carries its own Claude Code configuration: its own `CLAUDE.md`, its own slash commands, and in one case its own subagent. You work through the methodology by changing directory and starting a fresh Claude Code session inside whichever phase you're on:
 
 ```
 cd steps/step_01_exploration && claude

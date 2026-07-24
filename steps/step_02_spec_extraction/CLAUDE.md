@@ -1,4 +1,4 @@
-# Step 2 — Dirty Specification Extraction (Vibe to Spec, step 2 of 5)
+# Step 2 — Dirty Spec Extraction (Vibe to Spec, step 2 of 5)
 
 Goal: recover the architecture that was actually built, by turning the validated prototype of step 1 into STEP2_DIRTY_SPEC.md — the raw specification.
 

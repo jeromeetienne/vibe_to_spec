@@ -7,13 +7,13 @@ A single map of the whole [Vibe to Spec](../README.md) methodology: the five pha
 A single flowchart that shows every command, every subagent, every record, and every loop at once is unreadable, and no diagram tool that renders inside a markdown file on the web can help: a diagram renders at one fixed level of detail, and zooming out only makes the same crowded picture smaller — it never shows *less*. So this map is layered instead, the way a road atlas has a country map and then city maps:
 
 - **[The overview graph](#the-overview-graph-the-zoomed-out-view)** is the zoomed-out view: only the five phases, the two external code stores, and the loops between them. This is the whole methodology on one screen.
-- **[The five per-phase graphs](#phase-1--exploration-detail)** are the zoomed-in views: each one opens a single phase and shows its rulebook, its slash commands, its adversarial subagent, its internal loop, the records it writes, and its close-step gate.
+- **[The five per-phase graphs](#phase-exploration-detail)** are the zoomed-in views: each one opens a single phase and shows its rulebook, its slash commands, its adversarial subagent, its internal loop, the records it writes, and its close-step gate.
 
 Read the overview first, then open only the phase you care about. That is the "zoom in without seeing everything" behavior, done by hierarchy rather than by a zoom control.
 
 ## Metrics at a glance
 
-At its heart this methodology is **loops of agents**: an agent runs a working loop inside each phase, a second agent runs an adversarial loop that tries to tear down the first agent's output, and two more loops feed corrections back across the phases. **11 loops in all** keep the specification honest.
+At its heart vibe-to-spec methodology is **loops of agents**: an agent runs a working loop inside each phase, a second agent runs an adversarial loop that tries to tear down the first agent's output, and two more loops feed corrections back across the phases. **11 loops in all** keep the specification honest.
 
 | | | |
 |---:|:--|:--|
@@ -24,7 +24,7 @@ At its heart this methodology is **loops of agents**: an agent runs a working lo
 | **6** | **durable records** | the `STEP*.md` files — the permanent output; the code stays disposable |
 | **2** | **throwaway codebases** | the prototype and the production build, both rebuildable from the specification |
 
-The two feedback loops are the important ones: **phase 4 → phase 3** writes every gap found while building back into the source-of-truth specification, and **phase 5 → phase 4** hands its deviations back to be fixed and re-verified — the code is never allowed to drift from the specification in either direction.
+The two feedback loops are the important ones: **Implementation → Spec Cleaning** writes every gap found while building back into the source-of-truth specification, and **Verification → Implementation** hands its deviations back to be fixed and re-verified — the code is never allowed to drift from the specification in either direction.
 
 ## The overview graph (the zoomed-out view)
 
@@ -34,11 +34,11 @@ The whole methodology on one screen: five phases on a spine, the two external co
 flowchart TD
     Idea(["💡 idea"]) --> P1
 
-    P1["<b>Phase 1 · Exploration</b><br/>vibe-code loop · 3 commands<br/>writes STEP1_VIBE_DECISIONS.md"]
-    P2["<b>Phase 2 · Dirty Specification Extraction</b><br/>extraction loop · 2 commands · 1 critic<br/>writes STEP2_DIRTY_SPEC.md"]
-    P3["<b>Phase 3 · Specification Cleaning</b><br/>cleaning loop · 2 commands · 1 critic<br/>writes STEP3_CLEAN_SPEC.md — the source of truth"]
-    P4["<b>Phase 4 · Implementation</b><br/>build loop · 2 commands · 1 critic<br/>writes STEP4_IMPL_SPEC_GAPS.md"]
-    P5["<b>Phase 5 · Verification</b><br/>verify loop · 2 commands · 1 verifier<br/>writes STEP5_IMPL_VERIFICATION.md"]
+    P1["<b>Phase Exploration</b><br/>vibe-code loop · 3 commands<br/>writes STEP1_VIBE_DECISIONS.md"]
+    P2["<b>Phase Dirty Spec Extraction</b><br/>extraction loop · 2 commands · 1 critic<br/>writes STEP2_DIRTY_SPEC.md"]
+    P3["<b>Phase Spec Cleaning</b><br/>cleaning loop · 2 commands · 1 critic<br/>writes STEP3_CLEAN_SPEC.md — the source of truth"]
+    P4["<b>Phase Implementation</b><br/>build loop · 2 commands · 1 critic<br/>writes STEP4_IMPL_SPEC_GAPS.md"]
+    P5["<b>Phase Verification</b><br/>verify loop · 2 commands · 1 verifier<br/>writes STEP5_IMPL_VERIFICATION.md"]
 
     P1 --> P2 --> P3 --> P4 --> P5
     P5 -->|"full conformance"| Done(["✅ Cycle complete<br/>STEP3_CLEAN_SPEC.md is the enduring output;<br/>the code is disposable"])
@@ -64,10 +64,10 @@ flowchart TD
 
 **The two loops that keep the source of truth honest:**
 
-1. **Phase 4 → Phase 3** — every specification gap found while implementing is logged in `STEP4_IMPL_SPEC_GAPS.md`; once the user resolves it, the agreed fix is written back into `STEP3_CLEAN_SPEC.md` itself. The specification never drifts silently from the implementation.
-2. **Phase 5 → Phase 4** — verification hands its list of deviations back to phase 4, which fixes the code; verification then runs again. The cycle repeats until every specification item conforms.
+1. **Phase Implementation → Phase Spec Cleaning** — every specification gap found while implementing is logged in `STEP4_IMPL_SPEC_GAPS.md`; once the user resolves it, the agreed fix is written back into `STEP3_CLEAN_SPEC.md` itself. The specification never drifts silently from the implementation.
+2. **Phase Verification → Phase Implementation** — verification hands its list of deviations back to phase implementation, which fixes the code; verification then runs again. The cycle repeats until every specification item conforms.
 
-## Phase 1 — Exploration (detail)
+## Phase Exploration (detail)
 
 **Session:** `cd steps/step_01_exploration && claude` · **Question:** what do I actually want? · **Output:** a running prototype the user has explicitly validated, plus its decision log.
 
@@ -94,7 +94,7 @@ flowchart TD
 
     Proto1[("Prototype<br/>external location in .vibe_to_spec.yaml")]
     Loop1 -.->|builds| Proto1
-    Closed1 ==>|"unlocks phase 2"| Next1(["→ steps/step_02_spec_extraction"])
+    Closed1 ==>|"unlocks phase dirty-spec-extraction"| Next1(["→ steps/step_02_spec_extraction"])
 
     classDef rule fill:#3a1e5f,stroke:#a04ad9,stroke-width:1.5px,color:#fff;
     classDef cmd fill:#1e3a5f,stroke:#4a90d9,stroke-width:1.5px,color:#fff;
@@ -110,9 +110,9 @@ flowchart TD
     class Proto1 code;
 ```
 
-## Phase 2 — Dirty Specification Extraction (detail)
+## Phase Dirty Spec Extraction (detail)
 
-**Session:** `cd steps/step_02_spec_extraction && claude` · **Question:** what did I actually build? · **Precondition:** phase 1's `CLOSED` entry exists. · **Output:** `STEP2_DIRTY_SPEC.md`, the raw specification.
+**Session:** `cd steps/step_02_spec_extraction && claude` · **Question:** what did I actually build? · **Precondition:** phase exploration's `CLOSED` entry exists. · **Output:** `STEP2_DIRTY_SPEC.md`, the raw specification.
 
 ```mermaid
 flowchart TD
@@ -141,7 +141,7 @@ flowchart TD
 
     In2a -.->|read| Loop2
     In2b -.->|read| Loop2
-    Closed2 ==>|"unlocks phase 3"| Next2(["→ steps/step_03_spec_cleaning"])
+    Closed2 ==>|"unlocks phase spec-cleaning"| Next2(["→ steps/step_03_spec_cleaning"])
 
     classDef rule fill:#3a1e5f,stroke:#a04ad9,stroke-width:1.5px,color:#fff;
     classDef cmd fill:#1e3a5f,stroke:#4a90d9,stroke-width:1.5px,color:#fff;
@@ -159,7 +159,7 @@ flowchart TD
     class Critic2 critic;
 ```
 
-## Phase 3 — Specification Cleaning (detail)
+## Phase Spec Cleaning (detail)
 
 **Session:** `cd steps/step_03_spec_cleaning && claude` · **Question:** what is the simplest design? · **Precondition:** the raw spec's status reads "agreed by the user". · **Output:** `STEP3_CLEAN_SPEC.md` — the source of truth for everything after.
 
@@ -191,7 +191,7 @@ flowchart TD
     end
 
     In3 -.->|read| Loop3
-    Closed3 ==>|"unlocks phase 4 · prototype now irrelevant"| Next3(["→ steps/step_04_implementation"])
+    Closed3 ==>|"unlocks phase implementation · prototype now irrelevant"| Next3(["→ steps/step_04_implementation"])
 
     classDef rule fill:#3a1e5f,stroke:#a04ad9,stroke-width:1.5px,color:#fff;
     classDef cmd fill:#1e3a5f,stroke:#4a90d9,stroke-width:1.5px,color:#fff;
@@ -207,7 +207,7 @@ flowchart TD
     class Critic3 critic;
 ```
 
-## Phase 4 — Implementation (detail)
+## Phase Implementation (detail)
 
 **Session:** `cd steps/step_04_implementation && claude` · **Question:** how should it be built? · **Precondition:** the spec's status reads "agreed … source of truth". · **Output:** production code with tests, plus the gap log. · **Forbidden input:** the prototype and the raw spec — never read.
 
@@ -240,8 +240,8 @@ flowchart TD
     In4 -.->|read| Loop4
     Forbid -.->|"never read"| S4
     Loop4 -.->|builds| Impl4[("Implementation<br/>external location in .vibe_to_spec.yaml")]
-    Amend -->|"spec gap loop back to phase 3's file"| In4
-    Closed4 ==>|"unlocks phase 5"| Next4(["→ steps/step_05_verification"])
+    Amend -->|"spec gap loop back to phase spec-cleaning's file"| In4
+    Closed4 ==>|"unlocks phase verification"| Next4(["→ steps/step_05_verification"])
 
     classDef rule fill:#3a1e5f,stroke:#a04ad9,stroke-width:1.5px,color:#fff;
     classDef cmd fill:#1e3a5f,stroke:#4a90d9,stroke-width:1.5px,color:#fff;
@@ -261,9 +261,9 @@ flowchart TD
     class Forbid forbid;
 ```
 
-## Phase 5 — Verification (detail)
+## Phase Verification (detail)
 
-**Session:** `cd steps/step_05_verification && claude` · **Question:** does it match the specification? · **Precondition:** the spec is the source of truth and phase 4's `CLOSED` entry exists. · **Output:** `STEP5_IMPL_VERIFICATION.md` — evidence-backed verdicts.
+**Session:** `cd steps/step_05_verification && claude` · **Question:** does it match the specification? · **Precondition:** the spec is the source of truth and phase implementation's `CLOSED` entry exists. · **Output:** `STEP5_IMPL_VERIFICATION.md` — evidence-backed verdicts.
 
 ```mermaid
 flowchart TD
@@ -291,7 +291,7 @@ flowchart TD
 
     In5a -.->|read| Loop5
     In5b -.->|read & run| Loop5
-    HandBack ==>|"reopens phase 4"| Back5(["→ steps/step_04_implementation<br/>fix, then verify again"])
+    HandBack ==>|"reopens phase implementation"| Back5(["→ steps/step_04_implementation<br/>fix, then verify again"])
     Done5 ==> Complete(["🏁 Vibe to Spec cycle complete<br/>STEP3_CLEAN_SPEC.md is the enduring output"])
 
     classDef rule fill:#3a1e5f,stroke:#a04ad9,stroke-width:1.5px,color:#fff;

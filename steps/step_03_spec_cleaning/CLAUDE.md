@@ -1,4 +1,4 @@
-# Step 3 — Specification Cleaning (Vibe to Spec, step 3 of 5)
+# Step 3 — Spec Cleaning (Vibe to Spec, step 3 of 5)
 
 Goal: reduce the design's complexity without changing behavior. The output of this step — the cleaned STEP3_CLEAN_SPEC.md — becomes the source of truth for everything after.
 

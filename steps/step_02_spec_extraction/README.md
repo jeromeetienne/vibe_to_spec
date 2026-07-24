@@ -1,4 +1,4 @@
-# Step 2 — Dirty Specification Extraction
+# Step 2 — Dirty Spec Extraction
 
 Recover the architecture that was actually built. This step turns the validated prototype of step 1 into `STEP2_DIRTY_SPEC.md` — the raw specification of what the prototype is and does.
 

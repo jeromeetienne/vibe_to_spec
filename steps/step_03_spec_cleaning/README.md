@@ -1,4 +1,4 @@
-# Step 3 — Specification Cleaning
+# Step 3 — Spec Cleaning
 
 Reduce the design's complexity without changing behavior. The output is the cleaned `STEP3_CLEAN_SPEC.md` — the source of truth for everything that follows.
 
