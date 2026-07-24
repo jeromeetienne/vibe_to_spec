@@ -1,6 +1,6 @@
 # Vibe to Spec
 
-> Turning exploratory prototypes into maintainable software.
+> Turning vibe-coding into maintainable software.
 
 Modern AI has changed how software is created. Instead of designing everything upfront, developers **vibe code**: they converse with an AI coding agent, iterate rapidly, experiment freely, and arrive at a prototype that behaves exactly as desired.
 
@@ -9,8 +9,6 @@ This is one of the fastest ways ever invented to *explore* software. It is also 
 **Vibe to Spec** is a methodology that separates **exploration** from **engineering**. The prototype is treated as a disposable exploration artifact. The lasting asset is a clean specification extracted from it. Production code is then regenerated from the specification — never evolved from the exploratory implementation.
 
 > **The specification is permanent. The implementation is disposable.**
-
-The full design essay behind this repository is in [issue #1](https://github.com/jeromeetienne/vibe_to_spec/issues/1).
 
 ## Blog series
 
@@ -23,7 +21,7 @@ A companion series of blog posts walks through this project in more depth:
 ## The five phases
 
 ```
-Exploration → Dirty Specification Extraction → Specification Cleaning → Implementation → Verification
+Exploration → Dirty Spec Extraction → Spec Cleaning → Implementation → Verification
 ```
 
 Each phase answers exactly one question and reduces one kind of uncertainty:
@@ -31,8 +29,8 @@ Each phase answers exactly one question and reduces one kind of uncertainty:
 | # | Phase | Question it answers | Output |
 |---|-------|---------------------|--------|
 | 1 | Exploration | What do I actually want? | A running prototype, explicitly validated by the user |
-| 2 | Dirty Specification Extraction | What did I actually build? | `STEP2_DIRTY_SPEC.md` — the raw specification |
-| 3 | Specification Cleaning | What is the simplest design? | `STEP3_CLEAN_SPEC.md` — cleaned: **the source of truth** |
+| 2 | Dirty Spec Extraction | What did I actually build? | `STEP2_DIRTY_SPEC.md` — the raw specification |
+| 3 | Spec Cleaning | What is the simplest design? | `STEP3_CLEAN_SPEC.md` — cleaned: **the source of truth** |
 | 4 | Implementation | How should it be built? | Production code, with tests |
 | 5 | Verification | Does it match the specification? | `STEP5_IMPL_VERIFICATION.md` — evidence-backed verdicts |
 
@@ -40,8 +38,8 @@ Jump straight to a step's own walkthrough:
 
 - [Steps overview](./steps/README.md)
 - [Step 1 — Exploration](./steps/step_01_exploration/README.md)
-- [Step 2 — Dirty Specification Extraction](./steps/step_02_spec_extraction/README.md)
-- [Step 3 — Specification Cleaning](./steps/step_03_spec_cleaning/README.md)
+- [Step 2 — Dirty Spec Extraction](./steps/step_02_spec_extraction/README.md)
+- [Step 3 — Spec Cleaning](./steps/step_03_spec_cleaning/README.md)
 - [Step 4 — Implementation](./steps/step_04_implementation/README.md)
 - [Step 5 — Verification](./steps/step_05_verification/README.md)
 
