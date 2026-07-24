@@ -9,7 +9,7 @@ The deliverable of this step is NOT clean code and NOT a specification. It is tw
 
 ## Where the prototype lives
 
-The prototype's code is completely OUTSIDE this repository: in its own repository or folder, pointed at via a GitHub link (an https or git URL) or an absolute path on the local disk. This folder keeps only the records.
+The prototype's code is completely OUTSIDE this repository: in its own repository or folder, pointed at via a GitHub link (an https or git URL) or an absolute path on the local disk. This folder keeps only the artifacts.
 
 At the start of a session, if the active project's `.vibe_to_spec.yaml` has no `dirty_impl_resources` entry yet, ask the user where the prototype lives (an existing location, or one to create), and add it there as a `path` plus a short `description`.
 
@@ -148,7 +148,7 @@ This does not turn the log into a specification — it stays a dated log of DECI
 
 - For each location listed under `dirty_impl_resources` in the project's `.vibe_to_spec.yaml`: what to install or set up first, the exact command that starts it, and any configuration or credentials it needs.
 - Log this as a DECISION entry the first time the prototype becomes runnable, and again every time the way to run it changes.
-- This step's own rules forbid writing a README for the prototype, so STEP1_VIBE_DECISIONS.md is the only durable record of how to run it — and step 2 must be able to run it.
+- This step's own rules forbid writing a README for the prototype, so STEP1_VIBE_DECISIONS.md is the only durable artifact of how to run it — and step 2 must be able to run it.
 
 ### How to record, so the information survives
 

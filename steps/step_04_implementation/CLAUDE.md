@@ -12,7 +12,7 @@ Precondition: its Status line must read "agreed by the user … source of truth"
 
 ## Where the implementation lives
 
-The production code is completely OUTSIDE this repository: in its own repository or folder, pointed at via a GitHub link (an https or git URL) or an absolute path on the local disk. This folder keeps only the records.
+The production code is completely OUTSIDE this repository: in its own repository or folder, pointed at via a GitHub link (an https or git URL) or an absolute path on the local disk. This folder keeps only the artifacts.
 
 At the start of the first session, if the active project's `.vibe_to_spec.yaml` has no `clean_impl_resources` entry yet, ask the user where the implementation must live (an existing location, or one to create), add it there as a `path` plus a short `description`, and create STEP4_IMPL_SPEC_GAPS.md right away — before any coding — with the heading:
 

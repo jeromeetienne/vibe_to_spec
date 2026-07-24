@@ -1,6 +1,6 @@
 # Vibe to Spec — root configuration
 
-This file is loaded in every Claude Code session started anywhere in this repository, regardless of which step folder the session is working from. Its only job is finding the active project's records and external code before any step-specific `CLAUDE.md` takes over. It carries no step-specific rules, so nothing about a step's own discipline leaks between steps.
+This file is loaded in every Claude Code session started anywhere in this repository, regardless of which step folder the session is working from. Its only job is finding the active project's artifacts and external code before any step-specific `CLAUDE.md` takes over. It carries no step-specific rules, so nothing about a step's own discipline leaks between steps.
 
 ## Finding the active project
 

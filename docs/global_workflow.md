@@ -1,13 +1,13 @@
 # The Global Workflow of Vibe to Spec
 
-A single map of the whole [Vibe to Spec](../README.md) methodology: the five phases, the external code they build and check, the records they write, the loops that keep the specification honest, and the human approval gates that only the user can pass.
+A single map of the whole [Vibe to Spec](../README.md) methodology: the five phases, the external code they build and check, the artifacts they write, the loops that keep the specification honest, and the human approval gates that only the user can pass.
 
 ## A note on reading this map (why it is layered, not one giant picture)
 
-A single flowchart that shows every command, every subagent, every record, and every loop at once is unreadable, and no diagram tool that renders inside a markdown file on the web can help: a diagram renders at one fixed level of detail, and zooming out only makes the same crowded picture smaller — it never shows *less*. So this map is layered instead, the way a road atlas has a country map and then city maps:
+A single flowchart that shows every command, every subagent, every artifact, and every loop at once is unreadable, and no diagram tool that renders inside a markdown file on the web can help: a diagram renders at one fixed level of detail, and zooming out only makes the same crowded picture smaller — it never shows *less*. So this map is layered instead, the way a road atlas has a country map and then city maps:
 
 - **[The overview graph](#the-overview-graph-the-zoomed-out-view)** is the zoomed-out view: only the five phases, the two external code stores, and the loops between them. This is the whole methodology on one screen.
-- **[The five per-phase graphs](#phase-exploration-detail)** are the zoomed-in views: each one opens a single phase and shows its rulebook, its slash commands, its adversarial subagent, its internal loop, the records it writes, and its close-step gate.
+- **[The five per-phase graphs](#phase-exploration-detail)** are the zoomed-in views: each one opens a single phase and shows its rulebook, its slash commands, its adversarial subagent, its internal loop, the artifacts it writes, and its close-step gate.
 
 Read the overview first, then open only the phase you care about. That is the "zoom in without seeing everything" behavior, done by hierarchy rather than by a zoom control.
 
@@ -21,7 +21,7 @@ At its heart vibe-to-spec methodology is **loops of agents**: an agent runs a wo
 | **5** | **isolated agent sessions** | one Claude Code session per phase — nothing leaks between them |
 | **4** | **adversarial reviewer agents** | a fresh critic tears down each phase's output before the user ever sees it |
 | **5** | **human approval gates** | only the user's explicit "yes" ever closes a phase |
-| **6** | **durable records** | the `STEP*.md` files — the permanent output; the code stays disposable |
+| **6** | **durable artifacts** | the `STEP*.md` files — the permanent output; the code stays disposable |
 | **2** | **throwaway codebases** | the prototype and the production build, both rebuildable from the specification |
 
 The two feedback loops are the important ones: **Implementation → Spec Cleaning** writes every gap found while building back into the source-of-truth specification, and **Verification → Implementation** hands its deviations back to be fixed and re-verified — the code is never allowed to drift from the specification in either direction.
@@ -334,7 +334,7 @@ flowchart TD
 | 📕 rulebook | A phase's `CLAUDE.md` — the discipline that governs that one session |
 | `/command` | A slash command available inside that phase's session |
 | 🤖 subagent | An adversarial reviewer run in a fresh context: the three critics and the verifier |
-| 📄 record | A durable `STEP*.md` file — the phase's permanent output |
+| 📄 artifact | A durable `STEP*.md` file — the phase's permanent output |
 | 🗄️ external store | The prototype or the production implementation, both living outside this repository |
 | 👤 gate | A human approval gate — only the user's explicit answer passes it |
 | dashed edge | Read-only access, or "builds" — never a modification of the source |

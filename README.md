@@ -81,19 +81,19 @@ cd steps/step_04_implementation && claude     # phase implementation
 cd steps/step_05_verification && claude       # phase verification
 ```
 
-Each session sees only its phase's tooling — the rules, the commands, and the records of that one step. Nothing leaks between phases: the exploration session is free of engineering discipline, the implementation session has never seen the prototype, the verification session judges only against the specification. This is the [separation of concerns](https://en.wikipedia.org/wiki/Separation_of_concerns) principle applied to the workflow itself: each phase is a distinct concern, and keeping them apart is what stops one phase's habits from contaminating another.
+Each session sees only its phase's tooling — the rules, the commands, and the artifacts of that one step. Nothing leaks between phases: the exploration session is free of engineering discipline, the implementation session has never seen the prototype, the verification session judges only against the specification. This is the [separation of concerns](https://en.wikipedia.org/wiki/Separation_of_concerns) principle applied to the workflow itself: each phase is a distinct concern, and keeping them apart is what stops one phase's habits from contaminating another.
 
-## The project's records and code all live outside this repository
+## The project's artifacts and code all live outside this repository
 
-The step folders contain only the methodology's configuration — **never a project's records or code**. Everything specific to one project — the five `STEP*.md` records, the prototype, the production implementation — lives entirely outside this repository, in locations recorded in that project's `.vibe_to_spec.yaml` config file:
+The step folders contain only the methodology's configuration — **never a project's artifacts or code**. Everything specific to one project — the five `STEP*.md` artifacts, the prototype, the production implementation — lives entirely outside this repository, in locations recorded in that project's `.vibe_to_spec.yaml` config file:
 
-- **`artifacts`** points at the folder holding all five `STEP*.md` records;
+- **`artifacts`** points at the folder holding all five `STEP*.md` artifacts;
 - **`dirty_impl_resources`** points at the **prototype** built in phase exploration — one or more paths or links, each with a short description;
 - **`clean_impl_resources`** points at the **production implementation** built in phase implementation, in the same shape.
 
 Each of these is a **GitHub link** (an https or git URL) or an **absolute path** on the local disk. A session finds the active project's `.vibe_to_spec.yaml` through a symlink at the repository root, `.active_project.vibe_to_spec.yaml` — see the root [`CLAUDE.md`](CLAUDE.md) for the full mechanism. A template for this file is at [`projects/template.vibe_to_spec.yaml-sample`](projects/template.vibe_to_spec.yaml-sample).
 
-What stays in this repository is exactly the methodology template itself: the step folders' configuration, never a project's own records or code. Every project's `.vibe_to_spec.yaml` is git-ignored, since it holds paths specific to one user's machine.
+What stays in this repository is exactly the methodology template itself: the step folders' configuration, never a project's own artifacts or code. Every project's `.vibe_to_spec.yaml` is git-ignored, since it holds paths specific to one user's machine.
 
 ```
 idea

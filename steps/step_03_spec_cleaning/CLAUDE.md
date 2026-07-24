@@ -12,7 +12,7 @@ Precondition: the raw specification's Status line must read "agreed by the user"
 
 ## The working copy
 
-The first /clean-spec run copies the raw specification into `<artifacts>/STEP3_CLEAN_SPEC.md` with `Status: draft`. All cleaning happens on this working copy. The raw spec from step 2 is never touched — it remains the record of what was actually extracted.
+The first /clean-spec run copies the raw specification into `<artifacts>/STEP3_CLEAN_SPEC.md` with `Status: draft`. All cleaning happens on this working copy. The raw spec from step 2 is never touched — it remains the artifact of what was actually extracted.
 
 ## The cleaning loop
 
