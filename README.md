@@ -123,9 +123,3 @@ idea
 - **Every phase keeps a "why" log** — the reasoning that later phases cannot reconstruct from the artifacts alone: `STEP1_VIBE_DECISIONS.md`, `STEP3_SPEC_OPTIMISATION.md`, `STEP4_IMPL_SPEC_GAPS.md`, `STEP5_IMPL_VERIFICATION.md`.
 - **From step 4 on, the prototype is forbidden input.** Implementation is built from the specification alone; if the specification is not enough, that is a specification gap to resolve with the user — never something to improvise around.
 - **Specification gaps flow back into the specification.** Every gap found while implementing is logged in `STEP4_IMPL_SPEC_GAPS.md`, and once the user resolves it, the agreed fix is applied to `STEP3_CLEAN_SPEC.md` itself. The real output of the whole cycle is that specification — the code, prototype and production alike, is disposable and can be rebuilt from it.
-
-## Going further
-
-- [steps/README.md](steps/README.md) — the methodology template and the five phases at a glance
-- Each step's own `README.md` — how that step starts, iterates, and ends
-- [Issue #1](https://github.com/jeromeetienne/vibe_to_spec/issues/1) — the full design essay; [issue #2](https://github.com/jeromeetienne/vibe_to_spec/issues/2) — the implementation record of this scaffolding
