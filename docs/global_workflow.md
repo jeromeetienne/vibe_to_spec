@@ -13,24 +13,18 @@ Read the overview first, then open only the phase you care about. That is the "z
 
 ## Metrics at a glance
 
-| Metric | Count | What it counts |
-|---|---:|---|
-| **Phases** | **5** | Exploration → Dirty Specification Extraction → Specification Cleaning → Implementation → Verification |
-| **Isolated Claude Code sessions** | **5** | One session per phase, each launched inside its own folder — nothing leaks between them |
-| **Rulebooks** (`CLAUDE.md`) | **5** | One rulebook per phase, carrying only that phase's discipline |
-| **Slash commands** | **11** | 11 command definitions across the phases — 7 distinct commands, with `/close-step` specialized once per phase |
-| **Adversarial subagents** | **4** | `extraction-critic`, `cleaning-critic`, `implementation-critic`, `spec-verifier` — one per phase from 2 to 5 |
-| **Durable record files** | **6** | `STEP1_VIBE_DECISIONS.md`, `STEP2_DIRTY_SPEC.md`, `STEP3_CLEAN_SPEC.md`, `STEP3_SPEC_OPTIMISATION.md`, `STEP4_IMPL_SPEC_GAPS.md`, `STEP5_IMPL_VERIFICATION.md` |
-| **External code stores** | **2** | The phase 1 prototype and the phase 4 production implementation — both live entirely outside this repository |
-| **Loops** | **11** | 5 within-phase working loops + 4 adversarial self-critique loops (phases 2–5) + 2 cross-phase feedback loops (phase 4 → 3, phase 5 → 4) |
-| **Human approval gates** | **5** | The `/close-step` ritual of each phase — only the user's explicit "yes" closes a phase |
-| **Precondition gates** | **4** | Phases 2–5 each refuse to start until the previous phase is recorded as closed |
-| **Verification dimensions** | **5** | behavior, architecture, API contracts, invariants, completeness |
-| **Completeness checklist items** (phase 1) | **16** | The sections the decision log must cover before phase 1 can close |
-| **Specification sections** | **11** | Purpose, Concepts, Responsibilities, Workflows, APIs, Data structures, Invariants, Constraints, Assumptions, Known gaps, Excluded behaviors |
-| **Distinct log entry kinds** | **14** | `DECISION`, `VALIDATED`, `GAP`, `CLOSED`, `MERGED`, `REMOVED`, `RENAMED`, `REJECTED`, `PRODUCT`, `RESOLVED`, `CONFORMS`, `DEVIATES`, `MISSING`, `AMBIGUOUS` |
+At its heart this methodology is **loops of agents**: an agent runs a working loop inside each phase, a second agent runs an adversarial loop that tries to tear down the first agent's output, and two more loops feed corrections back across the phases. **11 loops in all** keep the specification honest.
 
-A note on skills: the methodology defines **0** custom skills on purpose. Its automation is carried entirely by the 11 slash commands and the 4 adversarial subagents above — there is no separate skill layer to count.
+| | | |
+|---:|:--|:--|
+| **11** | **loops of agents** | 5 working loops (one per phase) + 4 adversarial critique loops + 2 cross-phase feedback loops |
+| **5** | **isolated agent sessions** | one Claude Code session per phase — nothing leaks between them |
+| **4** | **adversarial reviewer agents** | a fresh critic tears down each phase's output before the user ever sees it |
+| **5** | **human approval gates** | only the user's explicit "yes" ever closes a phase |
+| **6** | **durable records** | the `STEP*.md` files — the permanent output; the code stays disposable |
+| **2** | **throwaway codebases** | the prototype and the production build, both rebuildable from the specification |
+
+The two feedback loops are the important ones: **phase 4 → phase 3** writes every gap found while building back into the source-of-truth specification, and **phase 5 → phase 4** hands its deviations back to be fixed and re-verified — the code is never allowed to drift from the specification in either direction.
 
 ## The overview graph (the zoomed-out view)
 
