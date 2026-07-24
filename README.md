@@ -71,7 +71,7 @@ cd steps/step_04_implementation && claude     # phase 4: implement
 cd steps/step_05_verification && claude       # phase 5: verify
 ```
 
-Each session sees only its phase's tooling — the rules, the commands, and the records of that one step. Nothing leaks between phases: the exploration session is free of engineering discipline, the implementation session has never seen the prototype, the verification session judges only against the specification.
+Each session sees only its phase's tooling — the rules, the commands, and the records of that one step. Nothing leaks between phases: the exploration session is free of engineering discipline, the implementation session has never seen the prototype, the verification session judges only against the specification. This is the [separation of concerns](https://en.wikipedia.org/wiki/Separation_of_concerns) principle applied to the workflow itself: each phase is a distinct concern, and keeping them apart is what stops one phase's habits from contaminating another.
 
 ## The project's records and code all live outside this repository
 
