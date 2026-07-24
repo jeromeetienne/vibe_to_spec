@@ -1,4 +1,4 @@
-# Vibe to Spec: Turning Exploratory Prototypes Into Maintainable Software
+# Vibe to Spec: Turning Vibe Coding Into Maintainable Software
 
 *Part 1 of a series on the Vibe to Spec methodology*
 
