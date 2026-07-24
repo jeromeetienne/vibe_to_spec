@@ -43,8 +43,8 @@ flowchart TD
     P1 --> P2 --> P3 --> P4 --> P5
     P5 -->|"full conformance"| Done(["✅ Cycle complete<br/>STEP3_CLEAN_SPEC.md is the enduring output;<br/>the code is disposable"])
 
-    Proto[("Prototype<br/>external location")]
-    Impl[("Implementation<br/>external location")]
+    Proto[("🗄️ Prototype<br/>external location")]
+    Impl[("🗄️ Implementation<br/>external location")]
 
     P1 -.->|builds| Proto
     Proto -.->|read-only| P2
@@ -94,7 +94,7 @@ flowchart TD
         Gate1 -->|"yes"| Closed1["✅ CLOSED entry written<br/>16-point checklist verified first"]
     end
 
-    Proto1[("Prototype<br/>external location in .vibe_to_spec.yaml")]
+    Proto1[("🗄️ Prototype<br/>external location in .vibe_to_spec.yaml")]
     Loop1 -.->|builds| Proto1
     Closed1 ==>|"unlocks phase dirty-spec-extraction"| Next1(["→ steps/step_02_spec_extraction"])
 
@@ -121,7 +121,7 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-    In2a[("Prototype<br/>read-only")]
+    In2a[("🗄️ Prototype<br/>read-only")]
     In2b["📄 STEP1_VIBE_DECISIONS.md<br/>read-only"]
 
     subgraph S2["🖥️ Session · steps/step_02_spec_extraction"]
@@ -226,7 +226,7 @@ flowchart TD
 ```mermaid
 flowchart TD
     In4["📄 STEP3_CLEAN_SPEC.md<br/>the ONLY input — source of truth"]
-    Forbid["🚫 Prototype & STEP2_DIRTY_SPEC.md<br/>forbidden input"]
+    Forbid["🚫 🗄️ Prototype & 📄 STEP2_DIRTY_SPEC.md<br/>forbidden input"]
 
     subgraph S4["🖥️ Session · steps/step_04_implementation"]
         direction TB
@@ -251,7 +251,7 @@ flowchart TD
 
     In4 -.->|read| Loop4
     Forbid -.->|"never read"| S4
-    Loop4 -.->|builds| Impl4[("Implementation<br/>external location in .vibe_to_spec.yaml")]
+    Loop4 -.->|builds| Impl4[("🗄️ Implementation<br/>external location in .vibe_to_spec.yaml")]
     Amend -->|"spec gap loop back to phase spec-cleaning's file"| In4
     Closed4 ==>|"unlocks phase verification"| Next4(["→ steps/step_05_verification"])
 
@@ -283,7 +283,7 @@ flowchart TD
 ```mermaid
 flowchart TD
     In5a["📄 STEP3_CLEAN_SPEC.md<br/>the yardstick — read-only"]
-    In5b[("Implementation<br/>read-only")]
+    In5b[("🗄️ Implementation<br/>read-only")]
 
     subgraph S5["🖥️ Session · steps/step_05_verification"]
         direction TB

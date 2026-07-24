@@ -54,9 +54,9 @@ remain?"}
     Continue -->|"yes, keep exploring"| Build
     Continue -->|"user feels done"| Close["/close-step:
 closing walkthrough"]
-    Close --> Final{{"'Is this running prototype
+    Close --> Final{{"👤 'Is this running prototype
 exactly what you want?'"}}
-    Final -->|"explicit yes"| Closed(["CLOSED entry logged.
+    Final -->|"explicit yes"| Closed(["✅ CLOSED entry logged.
 Step 1 ends"])
     Final -->|"anything else"| Build
 

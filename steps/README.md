@@ -17,7 +17,7 @@ flowchart TD
     Idea(["idea"]) --> Step1
 
     Step1["Step 1 — Exploration
-STEP1_VIBE_DECISIONS.md"] -.->|builds| Prototype[("Prototype
+STEP1_VIBE_DECISIONS.md"] -.->|builds| Prototype[("🗄️ Prototype
 external, pointed at")]
 
     Step1 --> Step2["Step 2 — Dirty Spec Extraction
@@ -30,7 +30,7 @@ STEP3_CLEAN_SPEC.md
 
     Step3 --> Step4["Step 4 — Implementation
 STEP4_IMPL_SPEC_GAPS.md"]
-    Step4 -.->|builds| Implementation[("Implementation
+    Step4 -.->|builds| Implementation[("🗄️ Implementation
 external, pointed at")]
     Step4 -->|"spec gaps: agreed fixes
 amend the source of truth"| Step3

@@ -44,10 +44,10 @@ exactly as specified"]
 incomplete, or wrong?"}
     Ambiguous -->|"yes"| Gap["/spec-gap: log it,
 ask the user"]
-    Gap --> Amend["Apply agreed fix to
+    Gap --> Amend["✏️ Apply agreed fix to
 STEP3_CLEAN_SPEC.md, log RESOLVED"]
     Amend --> Implement
-    Ambiguous -->|"no"| Critique["implementation-critic subagent
+    Ambiguous -->|"no"| Critique["🤖 implementation-critic subagent
 checks the part (fresh context)"]
     Critique -->|"deviates / missing /
 untested: fix"| Implement
@@ -58,7 +58,7 @@ covered vs. not yet"]
 still remaining?"}
     More -->|"yes"| Pick
     More -->|"no, tests pass,
-user agrees"| Closed(["CLOSED entry logged.
+user agrees"| Closed(["✅ CLOSED entry logged.
 Step 4 ends"])
 
     classDef loop fill:#5f4a1e,stroke:#d9b84a,stroke-width:2px,color:#fff;

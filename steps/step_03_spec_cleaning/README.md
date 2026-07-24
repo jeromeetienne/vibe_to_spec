@@ -44,18 +44,18 @@ candidate"]
     Hunt --> Propose["Draft ONE reduction:
 WHAT is removed — WHY
 behavior is preserved"]
-    Propose --> Critique["cleaning-critic subagent
+    Propose --> Critique["🤖 cleaning-critic subagent
 checks it (fresh context)"]
     Critique -->|"issues: revise"| Propose
-    Critique -->|"CLEAN"| Decide{"User approves?"}
-    Decide -->|"yes"| Apply["Apply the reduction and
+    Critique -->|"CLEAN"| Decide{"👤 User approves?"}
+    Decide -->|"yes"| Apply["📄 Apply the reduction and
 log it in STEP3_SPEC_OPTIMISATION.md"]
     Decide -->|"no"| Hunt
     Apply --> More{"Full pass finds
 anything else to remove?"}
     More -->|"yes"| Hunt
     More -->|"no, user agrees
-spec is minimal"| Closed(["STEP3_CLEAN_SPEC.md marked
+spec is minimal"| Closed(["✅ STEP3_CLEAN_SPEC.md marked
 agreed — source of truth"])
 
     classDef loop fill:#5f4a1e,stroke:#d9b84a,stroke-width:2px,color:#fff;

@@ -44,14 +44,14 @@ specification item(s)"]
     Pick --> Check["Check against the implementation:
 behavior, architecture, API contracts,
 invariants, completeness"]
-    Check --> Delegate["Delegate bounded per-item
+    Check --> Delegate["🤖 Delegate bounded per-item
 checks to spec-verifier"]
     Delegate --> Verify{"Claimed deviation
 or missing item?"}
     Verify -->|"yes"| Reverify["Re-check with concrete
 evidence before recording"]
     Reverify --> Record
-    Verify -->|"no, conforms"| Record["Record verdict in
+    Verify -->|"no, conforms"| Record["📄 Record verdict in
 STEP5_IMPL_VERIFICATION.md"]
     Record --> Ambiguous{"Verdict is
 AMBIGUOUS?"}
@@ -64,7 +64,7 @@ unverified?"}
     More -->|"no, every item
 has a verdict"| Conclude{{"/close-step"}}
     Conclude -->|"full conformance"| Done(["Cycle complete"])
-    Conclude -->|"gaps found"| BackToStep4(["Gap list handed back
+    Conclude -->|"gaps found"| BackToStep4(["📄 Gap list handed back
 to step 4"])
 
     classDef loop fill:#5f4a1e,stroke:#d9b84a,stroke-width:2px,color:#fff;

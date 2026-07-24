@@ -46,7 +46,7 @@ flowchart TD
 STEP1_VIBE_DECISIONS.md"]
     Read --> Draft["Draft or extend ONE section
 of STEP2_DIRTY_SPEC.md"]
-    Draft --> Critique["extraction-critic subagent
+    Draft --> Critique["🤖 extraction-critic subagent
 critiques the draft (fresh context)"]
     Critique -->|"issues: revise"| Draft
     Critique -->|"CLEAN"| Unclear{"Behavior found
@@ -64,7 +64,7 @@ into the spec"]
 to extract?"}
     More -->|"yes"| Draft
     More -->|"no, user agrees
-spec is complete"| Closed(["STEP2_DIRTY_SPEC.md
+spec is complete"| Closed(["✅ STEP2_DIRTY_SPEC.md
 marked agreed. Step 2 ends"])
 
     classDef loop fill:#5f4a1e,stroke:#d9b84a,stroke-width:2px,color:#fff;
