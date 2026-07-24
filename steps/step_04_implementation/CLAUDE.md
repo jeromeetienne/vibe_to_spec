@@ -38,7 +38,14 @@ Step 1 rules do not apply here. This is production engineering:
 1. Pick the next specification part to implement (follow the spec's own structure; the user can reorder priorities).
 2. Implement it with its tests, exactly as specified. The specification is authoritative — follow it, do not reinterpret it.
 3. The moment the specification is ambiguous, incomplete, or looks wrong: STOP work on that point and run /spec-gap. Never silently improvise around the specification, and never silently "fix" it.
-4. Report progress against the specification — which parts are covered, which are not yet — and continue.
+4. Before marking the part done, critique it with the implementation-critic subagent (see "Self-critique before the part is done" below). Fix every DEVIATES, MISSING, and UNTESTED finding; turn every IMPROVISED-PAST-A-GAP finding into a /spec-gap. Re-run until it returns CLEAN.
+5. Report progress against the specification — which parts are covered, which are not yet — and continue.
+
+## Self-critique before the part is done
+
+Before a specification part counts as done, an implementation-critic subagent reviews it in a fresh context — blind to the assumptions that produced the code. Give it the spec part and the implementation's location (from `clean_impl_resources`). It hunts the one characteristic failure of implementation — improvising past a specification gap instead of raising it — plus deviation from the spec, missing elements, and spec'd behavior left untested.
+
+Act on its verdict yourself: fix deviations, missing elements, and untested behavior; for anything it flags as improvised past a gap, STOP and run /spec-gap — never keep the improvised decision. Re-run until it returns CLEAN. The critic raises the quality of the code before the user reviews it; it never replaces the user's agreement, and it never resolves a specification gap on its own — only the user does that.
 
 ## STEP4_IMPL_SPEC_GAPS.md — the gap log
 

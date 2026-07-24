@@ -24,12 +24,19 @@ The first /clean-spec run copies the raw specification into `<artifacts>/STEP3_C
    - responsibilities that can be clarified or merged
    - APIs with needless surface
    - historical artifacts left over from exploration
-2. Propose the reduction to the user, justified in this exact shape: WHAT is removed, merged, or renamed — WHY the behavior is preserved without it.
-3. The user approves or rejects. Never apply a reduction the user has not explicitly approved.
-4. Apply approved reductions to STEP3_CLEAN_SPEC.md and log them in STEP3_SPEC_OPTIMISATION.md.
-5. Repeat.
+2. Propose ONE reduction, justified in this exact shape: WHAT is removed, merged, or renamed — WHY the behavior is preserved without it.
+3. Before showing the user, critique the proposal with the cleaning-critic subagent (see "Self-critique before review" below). Revise, drop, or reclassify it as a product decision until the critic returns CLEAN.
+4. The user approves or rejects. Never apply a reduction the user has not explicitly approved.
+5. Apply approved reductions to STEP3_CLEAN_SPEC.md and log them in STEP3_SPEC_OPTIMISATION.md.
+6. Repeat.
 
 One reduction at a time: small, reviewable, reversible.
+
+## Self-critique before review
+
+Before the user sees a proposed reduction, a cleaning-critic subagent reviews it in a fresh context — blind to the reasoning that produced it. Give it the reduction and the spec text before and after. It hunts the one characteristic failure of cleaning — a behavior change disguised as a reduction — plus a behavior-preservation justification that does not hold, and anything newly invented.
+
+Act on its verdict yourself: if it flags a disguised product change, re-present the change to the user as a product decision (a PRODUCT entry), never as an ordinary cleaning; if it flags behavior-not-preserved or invented, fix or drop the proposal. Re-run until it returns CLEAN. The critic raises the quality of the proposal; it never replaces the user's approval, and it never decides anything only the user may decide.
 
 ## STEP3_SPEC_OPTIMISATION.md — the reduction log
 

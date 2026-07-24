@@ -23,7 +23,10 @@ flowchart TD
 STEP1_VIBE_DECISIONS.md"]
     Read --> Draft["Draft or extend ONE section
 of STEP2_DIRTY_SPEC.md"]
-    Draft --> Unclear{"Behavior found
+    Draft --> Critique["extraction-critic subagent
+critiques the draft (fresh context)"]
+    Critique -->|"issues: revise"| Draft
+    Critique -->|"CLEAN"| Unclear{"Behavior found
 that's unclear?"}
     Unclear -->|"yes"| AskUser["Ask the user:
 intentional, or accidental?"]
@@ -45,8 +48,9 @@ marked agreed. Step 2 ends"])
 1. **Read** the prototype and `STEP1_VIBE_DECISIONS.md`; observe what the prototype actually does.
 2. **Write** `STEP2_DIRTY_SPEC.md` in this folder, section by section: concepts, responsibilities, workflows, APIs, data structures, invariants, constraints, assumptions.
 3. **Describe what IS, not what should be.** Implementation details are ignored unless architecturally significant. Gaps the user explicitly accepted at the end of step 1 are recorded in the spec as known gaps — never silently "fixed" on paper.
-4. **Review with the user**, section by section: does the spec say what the prototype does? Is anything missing or over-stated?
-5. **Repeat** until the spec accounts for all observed behavior.
+4. **Critique the draft** with the `extraction-critic` subagent in a fresh context, before the user sees it: it flags any place the draft says what should be instead of what is, any behavior classified without asking, and anything omitted or unsupported. Revise until it comes back clean.
+5. **Review with the user**, section by section: does the spec say what the prototype does? Is anything missing or over-stated?
+6. **Repeat** until the spec accounts for all observed behavior.
 
 The prototype is never modified in this step — it is an input, not a workspace. Nothing is improved, nothing is redesigned; that comes later.
 

@@ -66,6 +66,7 @@ Pervasive rules that apply to every step:
 - The project's code is **never** in this repository: the step 1 prototype and the step 4 production implementation each live in their own repository or folder, pointed at via a GitHub link (an https or git URL) or an absolute path on the local disk. The pointer is recorded in the active project's `.vibe_to_spec.yaml` — as `dirty_impl_resources` (the prototype) and `clean_impl_resources` (the production implementation) — so the later steps know where to look.
 - The repository root has a minimal `CLAUDE.md` whose only job is resolving the active project's `.vibe_to_spec.yaml` config; it carries no step-specific rules, so nothing about a step's own discipline leaks between steps. The developer's global `~/.claude/CLAUDE.md` still applies everywhere; a step's own `CLAUDE.md` overrides it where the step requires (for example, step 1 suspends cleanup discipline).
 - Every step iterates internally before it closes. Each step's `CLAUDE.md` defines a loop specific to that step's action — build and show an increment (step 1), extract one spec section (step 2), propose one reduction (step 3), implement one spec section (step 4), verify one batch of spec items (step 5). The loop repeats until the step's exit condition is met. `/close-step` is the gate: it either confirms the exit or sends the developer back into the loop.
+- Every step except step 1 critiques each unit of work before the user sees it. The step's `CLAUDE.md` names a fresh-context critic subagent — `extraction-critic` (step 2), `cleaning-critic` (step 3), `implementation-critic` (step 4), `spec-verifier` (step 5) — that reviews the drafted unit blind to the assumptions that produced it, against a fixed checklist of that step's one characteristic failure. The main session revises until the critic is satisfied, then shows the user. The critic raises the draft's quality; it never replaces the user's review, and it never decides anything only the user may decide. Step 1 is exempt — its rough increments are the signal, and polishing them before the user reacts would defeat the exploration.
 - Configurations stay lean: a slash command for a repeatable step action; a custom agent only where there is genuinely bounded, delegable work. Continuous creative work stays in the main session.
 
 ## The five steps
@@ -88,7 +89,7 @@ Pervasive rules that apply to every step:
 - **Inputs**: the prototype, at the external location(s) recorded as `dirty_impl_resources` in the project's `.vibe_to_spec.yaml`, plus `<artifacts>/STEP1_VIBE_DECISIONS.md` — all treated strictly read-only.
 - **Outputs**: `STEP2_DIRTY_SPEC.md` — the raw specification: concepts, responsibilities, workflows, APIs, data structures, invariants, constraints, assumptions → consumed by step 03.
 - **Way of working**: analytical, descriptive; write down what **is**, not what should be; ignore implementation details unless architecturally significant; no fixing, no improving of the prototype.
-- **Claude Code configuration**: `CLAUDE.md` with the extraction rules and input paths; two commands — `/extract-spec` (drives a full extraction pass) and `/close-step` (the closing walkthrough and the final agreement).
+- **Claude Code configuration**: `CLAUDE.md` with the extraction rules and input paths; two commands — `/extract-spec` (drives a full extraction pass) and `/close-step` (the closing walkthrough and the final agreement); one subagent — `extraction-critic`, a fresh-context reviewer that critiques each drafted section before the user sees it.
 - **Done when**: `STEP2_DIRTY_SPEC.md` fully accounts for the prototype's observed behavior.
 - **Workflow detail**: [step_02_spec_extraction/README.md](step_02_spec_extraction/README.md).
 
@@ -99,7 +100,7 @@ Pervasive rules that apply to every step:
 - **Inputs**: `<artifacts>/STEP2_DIRTY_SPEC.md`.
 - **Outputs**: `STEP3_CLEAN_SPEC.md` (cleaned) — **the source of truth** for everything after → consumed by steps 04 and 05.
 - **Way of working**: reductive only — merge duplicated concepts, remove needless options, unify terminology, clarify responsibilities; nothing new is invented; every removal must preserve behavior.
-- **Claude Code configuration**: `CLAUDE.md` with the cleaning rules; two commands — `/clean-spec` (propose and apply one reduction at a time) and `/close-step` (the closing walkthrough and the final agreement).
+- **Claude Code configuration**: `CLAUDE.md` with the cleaning rules; two commands — `/clean-spec` (propose and apply one reduction at a time) and `/close-step` (the closing walkthrough and the final agreement); one subagent — `cleaning-critic`, a fresh-context reviewer that checks each proposed reduction preserves behavior before the user sees it.
 - **Done when**: nothing further can be removed without changing behavior.
 - **Workflow detail**: [step_03_spec_cleaning/README.md](step_03_spec_cleaning/README.md).
 
@@ -110,7 +111,7 @@ Pervasive rules that apply to every step:
 - **Inputs**: `<artifacts>/STEP3_CLEAN_SPEC.md` **only** — explicitly not the prototype.
 - **Outputs**: the production implementation with its tests, living in its own external repository or folder (recorded as `clean_impl_resources` in the project's `.vibe_to_spec.yaml`) → consumed by step 05.
 - **Way of working**: full engineering discipline restored (the developer's global style rules apply in full); the specification is authoritative; when it is ambiguous or looks wrong, record the gap in `STEP4_IMPL_SPEC_GAPS.md` and ask — never silently improvise around it. Agreed resolutions are applied to `<artifacts>/STEP3_CLEAN_SPEC.md` itself, so the source of truth stays true.
-- **Claude Code configuration**: `CLAUDE.md` stating "the specification is law" plus restored discipline; two commands — `/spec-gap` (logs specification ambiguities back for resolution — the mirror image of step 1's `/log-decision`) and `/close-step` (the closing walkthrough and the final agreement).
+- **Claude Code configuration**: `CLAUDE.md` stating "the specification is law" plus restored discipline; two commands — `/spec-gap` (logs specification ambiguities back for resolution — the mirror image of step 1's `/log-decision`) and `/close-step` (the closing walkthrough and the final agreement); one subagent — `implementation-critic`, a fresh-context reviewer that checks each implemented part against the specification before it is marked done.
 - **Done when**: the implementation is complete per the specification and its tests pass.
 - **Workflow detail**: [step_04_implementation/README.md](step_04_implementation/README.md).
 

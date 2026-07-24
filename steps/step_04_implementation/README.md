@@ -30,7 +30,12 @@ ask the user"]
     Gap --> Amend["Apply agreed fix to
 STEP3_CLEAN_SPEC.md, log RESOLVED"]
     Amend --> Implement
-    Ambiguous -->|"no"| Report["Report progress:
+    Ambiguous -->|"no"| Critique["implementation-critic subagent
+checks the part (fresh context)"]
+    Critique -->|"deviates / missing /
+untested: fix"| Implement
+    Critique -->|"improvised past a gap"| Gap
+    Critique -->|"CLEAN"| Report["Report progress:
 covered vs. not yet"]
     Report --> More{"Specification parts
 still remaining?"}
@@ -43,7 +48,8 @@ Step 4 ends"])
 1. **Full engineering discipline is back**: the developer's global coding rules apply, tests are written alongside the code, the code is clean and maintainable.
 2. **Implement the specification part by part.** The specification is authoritative — the implementation follows it, never reinterprets it.
 3. **When the specification is ambiguous, incomplete, or looks wrong**: stop on that point, log it with `/spec-gap`, and ask the user. Never silently improvise around the specification.
-4. **Agreed specification fixes are applied to the step 3 `STEP3_CLEAN_SPEC.md`** — the source of truth stays true — and then implementation continues from the corrected specification.
+4. **Critique each part** with the `implementation-critic` subagent in a fresh context, before it counts as done: it flags where the code deviates from or misses the specification, where an ambiguity was improvised past instead of raised as a gap, and spec'd behavior left untested. Fix the code, or raise the gap, until it comes back clean.
+5. **Agreed specification fixes are applied to the step 3 `STEP3_CLEAN_SPEC.md`** — the source of truth stays true — and then implementation continues from the corrected specification.
 
 ## How it ends
 

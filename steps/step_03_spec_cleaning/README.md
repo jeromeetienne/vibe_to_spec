@@ -21,10 +21,13 @@ flowchart TD
 STEP3_CLEAN_SPEC.md"]
     Copy --> Hunt["Hunt for ONE reduction
 candidate"]
-    Hunt --> Propose["Propose it to the user:
+    Hunt --> Propose["Draft ONE reduction:
 WHAT is removed — WHY
 behavior is preserved"]
-    Propose --> Decide{"User approves?"}
+    Propose --> Critique["cleaning-critic subagent
+checks it (fresh context)"]
+    Critique -->|"issues: revise"| Propose
+    Critique -->|"CLEAN"| Decide{"User approves?"}
     Decide -->|"yes"| Apply["Apply the reduction and
 log it in STEP3_SPEC_OPTIMISATION.md"]
     Decide -->|"no"| Hunt
@@ -38,9 +41,10 @@ agreed — source of truth"])
 
 1. **Copy** the raw specification into the working `STEP3_CLEAN_SPEC.md`.
 2. **Propose reductions**, pass by pass: merge duplicated concepts, remove needless configuration options, unify terminology, clarify responsibilities, clean APIs, drop historical artifacts left over from exploration.
-3. **Justify every removal to the user**: what is removed, and why behavior is preserved without it. The user approves or rejects each reduction.
-4. **Invent nothing.** Cleaning only removes, merges, and clarifies — it never adds features, concepts, or new design.
-5. **Repeat** until a full pass finds nothing left to remove.
+3. **Critique each proposal** with the `cleaning-critic` subagent in a fresh context, before the user sees it: it flags a behavior change disguised as a reduction, a preservation argument that does not hold, or anything newly invented. Revise, drop, or reclassify it as a product decision until it comes back clean.
+4. **Justify every removal to the user**: what is removed, and why behavior is preserved without it. The user approves or rejects each reduction.
+5. **Invent nothing.** Cleaning only removes, merges, and clarifies — it never adds features, concepts, or new design.
+6. **Repeat** until a full pass finds nothing left to remove.
 
 ## How it ends
 

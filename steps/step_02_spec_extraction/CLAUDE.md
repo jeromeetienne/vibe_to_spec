@@ -17,11 +17,18 @@ Precondition: STEP1_VIBE_DECISIONS.md must contain the CLOSED entry — the user
 2. Draft or extend ONE section of STEP2_DIRTY_SPEC.md at a time (structure below).
 3. Describe what IS, not what should be. Do not redesign, do not improve, do not add anything the prototype does not do.
 4. Ignore implementation details unless they are architecturally significant.
-5. Every time you meet a behavior you cannot classify, ask the user explicitly (see "Intentional or accidental" below). Do not decide alone.
-6. Show the drafted section to the user and ask: does this correctly describe what was built? Anything missing or over-stated?
-7. Log the user's corrections into the spec, then move to the next section.
+5. Critique the drafted section with the extraction-critic subagent before anyone else sees it (see "Self-critique before review" below). Revise until it returns CLEAN; carry its silent-classification flags into the next step as questions.
+6. Every time you meet a behavior you cannot classify — including the ones the critic flagged — ask the user explicitly (see "Intentional or accidental" below). Do not decide alone.
+7. Show the drafted section to the user and ask: does this correctly describe what was built? Anything missing or over-stated?
+8. Log the user's corrections into the spec, then move to the next section.
 
 Never fill several sections without a user review in between. The user steers the spec exactly like they steered the prototype.
+
+## Self-critique before review
+
+Before the user sees a drafted section, an extraction-critic subagent reviews it in a fresh context — blind to the assumptions that produced the draft. Give it the drafted section, the prototype's location (from `dirty_impl_resources`), and `<artifacts>/STEP1_VIBE_DECISIONS.md`. It hunts the one characteristic failure of extraction — describing what SHOULD be instead of what IS — plus silent classification, omission, and unsupported claims.
+
+Act on its verdict yourself: fix every should-be, omission, and unsupported claim before showing the user; turn every silent-classification flag into an explicit question for the user (the critic never classifies — only the user does). Revise and re-run until it returns CLEAN. The critic raises the quality of the draft; it never replaces the user's review, and it never decides anything only the user may decide.
 
 ## STEP2_DIRTY_SPEC.md — required structure
 
