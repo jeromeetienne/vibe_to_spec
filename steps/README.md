@@ -2,6 +2,14 @@
 
 This folder implements the [Vibe to Spec](https://github.com/jeromeetienne/vibe_to_spec/issues/1) methodology as five working folders, one per step. Each step folder carries its own Claude Code configuration (`CLAUDE.md`, `.claude/commands/`, `.claude/agents/`), so a Claude Code session started inside one step folder only sees the tooling meant for that step.
 
+Jump straight to a step's own walkthrough:
+
+- [Step 1 — Exploration](./steps/step_01_exploration/README.md)
+- [Step 2 — Dirty Specification Extraction](./steps/step_02_spec_extraction/README.md)
+- [Step 3 — Specification Cleaning](./steps/step_03_spec_cleaning/README.md)
+- [Step 4 — Implementation](./steps/step_04_implementation/README.md)
+- [Step 5 — Verification](./steps/step_05_verification/README.md)
+
 The artifact flow through the five steps:
 
 ```mermaid

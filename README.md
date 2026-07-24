@@ -43,7 +43,8 @@ Jump straight to a step's own walkthrough:
 - [Step 2 — Dirty Specification Extraction](./steps/step_02_spec_extraction/README.md)
 - [Step 3 — Specification Cleaning](./steps/step_03_spec_cleaning/README.md)
 - [Step 4 — Implementation](./steps/step_04_implementation/README.md)
-- [Step 5 — Verification](step_05_verification/README.md)
+- [Step 5 — Verification](./steps/step_05_verification/README.md)
+
 ## The workflow: Claude changes folder at each step
 
 Each phase is a folder under [steps/](steps/), and each folder carries its **own Claude Code configuration** — its rulebook (`CLAUDE.md`), its slash commands, and (in step 5) its verification agent.
