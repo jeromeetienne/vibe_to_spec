@@ -1,6 +1,6 @@
 # The Global Workflow of Vibe to Spec
 
-A single map of the whole [Vibe to Spec](README.md) methodology: the five phases, the external code they build and check, the records they write, the loops that keep the specification honest, and the human approval gates that only the user can pass.
+A single map of the whole [Vibe to Spec](../README.md) methodology: the five phases, the external code they build and check, the records they write, the loops that keep the specification honest, and the human approval gates that only the user can pass.
 
 ## A note on reading this map (why it is layered, not one giant picture)
 
