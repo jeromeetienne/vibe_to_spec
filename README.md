@@ -45,6 +45,27 @@ Jump straight to a step's own walkthrough:
 - [Step 4 — Implementation](./steps/step_04_implementation/README.md)
 - [Step 5 — Verification](./steps/step_05_verification/README.md)
 
+## How to install
+
+You need [Claude Code](https://claude.com/claude-code) installed and a working `git`. This repository *is* the methodology — there is nothing to build or compile. Installing it means cloning it and pointing it at your own project.
+
+1. Clone the repository:
+
+```bash
+git clone git@github.com:jeromeetienne/vibe_to_spec.git
+cd vibe_to_spec
+```
+
+2. Launch Claude Code inside the folder of the step you are starting from (step 1 for a brand-new project):
+
+```bash
+cd steps/step_01_exploration && claude
+```
+
+3. On the first session, there is no active project yet. Claude Code reads the root `CLAUDE.md`, sees that `.active_project.vibe_to_spec.yaml` is missing, and asks you which project to work on. It then creates `projects/<project-name>.vibe_to_spec.yaml` for you and records where your artifacts folder and your prototype and production code live. From then on, every session confirms the active project before doing anything else.
+
+Both `projects/*.vibe_to_spec.yaml` and the `.active_project.vibe_to_spec.yaml` symlink are git-ignored: they hold paths specific to your machine and are never committed.
+
 ## The workflow: Claude changes folder at each step
 
 Each phase is a folder under [steps/](steps/), and each folder carries its **own Claude Code configuration** — its rulebook (`CLAUDE.md`), its slash commands, and (in step 5) its verification agent.
